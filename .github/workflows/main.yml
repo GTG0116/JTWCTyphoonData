@@ -1,15 +1,19 @@
 name: Fetch JTWC Typhoon Data
 
 on:
-  schedule:
-    # Run every 3 hours
-    - cron: '0 */3 * * *'
+  # Triggered by cron-job.org via webhook (POST to the workflow_dispatch URL)
   workflow_dispatch:
     inputs:
       force_update:
         description: 'Force update even if data unchanged'
         required: false
         default: 'false'
+        type: boolean   # Recommended: makes the input a proper checkbox in the UI
+
+  # Optional: Keep GitHub's built-in scheduler as a backup (or remove if you only want cron-job.org)
+  # schedule:
+  #   # Run every 3 hours (UTC)
+  #   - cron: '0 */3 * * *'
 
 permissions:
   contents: write
