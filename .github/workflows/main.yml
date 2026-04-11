@@ -3,7 +3,7 @@ name: Fetch JTWC Typhoon Data
 on:
   # Triggered by cron-job.org via webhook (POST to the workflow_dispatch URL)
   workflow_dispatch:
-    inputs:
+    inputs: [JTWC_update]
       force_update:
         description: 'Force update even if data unchanged'
         required: false
