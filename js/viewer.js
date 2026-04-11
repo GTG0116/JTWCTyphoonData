@@ -1,136 +1,160 @@
 /**
- * JTWC Typhoon Forecast Viewer — viewer.js
- * Interactive Leaflet.js map for displaying JTWC ATCF storm data.
+ * JTWC Typhoon Forecast Viewer — viewer.js  (v3)
+ * Leaflet map with coloured storm tracks, wind-radii circles,
+ * interactive popups and a live Data API panel.
  */
 
 'use strict';
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Configuration
-// ─────────────────────────────────────────────────────────────────────────────
+// ─── Configuration ────────────────────────────────────────────────────────────
 
 const CONFIG = {
-  dataUrl: 'data/storms.json',
-  refreshInterval: 30 * 60 * 1000,      // 30 minutes
-  defaultCenter: [15, 135],             // Western Pacific
-  defaultZoom: 4,
+  dataUrl:         'data/storms.json',
+  refreshInterval: 30 * 60 * 1000,   // 30 min
+  defaultCenter:   [15, 135],
+  defaultZoom:     4,
   tileUrl: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
   tileAttribution:
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>' +
     ' contributors &copy; <a href="https://carto.com/">CARTO</a>',
-  maxTileZoom: 19,
 };
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Intensity helpers (kept in sync with Python script values)
-// ─────────────────────────────────────────────────────────────────────────────
+// ─── Intensity helpers ────────────────────────────────────────────────────────
 
-const INTENSITY_SCALE = [
-  { max: 34,  color: '#7ec8e3', label: 'Tropical Depression',   short: 'TD'  },
-  { max: 64,  color: '#00d4ff', label: 'Tropical Storm',        short: 'TS'  },
-  { max: 83,  color: '#aaff00', label: 'Typhoon (Cat 1)',        short: 'TY1' },
-  { max: 96,  color: '#ffd700', label: 'Typhoon (Cat 2)',        short: 'TY2' },
-  { max: 113, color: '#ff8c00', label: 'Typhoon (Cat 3)',        short: 'TY3' },
-  { max: 130, color: '#ff3a3a', label: 'Typhoon (Cat 4)',        short: 'TY4' },
-  { max: Infinity, color: '#c800ff', label: 'Super Typhoon (Cat 5)', short: 'ST' },
+const INTENSITY = [
+  { max: 34,       color: '#7ec8e3', label: 'Tropical Depression',       code: 'TD'  },
+  { max: 64,       color: '#00d4ff', label: 'Tropical Storm',            code: 'TS'  },
+  { max: 83,       color: '#aaff00', label: 'Typhoon (Category 1)',       code: 'TY1' },
+  { max: 96,       color: '#ffd700', label: 'Typhoon (Category 2)',       code: 'TY2' },
+  { max: 113,      color: '#ff8c00', label: 'Typhoon (Category 3)',       code: 'TY3' },
+  { max: 130,      color: '#ff3a3a', label: 'Typhoon (Category 4)',       code: 'TY4' },
+  { max: Infinity, color: '#c800ff', label: 'Super Typhoon (Category 5)', code: 'ST'  },
 ];
 
-function getIntensity(windKt) {
-  return INTENSITY_SCALE.find(s => windKt < s.max) || INTENSITY_SCALE.at(-1);
+function getIntensity(kt) {
+  return INTENSITY.find(s => kt < s.max) || INTENSITY.at(-1);
 }
 
 function coordStr(lat, lon) {
-  const latS = `${Math.abs(lat).toFixed(1)}°${lat >= 0 ? 'N' : 'S'}`;
-  const lonS = `${Math.abs(lon).toFixed(1)}°${lon >= 0 ? 'E' : 'W'}`;
-  return `${latS}, ${lonS}`;
+  return `${Math.abs(lat).toFixed(1)}°${lat >= 0 ? 'N' : 'S'}, ` +
+         `${Math.abs(lon).toFixed(1)}°${lon >= 0 ? 'E' : 'W'}`;
 }
 
-function fmtTime(isoStr) {
-  if (!isoStr) return '—';
-  const d = new Date(isoStr);
-  return d.toUTCString().replace(':00 GMT', ' UTC');
+function fmtTime(iso) {
+  if (!iso) return '—';
+  return new Date(iso).toUTCString().replace(':00 GMT', ' UTC');
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Map initialisation
-// ─────────────────────────────────────────────────────────────────────────────
+function pressureStr(mb) {
+  return mb > 0 ? `${mb} mb` : '—';
+}
+
+// ─── Map ──────────────────────────────────────────────────────────────────────
 
 const map = L.map('map', {
-  center: CONFIG.defaultCenter,
-  zoom: CONFIG.defaultZoom,
-  zoomControl: false,
-  attributionControl: true,
+  center: CONFIG.defaultCenter, zoom: CONFIG.defaultZoom,
+  zoomControl: false, attributionControl: true,
 });
-
 L.tileLayer(CONFIG.tileUrl, {
-  attribution: CONFIG.tileAttribution,
-  subdomains: 'abcd',
-  maxZoom: CONFIG.maxTileZoom,
+  attribution: CONFIG.tileAttribution, subdomains: 'abcd', maxZoom: 19,
 }).addTo(map);
-
-// Custom Leaflet zoom control placed bottom-right
 L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-// ─────────────────────────────────────────────────────────────────────────────
 // Layer groups
-// ─────────────────────────────────────────────────────────────────────────────
+const trackLayer   = L.layerGroup().addTo(map);
+const markerLayer  = L.layerGroup().addTo(map);
+const currentLayer = L.layerGroup().addTo(map);
+const radiiLayer   = L.layerGroup().addTo(map);   // wind-radii circles
 
-const trackLayer    = L.layerGroup().addTo(map);
-const markerLayer   = L.layerGroup().addTo(map);
-const currentLayer  = L.layerGroup().addTo(map);
-
-// Bounds accumulator for fitAllStorms()
 let stormBounds = null;
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Marker factories
-// ─────────────────────────────────────────────────────────────────────────────
+// ─── Wind-radii rendering ─────────────────────────────────────────────────────
 
-/**
- * Create a DivIcon circle for a forecast position.
- * @param {number} windKt
- * @param {boolean} isCurrent - true for tau=0 (uses pulse animation)
- * @param {number} tau        - used to label non-zero forecast positions
- */
+const RADII_STYLES = {
+  '064': { color: '#ff3a3a', fillOpacity: 0.06, weight: 1.5, opacity: 0.55 },
+  '050': { color: '#ff8c00', fillOpacity: 0.06, weight: 1.2, opacity: 0.45 },
+  '034': { color: '#ffd700', fillOpacity: 0.04, weight: 1.0, opacity: 0.35 },
+};
+
+function addWindRadii(pos) {
+  const radiiData = pos.wind_radii_nm;
+  if (!radiiData) return;
+
+  // Draw smallest threshold first (largest circle) → largest threshold on top
+  ['034', '050', '064'].forEach(thr => {
+    const qd = radiiData[thr];
+    if (!qd) return;
+    // Use the max of the four quadrants as a conservative circle radius
+    const maxNm = Math.max(qd.NE || 0, qd.SE || 0, qd.SW || 0, qd.NW || 0);
+    if (maxNm <= 0) return;
+
+    const style = RADII_STYLES[thr] || RADII_STYLES['034'];
+    L.circle([pos.lat, pos.lon], {
+      radius:      maxNm * 1852,     // nm → metres
+      color:       style.color,
+      weight:      style.weight,
+      opacity:     style.opacity,
+      fillColor:   style.color,
+      fillOpacity: style.fillOpacity,
+      interactive: false,
+    }).addTo(radiiLayer);
+  });
+}
+
+// ─── Marker factory ───────────────────────────────────────────────────────────
+
 function makeIcon(windKt, isCurrent, tau) {
   const { color } = getIntensity(windKt);
   const size = isCurrent ? 22 : 13;
-  const pulseClass = isCurrent ? ' pulse' : '';
+  const pulse = isCurrent ? ' pulse' : '';
   const label = (!isCurrent && tau > 0)
-    ? `<span class="tau-label">+${tau}h</span>`
-    : '';
+    ? `<span class="tau-label">+${tau}h</span>` : '';
 
-  const html = `
-    <div class="storm-dot${pulseClass}" style="
+  return L.divIcon({
+    className: '',
+    html: `<div class="storm-dot${pulse}" style="
       width:${size}px;height:${size}px;
       background:${color};
       border:${isCurrent ? 3 : 2}px solid #fff;
       box-shadow:0 0 ${isCurrent ? 10 : 5}px ${color};
-    ">${label}</div>`;
-
-  return L.divIcon({
-    className: '',
-    html,
-    iconSize: [size, size],
+    ">${label}</div>`,
+    iconSize:   [size, size],
     iconAnchor: [size / 2, size / 2],
     popupAnchor: [0, -(size / 2 + 4)],
   });
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Popup builder
-// ─────────────────────────────────────────────────────────────────────────────
+// ─── Popup builder ────────────────────────────────────────────────────────────
+
+function buildRadiiHtml(radiiData) {
+  if (!radiiData || !Object.keys(radiiData).length) return '';
+  const rows = ['064', '050', '034']
+    .filter(t => radiiData[t])
+    .map(t => {
+      const q = radiiData[t];
+      const avg = Math.round((q.NE + q.SE + q.SW + q.NW) / 4);
+      const max = Math.max(q.NE, q.SE, q.SW, q.NW);
+      return `<tr>
+        <td>${t} kt winds</td>
+        <td>NE ${q.NE} / SE ${q.SE} / SW ${q.SW} / NW ${q.NW} nm
+          <span class="unit-alt">avg ${avg} nm · max ${max} nm</span></td>
+      </tr>`;
+    }).join('');
+  if (!rows) return '';
+  return `<tr><td colspan="2" class="popup-section-head">Wind Radii</td></tr>${rows}`;
+}
 
 function buildPopup(pos, storm) {
   const { color, label } = getIntensity(pos.wind_kt);
-  const isInitial = pos.tau === 0;
-  const tauLabel  = isInitial
+  const isInit   = pos.tau === 0;
+  const tauTag   = isInit
     ? '<span class="popup-tag current-tag">Current / Initial</span>'
     : `<span class="popup-tag forecast-tag">+${pos.tau}h Forecast</span>`;
+  const finalTag = storm.is_final_warning && isInit
+    ? '<span class="popup-tag final-tag">Final Warning</span>' : '';
 
   const stormName = storm.name
-    ? `${storm.name} <small>(${storm.id})</small>`
-    : storm.id;
+    ? `${storm.name} <small>(${storm.id})</small>` : storm.id;
 
   return `
     <div class="popup-wrap">
@@ -138,262 +162,224 @@ function buildPopup(pos, storm) {
         <div class="popup-storm-name">${stormName}</div>
         <div class="popup-basin">${storm.basin_name || storm.basin}</div>
       </div>
-
       <div class="popup-badges">
-        ${tauLabel}
-        <span class="popup-tag intensity-tag" style="background:${color}20;color:${color};border:1px solid ${color}40">
+        ${tauTag}${finalTag}
+        <span class="popup-tag intensity-tag"
+          style="background:${color}20;color:${color};border:1px solid ${color}40">
           ${label}
         </span>
       </div>
-
       <table class="popup-table">
-        <tr>
-          <td>Time (UTC)</td>
-          <td>${fmtTime(pos.datetime)}</td>
-        </tr>
-        <tr>
-          <td>Position</td>
-          <td>${coordStr(pos.lat, pos.lon)}</td>
-        </tr>
+        <tr><td>Time (UTC)</td><td>${fmtTime(pos.datetime)}</td></tr>
+        <tr><td>Position</td><td>${coordStr(pos.lat, pos.lon)}</td></tr>
         <tr>
           <td>Max Wind</td>
-          <td>
-            <strong style="color:${color}">${pos.wind_kt} kt</strong>
-            <span class="unit-alt">${pos.wind_mph} mph / ${pos.wind_kmh} km/h</span>
-          </td>
+          <td><strong style="color:${color}">${pos.wind_kt} kt</strong>
+            <span class="unit-alt">${pos.wind_mph} mph / ${pos.wind_kmh} km/h</span></td>
         </tr>
         <tr>
           <td>Pressure</td>
-          <td>${pos.pressure_mb > 0 ? `<strong>${pos.pressure_mb} mb</strong>` : '—'}</td>
+          <td>${pressureStr(pos.pressure_mb)}</td>
         </tr>
+        ${buildRadiiHtml(pos.wind_radii_nm)}
       </table>
     </div>`;
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Storm rendering
-// ─────────────────────────────────────────────────────────────────────────────
+// ─── Storm rendering ──────────────────────────────────────────────────────────
 
 function renderStorm(storm) {
-  if (!storm.forecast || storm.forecast.length === 0) return;
-
+  if (!storm.forecast || !storm.forecast.length) return;
   const positions = storm.forecast;
 
-  // ── Track polyline (colour-coded by leading intensity)
-  const latLngs = positions.map(p => [p.lat, p.lon]);
-
-  // Build coloured segments between consecutive positions
-  for (let i = 0; i < latLngs.length - 1; i++) {
+  // Colour-coded track segments (dashed for forecast, solid for current pos)
+  for (let i = 0; i < positions.length - 1; i++) {
     const { color } = getIntensity(positions[i].wind_kt);
-    L.polyline([latLngs[i], latLngs[i + 1]], {
-      color,
-      weight: 2.5,
-      opacity: 0.85,
-      dashArray: positions[i].tau > 0 ? '5,5' : null,
+    L.polyline([[positions[i].lat, positions[i].lon],
+                [positions[i + 1].lat, positions[i + 1].lon]], {
+      color, weight: 2.5, opacity: 0.85,
+      dashArray: positions[i].tau > 0 ? '5 5' : null,
     }).addTo(trackLayer);
   }
 
-  // ── Forecast position markers
+  // Wind radii around the current (tau=0) position
+  const cur = positions.find(p => p.tau === 0);
+  if (cur) addWindRadii(cur);
+
+  // Markers at every forecast position
   positions.forEach(pos => {
-    const isCurrent = pos.tau === 0;
+    const isCur = pos.tau === 0;
     const marker = L.marker([pos.lat, pos.lon], {
-      icon: makeIcon(pos.wind_kt, isCurrent, pos.tau),
-      zIndexOffset: isCurrent ? 1000 : 0,
+      icon: makeIcon(pos.wind_kt, isCur, pos.tau),
+      zIndexOffset: isCur ? 1000 : 0,
+    }).bindPopup(buildPopup(pos, storm), {
+      maxWidth: 340, className: 'custom-popup',
     });
-
-    marker.bindPopup(buildPopup(pos, storm), {
-      maxWidth: 320,
-      className: 'custom-popup',
-    });
-
-    if (isCurrent) {
-      marker.addTo(currentLayer);
-    } else {
-      marker.addTo(markerLayer);
-    }
+    marker.addTo(isCur ? currentLayer : markerLayer);
   });
 
-  // Accumulate bounds
-  const bounds = L.latLngBounds(latLngs);
-  stormBounds = stormBounds ? stormBounds.extend(bounds) : bounds;
+  // Accumulate map bounds
+  const lls = positions.map(p => [p.lat, p.lon]);
+  stormBounds = stormBounds
+    ? stormBounds.extend(L.latLngBounds(lls))
+    : L.latLngBounds(lls);
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Sidebar storm card builder
-// ─────────────────────────────────────────────────────────────────────────────
+// ─── Sidebar card builder ─────────────────────────────────────────────────────
 
 function buildStormCard(storm) {
   const cur = storm.current;
   if (!cur) return '';
-
-  const { color, label, short } = getIntensity(cur.wind_kt);
-  const name = storm.name ? storm.name : `Storm ${storm.number}`;
+  const { color, label, code } = getIntensity(cur.wind_kt);
+  const name = storm.name || `Storm ${storm.number}`;
+  const finalBadge = storm.is_final_warning
+    ? '<span class="final-inline-badge">FINAL WARNING</span>' : '';
 
   return `
-    <div class="storm-card" onclick="focusStorm(${cur.lat},${cur.lon},'${storm.id}')">
-      <div class="storm-card-badge" style="background:${color}20;border:1px solid ${color}40">
-        <span class="badge-code" style="color:${color}">${short}</span>
+    <div class="storm-card" onclick="focusStorm(${cur.lat},${cur.lon})">
+      <div class="storm-card-badge"
+           style="background:${color}20;border:1px solid ${color}40">
+        <span class="badge-code" style="color:${color}">${code}</span>
         <span class="badge-label">${label}</span>
       </div>
       <div class="storm-card-body">
         <div class="storm-card-name">${name}
           <span class="storm-card-id">${storm.id}</span>
+          ${finalBadge}
         </div>
         <div class="storm-card-basin">${storm.basin_name || storm.basin}</div>
         <div class="storm-card-stats">
           <div class="stat">
-            <svg viewBox="0 0 20 20" fill="${color}"><circle cx="10" cy="10" r="8" fill="none" stroke="${color}" stroke-width="2"/>
-              <path d="M10 6v4l3 3" stroke="${color}" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            </svg>
-            <span>${fmtTime(cur.datetime)}</span>
+            <span class="stat-label">Advisory:</span>
+            <span>${fmtTime(storm.advisory_time)}</span>
           </div>
           <div class="stat">
             <span class="stat-label">Wind:</span>
             <strong style="color:${color}">${cur.wind_kt} kt</strong>
-            <small>(${cur.wind_mph} mph)</small>
+            <small>(${cur.wind_mph} mph / ${cur.wind_kmh} km/h)</small>
           </div>
-          ${cur.pressure_mb > 0 ? `
           <div class="stat">
             <span class="stat-label">Pressure:</span>
-            <strong>${cur.pressure_mb} mb</strong>
-          </div>` : ''}
+            <strong>${pressureStr(cur.pressure_mb)}</strong>
+          </div>
           <div class="stat">
             <span class="stat-label">Position:</span>
             <span>${coordStr(cur.lat, cur.lon)}</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Forecast steps:</span>
+            <span>${storm.forecast.map(p => p.tau === 0 ? '0' : `+${p.tau}h`).join(' · ')}</span>
           </div>
         </div>
       </div>
     </div>`;
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Data loading
-// ─────────────────────────────────────────────────────────────────────────────
+// ─── Data loading ─────────────────────────────────────────────────────────────
 
 async function loadData() {
-  const refreshBtn = document.getElementById('btn-refresh');
-  if (refreshBtn) refreshBtn.classList.add('spinning');
-
+  const btn = document.getElementById('btn-refresh');
+  if (btn) btn.classList.add('spinning');
   try {
     const res = await fetch(`${CONFIG.dataUrl}?_=${Date.now()}`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    renderAll(data);
-  } catch (err) {
-    console.error('Failed to load storm data:', err);
-    showError(err.message);
+    renderAll(await res.json());
+  } catch (e) {
+    console.error(e);
+    showError(e.message);
   } finally {
-    if (refreshBtn) refreshBtn.classList.remove('spinning');
+    if (btn) btn.classList.remove('spinning');
   }
 }
 
 function renderAll(data) {
-  // Clear previous layers
   trackLayer.clearLayers();
   markerLayer.clearLayers();
   currentLayer.clearLayers();
+  radiiLayer.clearLayers();
   stormBounds = null;
 
-  // Update header
-  const updEl = document.getElementById('update-time');
-  if (updEl) updEl.textContent = fmtTime(data.generated);
+  const el = id => document.getElementById(id);
+  if (el('update-time'))       el('update-time').textContent = fmtTime(data.generated);
+  if (el('storm-count-badge')) el('storm-count-badge').textContent =
+    data.storm_count ?? data.storms.length;
 
-  // Update storm count badge
-  const countBadge = document.getElementById('storm-count-badge');
-  if (countBadge) countBadge.textContent = data.storm_count ?? data.storms.length;
-
-  // Render storms
   const storms = data.storms || [];
+  const listEl = el('storm-list');
 
-  if (storms.length === 0) {
-    const listEl = document.getElementById('storm-list');
-    if (listEl) {
-      listEl.innerHTML = `
-        <div class="no-storms">
-          <div class="no-storm-icon">🌤</div>
-          <p>No active tropical cyclones</p>
-          <p class="no-storm-sub">The JTWC is not tracking any active storms at this time.</p>
-        </div>`;
-    }
+  if (!storms.length) {
+    if (listEl) listEl.innerHTML = `
+      <div class="no-storms">
+        <div class="no-storm-icon">🌤</div>
+        <p>No active tropical cyclones</p>
+        <p class="no-storm-sub">The JTWC is not tracking any active storms.</p>
+      </div>`;
   } else {
-    const cards = storms.map(buildStormCard).join('');
-    const listEl = document.getElementById('storm-list');
-    if (listEl) listEl.innerHTML = cards;
-
+    if (listEl) listEl.innerHTML = storms.map(buildStormCard).join('');
     storms.forEach(renderStorm);
-
-    // Fit map to all storms
-    if (stormBounds) {
-      map.fitBounds(stormBounds.pad(0.25), { maxZoom: 6 });
-    }
+    if (stormBounds) map.fitBounds(stormBounds.pad(0.3), { maxZoom: 6 });
   }
 
-  // Update API section
-  updateApiSection(data);
+  updateApiSection();
 }
 
 function showError(msg) {
-  const listEl = document.getElementById('storm-list');
-  if (listEl) {
-    listEl.innerHTML = `
-      <div class="no-storms error-state">
-        <div class="no-storm-icon">⚠️</div>
-        <p>Could not load storm data</p>
-        <p class="no-storm-sub">${msg}</p>
-        <p class="no-storm-sub">Data refreshes automatically. Try again shortly.</p>
-      </div>`;
-  }
+  const el = document.getElementById('storm-list');
+  if (el) el.innerHTML = `
+    <div class="no-storms">
+      <div class="no-storm-icon">⚠️</div>
+      <p>Could not load storm data</p>
+      <p class="no-storm-sub">${msg}</p>
+    </div>`;
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// API section
-// ─────────────────────────────────────────────────────────────────────────────
+// ─── API panel ────────────────────────────────────────────────────────────────
 
-function updateApiSection(data) {
-  const apiUrl = `${location.origin}${location.pathname.replace(/\/[^/]*$/, '')}/data/storms.json`;
+function updateApiSection() {
+  const base = location.origin +
+    location.pathname.replace(/\/[^/]*$/, '');
+  const apiUrl = `${base}/data/storms.json`;
 
   const urlEl = document.getElementById('api-url-display');
   if (urlEl) urlEl.textContent = apiUrl;
 
-  const snippet = document.getElementById('snippet-display');
-  if (snippet) {
-    snippet.textContent = `fetch('${apiUrl}')
+  const snip = document.getElementById('snippet-display');
+  if (snip) snip.textContent =
+`fetch('${apiUrl}')
   .then(r => r.json())
   .then(data => {
     // data.storms — array of active storms
-    // data.generated — last update timestamp
-    data.storms.forEach(storm => {
-      const cur = storm.current;
+    // data.generated — ISO timestamp of last update
+    data.storms.forEach(s => {
+      const c = s.current;
       console.log(
-        storm.name, storm.id,
-        cur.wind_kt + ' kt', cur.pressure_mb + ' mb',
-        cur.lat + '°, ' + cur.lon + '°'
+        s.name, s.id,
+        c.wind_kt + ' kt', c.pressure_mb + ' mb',
+        c.lat + '°, ' + c.lon + '°'
       );
+      // c.wind_radii_nm — { '034': {NE,SE,SW,NW}, '050': ..., '064': ... }
+      // s.forecast — array of positions at +0h, +12h, +24h … +120h
     });
   });`;
-  }
 }
 
 function copyApiUrl() {
   const urlEl = document.getElementById('api-url-display');
   if (!urlEl) return;
-  navigator.clipboard.writeText(urlEl.textContent.trim())
-    .then(() => {
-      const btn = document.getElementById('copy-btn');
-      if (btn) {
-        btn.textContent = '✓ Copied!';
-        setTimeout(() => { btn.innerHTML = `<svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 3a1 1 0 000 2h2a1 1 0 100-2H8z"/><path d="M6 4a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2V6a2 2 0 00-2-2h-1a1 1 0 110-2h1a4 4 0 014 4v8a4 4 0 01-4 4H6a4 4 0 01-4-4V6a4 4 0 014-4h1a1 1 0 000 2H6z"/></svg> Copy`; }, 2000);
-      }
-    });
+  navigator.clipboard.writeText(urlEl.textContent.trim()).then(() => {
+    const btn = document.getElementById('copy-btn');
+    if (btn) {
+      const orig = btn.innerHTML;
+      btn.textContent = '✓ Copied!';
+      setTimeout(() => { btn.innerHTML = orig; }, 2000);
+    }
+  });
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Map interactions
-// ─────────────────────────────────────────────────────────────────────────────
+// ─── Map interactions ─────────────────────────────────────────────────────────
 
-function focusStorm(lat, lon, stormId) {
+function focusStorm(lat, lon) {
   map.setView([lat, lon], 6, { animate: true });
-  // Open popup for this storm's current marker
   currentLayer.eachLayer(layer => {
     const ll = layer.getLatLng();
     if (Math.abs(ll.lat - lat) < 0.5 && Math.abs(ll.lng - lon) < 0.5) {
@@ -403,27 +389,15 @@ function focusStorm(lat, lon, stormId) {
 }
 
 function fitAllStorms() {
-  if (stormBounds) {
-    map.fitBounds(stormBounds.pad(0.25), { maxZoom: 6, animate: true });
-  } else {
-    map.setView(CONFIG.defaultCenter, CONFIG.defaultZoom, { animate: true });
-  }
+  if (stormBounds) map.fitBounds(stormBounds.pad(0.3), { maxZoom: 6, animate: true });
+  else map.setView(CONFIG.defaultCenter, CONFIG.defaultZoom, { animate: true });
 }
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Sidebar toggle (mobile)
-// ─────────────────────────────────────────────────────────────────────────────
 
 function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('open');
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Bootstrap
-// ─────────────────────────────────────────────────────────────────────────────
+// ─── Bootstrap ────────────────────────────────────────────────────────────────
 
-// Initial load
 loadData();
-
-// Auto-refresh
 setInterval(loadData, CONFIG.refreshInterval);

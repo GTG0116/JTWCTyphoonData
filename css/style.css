@@ -203,6 +203,20 @@ section {
   margin-left: 5px;
 }
 
+.final-inline-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: rgba(255,100,0,0.15);
+  color: #ff6400;
+  border: 1px solid rgba(255,100,0,0.35);
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
 .storm-card-basin {
   font-size: 11px;
   color: var(--text-lo);
@@ -509,6 +523,7 @@ section {
 
 .current-tag  { background: rgba(0,212,255,0.15); color: #00d4ff; border: 1px solid rgba(0,212,255,0.3); }
 .forecast-tag { background: rgba(255,255,255,0.05); color: var(--text-mid); border: 1px solid var(--border); }
+.final-tag    { background: rgba(255,100,0,0.15); color: #ff6400; border: 1px solid rgba(255,100,0,0.35); }
 
 .popup-table {
   width: 100%;
@@ -529,6 +544,17 @@ section {
 }
 
 .popup-table tr:last-child td { border-bottom: none; }
+
+.popup-section-head {
+  padding-top: 8px !important;
+  color: var(--text-lo);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border-hi) !important;
+  padding-bottom: 4px !important;
+}
 
 .unit-alt {
   display: block;

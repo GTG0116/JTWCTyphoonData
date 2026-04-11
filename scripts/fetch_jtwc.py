@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-JTWC Typhoon Data Fetcher
-Pulls ATCF advisory data from the Joint Typhoon Warning Center,
-parses it, and writes structured JSON for the interactive viewer.
+JTWC Typhoon Data Fetcher — v3 (RSS + JMV 3.0 TCW parser)
 
-Data is fetched server-side (GitHub Actions) to bypass CORS restrictions.
+Discovery:  JTWC RSS feed  → gives direct product file URLs per active storm
+Primary:    .tcw files (JMV 3.0 format) → structured forecast + wind radii
+Secondary:  web.txt files → MSLP / fallback position/forecast parsing
+Output:     data/storms.json  — CORS-open JSON on GitHub Pages
 """
 
 import json
@@ -16,28 +17,27 @@ from datetime import datetime, timedelta, timezone
 import requests
 from bs4 import BeautifulSoup
 
-# ---------------------------------------------------------------------------
-# Configuration
-# ---------------------------------------------------------------------------
-JTWC_BASE = "https://www.metoc.navy.mil"
-JTWC_MAIN = f"{JTWC_BASE}/jtwc/jtwc.html"
-JTWC_PRODUCTS = f"{JTWC_BASE}/jtwc/products"
+# ─── Configuration ────────────────────────────────────────────────────────────
 
-OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
+JTWC_RSS  = "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss"
+JTWC_BASE = "https://www.metoc.navy.mil"
+
+OUTPUT_DIR  = os.path.join(os.path.dirname(__file__), "..", "data")
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "storms.json")
 
+# Use a real browser UA — the JTWC site returns 403 to Python's default UA
 HEADERS = {
     "User-Agent": (
-        "Mozilla/5.0 (compatible; JTWCForecastViewer/2.0; "
-        "+https://github.com/gtg0116/JTWCTyphoonData)"
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/124.0.0.0 Safari/537.36"
     ),
-    "Accept": "text/html,text/plain,*/*",
+    "Accept": "text/html,application/xml,text/plain,*/*;q=0.8",
     "Accept-Language": "en-US,en;q=0.9",
 }
 
-REQUEST_TIMEOUT = 30  # seconds
+TIMEOUT = 30
 
-# ATCF basin→human name mapping
 BASIN_NAMES = {
     "WP": "Western North Pacific",
     "IO": "North Indian Ocean",
@@ -47,7 +47,7 @@ BASIN_NAMES = {
     "AL": "North Atlantic",
 }
 
-# Knot thresholds for JTWC intensity scale with SSHS-equivalent colours
+# (upper wind threshold kt, colour hex, long label, short code)
 INTENSITY_SCALE = [
     (34,  "#7ec8e3", "Tropical Depression",       "TD"),
     (64,  "#00d4ff", "Tropical Storm",            "TS"),
@@ -59,529 +59,461 @@ INTENSITY_SCALE = [
 ]
 
 
-# ---------------------------------------------------------------------------
-# Utility helpers
-# ---------------------------------------------------------------------------
+# ─── Utility helpers ──────────────────────────────────────────────────────────
 
-def kt_to_mph(kt: float) -> int:
-    return round(kt * 1.15078)
+def kt_to_mph(kt):  return round(kt * 1.15078)
+def kt_to_kmh(kt):  return round(kt * 1.852)
 
-
-def kt_to_kmh(kt: float) -> int:
-    return round(kt * 1.852)
-
-
-def intensity_info(wind_kt: int) -> dict:
-    """Return colour hex, label, and short code for a given wind speed."""
-    for threshold, color, label, code in INTENSITY_SCALE:
-        if wind_kt < threshold:
+def intensity_info(wind_kt):
+    for thr, color, label, code in INTENSITY_SCALE:
+        if wind_kt < thr:
             return {"color": color, "label": label, "code": code}
     return {"color": "#c800ff", "label": "Super Typhoon (Category 5)", "code": "ST"}
 
-
-def parse_lat(s: str) -> float | None:
-    """Convert ATCF lat string '152N' or text '15.2N' to decimal degrees."""
-    s = s.strip()
-    m = re.match(r"^(\d+\.?\d*)([NS])$", s, re.I)
-    if not m:
-        return None
-    val = float(m.group(1))
-    # ATCF stores tenths without a decimal point (152N = 15.2N)
-    if "." not in s and val > 900:
-        val /= 10.0
-    elif "." not in s and val > 90:
-        val /= 10.0
-    return val if m.group(2).upper() == "N" else -val
-
-
-def parse_lon(s: str) -> float | None:
-    """Convert ATCF lon string '1438E' or text '143.8E' to decimal degrees."""
-    s = s.strip()
-    m = re.match(r"^(\d+\.?\d*)([EW])$", s, re.I)
-    if not m:
-        return None
-    val = float(m.group(1))
-    if "." not in s and val > 1800:
-        val /= 10.0
-    elif "." not in s and val > 180:
-        val /= 10.0
-    return val if m.group(2).upper() == "E" else -val
-
-
-def parse_atcf_dtg(s: str) -> datetime | None:
-    """Parse YYYYMMDDHH string to UTC datetime."""
+def parse_dtg(s):
+    """YYYYMMDDHH → UTC datetime"""
     try:
         return datetime.strptime(s.strip(), "%Y%m%d%H").replace(tzinfo=timezone.utc)
     except ValueError:
         return None
 
-
-def build_position(lat, lon, wind_kt, pressure_mb, storm_type, dt, tau) -> dict:
-    """Build a standard position dict with all derived fields."""
+def build_position(lat, lon, wind_kt, pressure_mb, storm_type, dt, tau,
+                   wind_radii_nm=None):
     info = intensity_info(wind_kt)
-    return {
-        "tau": tau,
-        "lat": round(lat, 1),
-        "lon": round(lon, 1),
-        "wind_kt": wind_kt,
-        "wind_mph": kt_to_mph(wind_kt),
-        "wind_kmh": kt_to_kmh(wind_kt),
-        "pressure_mb": pressure_mb,
-        "classification": storm_type,
+    pos = {
+        "tau":                  tau,
+        "lat":                  round(lat, 1),
+        "lon":                  round(lon, 1),
+        "wind_kt":              wind_kt,
+        "wind_mph":             kt_to_mph(wind_kt),
+        "wind_kmh":             kt_to_kmh(wind_kt),
+        "pressure_mb":          pressure_mb,
+        "classification":       storm_type,
         "classification_label": info["label"],
-        "intensity_code": info["code"],
-        "intensity_color": info["color"],
-        "datetime": dt.strftime("%Y-%m-%dT%H:%M:%SZ") if dt else None,
+        "intensity_code":       info["code"],
+        "intensity_color":      info["color"],
+        "datetime":             dt.strftime("%Y-%m-%dT%H:%M:%SZ") if dt else None,
+    }
+    if wind_radii_nm:
+        pos["wind_radii_nm"] = wind_radii_nm
+    return pos
+
+def build_storm(product_id, basin, name, dtg, current, positions, is_final=False):
+    m = re.search(r"(\d+)", product_id)
+    cy   = int(m.group(1)) if m else 0
+    year = int(dtg[:4]) if len(dtg) >= 4 else datetime.now(timezone.utc).year
+    adv_dt = parse_dtg(dtg)
+    return {
+        "id":           product_id.upper(),
+        "basin":        basin,
+        "basin_name":   BASIN_NAMES.get(basin, basin),
+        "number":       cy,
+        "year":         year,
+        "name":         name,
+        "advisory_time": adv_dt.strftime("%Y-%m-%dT%H:%M:%SZ") if adv_dt else None,
+        "is_final_warning": is_final,
+        "current":      current,
+        "forecast":     positions,
     }
 
 
-# ---------------------------------------------------------------------------
-# Fetching helpers
-# ---------------------------------------------------------------------------
+# ─── HTTP helper ─────────────────────────────────────────────────────────────
 
-def fetch(url: str, binary: bool = False):
-    """Fetch a URL; return content (str or bytes) or None on failure."""
+def fetch(url):
     try:
-        r = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
+        r = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
         r.raise_for_status()
-        return r.content if binary else r.text
+        return r.text
     except Exception as exc:
-        print(f"  [WARN] Could not fetch {url}: {exc}")
+        print(f"  [WARN] {url}: {exc}")
         return None
 
 
-# ---------------------------------------------------------------------------
-# ATCF a-deck parser
-# ---------------------------------------------------------------------------
+# ─── RSS discovery ────────────────────────────────────────────────────────────
 
-def parse_atcf(content: str, storm_id: str) -> dict | None:
+def get_storms_from_rss():
     """
-    Parse an ATCF a-deck (forecast deck) file.
-    Returns a storm dict with current position + forecast array, or None.
+    Fetch the JTWC RSS feed and extract every active storm's product file URLs.
+    Returns a list of dicts: {product_id, tcw_url, web_url, is_final}
     """
-    # Group records by advisory datetime (DTG), keep only OFCL/JTWC technique
-    advisories: dict[str, list[dict]] = {}
+    print(f"Fetching RSS: {JTWC_RSS}")
+    content = fetch(JTWC_RSS)
+    if not content:
+        print("[ERROR] Could not fetch JTWC RSS feed.")
+        return []
 
-    for raw_line in content.splitlines():
-        line = raw_line.strip()
+    # Regex over the raw RSS — handles CDATA cleanly without XML parser quirks
+    # Find every .tcw href
+    tcw_matches  = re.findall(r"href='(https://[^']+\.tcw)'", content, re.I)
+    web_matches  = re.findall(r"href='(https://[^']+web\.txt)'", content, re.I)
+
+    # Build a lookup: product_id → web_url
+    web_by_id = {}
+    for wu in web_matches:
+        m = re.search(r"/([a-z]{2}\d{4})web\.txt$", wu, re.I)
+        if m:
+            web_by_id[m.group(1).lower()] = wu
+
+    storms = []
+    seen = set()
+    for tcw_url in tcw_matches:
+        m = re.search(r"/([a-z]{2}\d{4})\.tcw$", tcw_url, re.I)
+        if not m:
+            continue
+        pid = m.group(1).lower()   # e.g. "wp0426", "sh3026"
+        if pid in seen:
+            continue
+        seen.add(pid)
+
+        # Check if this is a final warning (look for it near this URL in the RSS)
+        start = content.rfind("<item>", 0, content.find(tcw_url))
+        end   = content.find("</item>", content.find(tcw_url))
+        item_text = content[start:end] if start >= 0 and end >= 0 else ""
+        is_final = bool(re.search(r"Final\s+Warning", item_text, re.I))
+
+        storms.append({
+            "product_id": pid,
+            "tcw_url":    tcw_url,
+            "web_url":    web_by_id.get(pid),
+            "is_final":   is_final,
+        })
+        print(f"  Found: {pid.upper()} tcw={tcw_url.split('/')[-1]}"
+              f"{' [FINAL]' if is_final else ''}")
+
+    return storms
+
+
+# ─── JMV 3.0 TCW parser ──────────────────────────────────────────────────────
+
+def parse_tcw(content, product_id):
+    """
+    Parse a JTWC JMV 3.0 .tcw file.
+
+    Header line (one per file):
+      YYYYMMDDHH  STORM_ID  NAME  WARNING#  ACTIVE_COUNT  DIR  SPD  ...
+      e.g.: 2026041112 04W SINLAKU    011  01 305 04 SATL XTRP 030
+
+    Forecast lines:
+      T{tau:03d}  {lat10}N/S  {lon10}E/W  {wind_kt}  [R064 NE SE SW NW QD] ...
+      e.g.: T000 090N 1511E 085 R064 045 NE QD 040 SE QD 040 SW QD 030 NW QD ...
+    """
+    header = None
+    raw_positions = []
+
+    for raw in content.splitlines():
+        line = raw.strip()
         if not line:
             continue
-        parts = [p.strip() for p in line.split(",")]
-        if len(parts) < 11:
+
+        # Header: 10-digit DTG followed by WMO storm ID (digits + letter)
+        if re.match(r"^\d{10}\s+\d{2}[A-Z]", line) and header is None:
+            header = line
             continue
 
-        try:
-            tech = parts[4].strip().upper()
-            if tech not in ("OFCL", "JTWC", "CARQ"):
-                continue
+        # Forecast position line
+        m = re.match(r"^T(\d{3})\s+(\d+)([NS])\s+(\d+)([EW])\s+(\d+)(.*)", line)
+        if m:
+            tau      = int(m.group(1))
+            lat_raw  = float(m.group(2)) / 10.0
+            lat      = lat_raw if m.group(3) == "N" else -lat_raw
+            lon_raw  = float(m.group(4)) / 10.0
+            lon      = lon_raw if m.group(5) == "E" else -lon_raw
+            wind_kt  = int(m.group(6))
+            rest     = m.group(7)
 
-            dtg = parts[2].strip()
-            tau = int(parts[5])
-            lat = parse_lat(parts[6])
-            lon = parse_lon(parts[7])
-            wind_kt = int(parts[8]) if parts[8].strip() else 0
-            pressure_mb = int(parts[9]) if parts[9].strip() else 0
-            storm_type = parts[10].strip() or "XX"
-        except (ValueError, IndexError):
-            continue
+            radii = _parse_tcw_radii(rest)
+            raw_positions.append(dict(tau=tau, lat=lat, lon=lon,
+                                      wind_kt=wind_kt, radii=radii))
 
-        if lat is None or lon is None:
-            continue
-
-        base_dt = parse_atcf_dtg(dtg)
-        if not base_dt:
-            continue
-        forecast_dt = base_dt + timedelta(hours=tau)
-
-        if dtg not in advisories:
-            advisories[dtg] = []
-
-        advisories[dtg].append(
-            build_position(lat, lon, wind_kt, pressure_mb, storm_type, forecast_dt, tau)
-        )
-
-    if not advisories:
+    if not raw_positions:
         return None
 
-    # Use the most recent advisory
-    latest_dtg = sorted(advisories.keys())[-1]
-    positions = sorted(advisories[latest_dtg], key=lambda p: p["tau"])
-
-    # Extract current (tau=0 or first entry)
-    current = next((p for p in positions if p["tau"] == 0), positions[0])
-
-    # Try to extract storm name from line 28+ of ATCF records
+    # Parse header for DTG, name
+    dtg  = ""
     name = None
-    for line in content.splitlines():
-        parts = [p.strip() for p in line.split(",")]
-        if len(parts) >= 28:
-            candidate = parts[27].strip()
-            if candidate and re.match(r"^[A-Z]{2,}$", candidate):
-                name = candidate.title()
-                break
+    if header:
+        parts = header.split()
+        dtg  = parts[0]           # YYYYMMDDHH
+        # parts[1] = storm WMO ID (04W), parts[2] = name
+        if len(parts) > 2 and re.match(r"^[A-Z]{2,}$", parts[2]):
+            name = parts[2].title()
 
-    basin = storm_id[:2].upper()
-    return _build_storm(storm_id, basin, name, latest_dtg, current, positions)
+    base_dt = parse_dtg(dtg)
+    basin   = product_id[:2].upper()
+
+    positions = []
+    for rp in raw_positions:
+        dt = (base_dt + timedelta(hours=rp["tau"])) if base_dt else None
+        storm_type = _infer_type(rp["wind_kt"])
+        pos = build_position(rp["lat"], rp["lon"], rp["wind_kt"], 0,
+                             storm_type, dt, rp["tau"], rp["radii"] or None)
+        positions.append(pos)
+
+    current = positions[0]
+    return build_storm(product_id, basin, name, dtg, current, positions)
 
 
-# ---------------------------------------------------------------------------
-# TCW (Tropical Cyclone Warning text) parser
-# ---------------------------------------------------------------------------
-
-def parse_tcw(text: str, storm_id: str) -> dict | None:
+def _parse_tcw_radii(text):
     """
-    Parse a JTWC TCW-format text advisory.
-    Handles both Western Pacific and Indian/Southern Hemisphere advisories.
+    Parse wind radii from the tail of a TCW T-line.
+    'R064 045 NE QD 040 SE QD 040 SW QD 030 NW QD R050 ...'
+    Returns {str(threshold): {NE, SE, SW, NW}} or empty dict.
     """
-    # ---- Storm name --------------------------------------------------------
-    name = None
-    name_match = re.search(
-        r"(?:TROPICAL|SUPER)\s+(?:CYCLONE|STORM|DEPRESSION|TYPHOON)\s+\d+\w*\s+\(([A-Z]+)\)",
+    radii = {}
+    for m in re.finditer(
+        r"R(\d{3})\s+(\d+)\s+NE\s+QD\s+(\d+)\s+SE\s+QD\s+(\d+)\s+SW\s+QD\s+(\d+)\s+NW\s+QD",
         text,
-    )
-    if name_match:
-        name = name_match.group(1).title()
+    ):
+        radii[m.group(1)] = {
+            "NE": int(m.group(2)),
+            "SE": int(m.group(3)),
+            "SW": int(m.group(4)),
+            "NW": int(m.group(5)),
+        }
+    return radii
 
-    # ---- Advisory time -----------------------------------------------------
-    # "AT 11/0000Z" or "AT 11/0000Z..."
-    adv_dt = None
-    time_match = re.search(r"AT\s+(\d{1,2})/(\d{4})Z", text)
-    if time_match:
-        day = int(time_match.group(1))
-        hhmm = time_match.group(2)
-        now = datetime.now(timezone.utc)
-        adv_month = now.month
-        adv_year = now.year
-        # Roll back month if day is in the future (e.g., near month end)
-        if day > now.day + 1:
-            adv_month -= 1
-            if adv_month < 1:
-                adv_month = 12
-                adv_year -= 1
-        try:
-            adv_dt = datetime(
-                adv_year, adv_month, day,
-                int(hhmm[:2]), int(hhmm[2:]),
-                tzinfo=timezone.utc,
-            )
-        except ValueError:
-            adv_dt = datetime.now(timezone.utc).replace(minute=0, second=0, microsecond=0)
-    else:
-        adv_dt = datetime.now(timezone.utc).replace(minute=0, second=0, microsecond=0)
 
-    # ---- Current position --------------------------------------------------
-    pos_match = re.search(
-        r"(?:POSITION|LOCATED\s+NEAR)[:\s]+(\d+\.?\d*)\s*([NS])[,\s]+(\d+\.?\d*)\s*([EW])",
-        text, re.I,
+# ─── web.txt parser (MSLP + fallback) ────────────────────────────────────────
+
+def extract_mslp(web_text):
+    """Extract current MSLP from REMARKS section of web.txt."""
+    # "MINIMUM CENTRAL PRESSURE AT 111200Z IS 965 MB."
+    m = re.search(r"MINIMUM CENTRAL PRESSURE[^I\n]*IS\s+(\d+)\s*MB", web_text, re.I)
+    if m:
+        return int(m.group(1))
+    # Older TCW format
+    m = re.search(r"MINIMUM SEA LEVEL PRESSURE\s*[-–]\s*(\d+)\s*MB", web_text, re.I)
+    return int(m.group(1)) if m else 0
+
+
+def parse_web_txt(content, product_id):
+    """
+    Full fallback: parse a JTWC web.txt advisory when TCW is unavailable.
+    Extracts current position + all forecast positions.
+    """
+    # --- Advisory time + current position ---
+    # "111200Z --- NEAR 9.0N 151.1E"
+    cur_m = re.search(
+        r"(\d{2})(\d{4})Z\s*---\s*NEAR\s+(\d+\.?\d*)\s*([NS])\s+(\d+\.?\d*)\s*([EW])",
+        content,
     )
-    if not pos_match:
-        print(f"  [WARN] Could not find position in TCW for {storm_id}")
+    if not cur_m:
         return None
 
-    lat = float(pos_match.group(1)) * (1 if pos_match.group(2).upper() == "N" else -1)
-    lon = float(pos_match.group(3)) * (1 if pos_match.group(4).upper() == "E" else -1)
+    day   = int(cur_m.group(1))
+    hhmm  = cur_m.group(2)
+    lat   = float(cur_m.group(3)) * (1 if cur_m.group(4) == "N" else -1)
+    lon   = float(cur_m.group(5)) * (1 if cur_m.group(6) == "E" else -1)
 
-    wind_match = re.search(r"MAX\s+SUSTAINED\s+WINDS?\s*[-–]\s*(\d+)\s*KT", text, re.I)
-    pres_match = re.search(r"(?:MINIMUM|MIN)\s+SEA\s+LEVEL\s+PRESSURE\s*[-–]\s*(\d+)\s*MB", text, re.I)
+    # Current winds
+    wm = re.search(r"MAX SUSTAINED WINDS\s*-\s*(\d+)\s*KT", content, re.I)
+    wind_kt = int(wm.group(1)) if wm else 0
 
-    wind_kt = int(wind_match.group(1)) if wind_match else 0
-    pressure_mb = int(pres_match.group(1)) if pres_match else 0
+    # MSLP
+    pressure_mb = extract_mslp(content)
 
-    # Determine storm type from wind speed and text
-    storm_type = _infer_type(wind_kt, text)
-    current = build_position(lat, lon, wind_kt, pressure_mb, storm_type, adv_dt, 0)
-    positions = [current]
+    # Derive advisory datetime
+    now = datetime.now(timezone.utc)
+    month, year = now.month, now.year
+    if day > now.day + 1:          # date rolled past month boundary
+        month -= 1
+        if month < 1:
+            month, year = 12, year - 1
+    try:
+        base_dt = datetime(year, month, day, int(hhmm[:2]), int(hhmm[2:]),
+                           tzinfo=timezone.utc)
+    except ValueError:
+        base_dt = now.replace(hour=0, minute=0, second=0, microsecond=0)
 
-    # ---- Forecast positions ------------------------------------------------
-    # "FORECAST VALID 12/0000Z 16.5N  142.0E"
-    forecast_lines = list(
-        re.finditer(
-            r"FORECAST\s+VALID\s+(\d{1,2})/(\d{4})Z\s+(\d+\.?\d*)\s*([NS])\s+(\d+\.?\d*)\s*([EW])",
-            text, re.I,
-        )
+    dtg = base_dt.strftime("%Y%m%d%H")
+
+    # Current position wind radii (from "RADIUS OF NNN KT WINDS -" blocks)
+    cur_radii = _parse_webtxt_radii_block(
+        content[cur_m.start():content.find("FORECASTS:", cur_m.start()) or len(content)]
     )
-    # Build a lookup from position in text → max wind
-    wind_after = []
-    for m in re.finditer(r"MAX\s+WIND\s+(\d+)\s*KT", text, re.I):
-        wind_after.append((m.start(), int(m.group(1))))
 
-    for idx, fm in enumerate(forecast_lines):
-        day = int(fm.group(1))
-        hhmm = fm.group(2)
-        f_lat = float(fm.group(3)) * (1 if fm.group(4).upper() == "N" else -1)
-        f_lon = float(fm.group(5)) * (1 if fm.group(6).upper() == "E" else -1)
+    storm_type = _infer_type(wind_kt)
+    cur_pos = build_position(lat, lon, wind_kt, pressure_mb,
+                             storm_type, base_dt, 0, cur_radii or None)
+    positions = [cur_pos]
 
-        # Find MAX WIND that comes right after this forecast line
-        f_wind = 0
-        for wpos, wval in wind_after:
-            if wpos > fm.end():
-                f_wind = wval
-                break
+    # --- Forecast positions ---
+    # Each block starts with "NN HRS, VALID AT:"
+    # followed by "DDHHMMZ --- LAT LON"
+    # followed by "MAX SUSTAINED WINDS - NNN KT"
+    fc_blocks = list(re.finditer(
+        r"(\d+)\s+HRS?,\s+VALID\s+AT:\s+(\d{2})(\d{4})Z\s*---\s*(\d+\.?\d*)\s*([NS])\s+(\d+\.?\d*)\s*([EW])",
+        content,
+    ))
+    for i, fm in enumerate(fc_blocks):
+        tau_h   = int(fm.group(1))
+        f_day   = int(fm.group(2))
+        f_hhmm  = fm.group(3)
+        f_lat   = float(fm.group(4)) * (1 if fm.group(5) == "N" else -1)
+        f_lon   = float(fm.group(6)) * (1 if fm.group(7) == "E" else -1)
 
         # Compute forecast datetime
         try:
-            base_month = adv_dt.month
-            base_year = adv_dt.year
-            if day < adv_dt.day:
-                base_month += 1
-                if base_month > 12:
-                    base_month = 1
-                    base_year += 1
-            f_dt = datetime(
-                base_year, base_month, day,
-                int(hhmm[:2]), int(hhmm[2:]),
-                tzinfo=timezone.utc,
-            )
+            f_month, f_year = month, year
+            if f_day < day:
+                f_month += 1
+                if f_month > 12:
+                    f_month, f_year = 1, f_year + 1
+            f_dt = datetime(f_year, f_month, f_day,
+                            int(f_hhmm[:2]), int(f_hhmm[2:]), tzinfo=timezone.utc)
         except ValueError:
-            f_dt = adv_dt + timedelta(hours=(idx + 1) * 24)
+            f_dt = base_dt + timedelta(hours=tau_h)
 
-        tau = int((f_dt - adv_dt).total_seconds() / 3600)
-        if tau < 0:
-            tau = (idx + 1) * 24
+        # Slice the text for this forecast block
+        block_start = fm.end()
+        block_end   = fc_blocks[i + 1].start() if i + 1 < len(fc_blocks) else len(content)
+        block_text  = content[block_start:block_end]
 
-        f_type = _infer_type(f_wind, "")
-        positions.append(build_position(f_lat, f_lon, f_wind, 0, f_type, f_dt, tau))
+        # Max wind in this block
+        wm2 = re.search(r"MAX SUSTAINED WINDS\s*-\s*(\d+)\s*KT", block_text, re.I)
+        f_wind = int(wm2.group(1)) if wm2 else 0
 
-    basin = storm_id[:2].upper()
-    dtg_str = adv_dt.strftime("%Y%m%d%H")
-    return _build_storm(storm_id, basin, name, dtg_str, current, positions)
+        f_radii = _parse_webtxt_radii_block(block_text)
+        f_type  = _infer_type(f_wind)
+        f_pos   = build_position(f_lat, f_lon, f_wind, 0,
+                                 f_type, f_dt, tau_h, f_radii or None)
+        positions.append(f_pos)
+
+    basin = product_id[:2].upper()
+    name = _extract_name_from_web(content)
+    return build_storm(product_id, basin, name, dtg, cur_pos, positions)
 
 
-def _infer_type(wind_kt: int, text: str) -> str:
-    """Infer ATCF storm type from wind speed and text context."""
-    text_up = text.upper()
-    if "SUPER TYPHOON" in text_up or wind_kt >= 130:
-        return "ST"
-    if "TYPHOON" in text_up or wind_kt >= 64:
-        return "TY"
-    if "TROPICAL STORM" in text_up or wind_kt >= 34:
-        return "TS"
+def _parse_webtxt_radii_block(text):
+    """
+    Parse wind radii from a web.txt section:
+    'RADIUS OF 064 KT WINDS - 045 NM NORTHEAST QUADRANT
+                              040 NM SOUTHEAST QUADRANT ...'
+    Returns {str(threshold): {NE, SE, SW, NW}} or {}.
+    """
+    radii = {}
+    for m in re.finditer(r"RADIUS OF (\d+) KT WINDS", text, re.I):
+        thr = m.group(1)
+        # Grab the 4 quadrant values that follow in order: NE, SE, SW, NW
+        tail = text[m.end():]
+        vals = re.findall(r"(\d+)\s*NM\s+(?:NORTHEAST|SOUTHEAST|SOUTHWEST|NORTHWEST)",
+                          tail[:400], re.I)
+        if len(vals) == 4:
+            radii[thr] = {
+                "NE": int(vals[0]), "SE": int(vals[1]),
+                "SW": int(vals[2]), "NW": int(vals[3]),
+            }
+    return radii
+
+
+def _extract_name_from_web(text):
+    """Extract storm name from web.txt SUBJ or body line."""
+    m = re.search(r"SUBJ/(?:TYPHOON|TROPICAL CYCLONE|STORM|DEPRESSION)\s+\S+\s+\(([A-Z]+)\)",
+                  text, re.I)
+    if not m:
+        m = re.search(r"(?:TYPHOON|TROPICAL CYCLONE|STORM|DEPRESSION)\s+\S+\s+\(([A-Z]+)\)",
+                      text, re.I)
+    return m.group(1).title() if m else None
+
+
+def _infer_type(wind_kt):
+    if wind_kt >= 130: return "ST"
+    if wind_kt >= 64:  return "TY"
+    if wind_kt >= 34:  return "TS"
     return "TD"
 
 
-def _build_storm(
-    storm_id: str, basin: str, name: str | None,
-    dtg: str, current: dict, positions: list[dict]
-) -> dict:
-    """Assemble a complete storm dict."""
-    cy_match = re.search(r"(\d+)", storm_id)
-    cy = int(cy_match.group(1)) if cy_match else 0
-    year = int(dtg[:4]) if len(dtg) >= 4 else datetime.now(timezone.utc).year
+# ─── Per-storm orchestrator ───────────────────────────────────────────────────
 
-    # Advisory time as ISO string
-    adv_dt = parse_atcf_dtg(dtg)
-    adv_str = adv_dt.strftime("%Y-%m-%dT%H:%M:%SZ") if adv_dt else None
-
-    return {
-        "id": storm_id.upper(),
-        "basin": basin,
-        "basin_name": BASIN_NAMES.get(basin, basin),
-        "number": cy,
-        "year": year,
-        "name": name,
-        "advisory_time": adv_str,
-        "current": current,
-        "forecast": positions,
-    }
-
-
-# ---------------------------------------------------------------------------
-# JTWC page scraper — discovers active storms
-# ---------------------------------------------------------------------------
-
-def get_active_storm_urls() -> list[tuple[str, str]]:
+def fetch_storm(entry):
     """
-    Scrape the JTWC main page and return a list of (storm_id, url) tuples
-    pointing to advisory product files (.TCW or .dat).
-    """
-    print(f"Fetching JTWC main page: {JTWC_MAIN}")
-    html = fetch(JTWC_MAIN)
-    if not html:
-        print("[ERROR] Could not fetch JTWC main page.")
-        return []
-
-    soup = BeautifulSoup(html, "lxml")
-    results: list[tuple[str, str]] = []
-    seen: set[str] = set()
-
-    # Find all links that look like JTWC product files
-    for a in soup.find_all("a", href=True):
-        href = a["href"]
-
-        # Normalise to absolute URL
-        if href.startswith("/"):
-            href = JTWC_BASE + href
-        elif not href.startswith("http"):
-            href = JTWC_BASE + "/jtwc/" + href
-
-        # Match product file patterns:
-        #   /jtwc/products/wp012025/wp012025.TCW
-        #   /jtwc/products/01W.2025.TCW
-        #   /jtwc/products/wp012025/wp012025prog.txt
-        m = re.search(
-            r"(?:/|^)((?:wp|io|sh|ep|cp|al)\d{2,4}(?:\d{4})?)"
-            r"(?:\.tcw|\.dat|prog\.txt|web\.txt)?",
-            href, re.I,
-        )
-        if m:
-            sid = m.group(1).upper()
-            # Derive basin from 2-char prefix
-            basin = sid[:2].upper()
-            if basin not in BASIN_NAMES:
-                continue
-            if sid in seen:
-                continue
-            seen.add(sid)
-            results.append((sid, href))
-            print(f"  Found storm: {sid} → {href}")
-
-    # If nothing found from direct links, try pattern-guessing from
-    # text in the page (e.g. "2 ACTIVE TROPICAL CYCLONES")
-    if not results:
-        results = _guess_from_text(html)
-
-    return results
-
-
-def _guess_from_text(html: str) -> list[tuple[str, str]]:
-    """
-    Fallback: look for 'NNW', 'NNA', etc. patterns in the page text
-    and construct candidate TCW URLs.
-    """
-    soup = BeautifulSoup(html, "lxml")
-    text = soup.get_text()
-    results = []
-    seen: set[str] = set()
-    year = datetime.now(timezone.utc).year
-
-    # Match patterns like "TYPHOON 01W", "TROPICAL CYCLONE 02A", "STORM 03S"
-    for m in re.finditer(r"\b(\d{2})([WEASBCP])\b", text):
-        cy = m.group(1)
-        suffix = m.group(2).upper()
-        basin_map = {
-            "W": "WP", "E": "EP", "C": "CP",
-            "A": "IO", "B": "IO", "S": "SH", "P": "SH",
-        }
-        basin = basin_map.get(suffix, "")
-        if not basin:
-            continue
-        sid = f"{basin}{cy}{year}"
-        if sid in seen:
-            continue
-        seen.add(sid)
-        # Construct plausible TCW URL
-        url = f"{JTWC_PRODUCTS}/{sid.lower()}/{sid.lower()}.TCW"
-        results.append((sid, url))
-        print(f"  Guessed storm: {sid} → {url}")
-
-    return results
-
-
-# ---------------------------------------------------------------------------
-# Per-storm data fetching
-# ---------------------------------------------------------------------------
-
-def fetch_storm(storm_id: str, hint_url: str) -> dict | None:
-    """
-    Try several URL patterns to find and parse advisory data for a storm.
+    Fetch and parse one storm using TCW-first, web.txt-fallback strategy.
     Returns a storm dict or None.
     """
-    sid_lower = storm_id.lower()
-    year = storm_id[-4:] if len(storm_id) >= 6 else str(datetime.now(timezone.utc).year)
-    basin_lower = storm_id[:2].lower()
-    cy = storm_id[2:4]
+    pid     = entry["product_id"]
+    tcw_url = entry["tcw_url"]
+    web_url = entry["web_url"]
 
-    # Build a list of URLs to try (ATCF preferred, TCW as fallback)
-    candidate_urls = [
-        hint_url,
-        # ATCF a-deck (official forecast deck)
-        f"{JTWC_PRODUCTS}/{sid_lower}/{sid_lower}.dat",
-        f"{JTWC_PRODUCTS}/{sid_lower}/{sid_lower}a.dat",
-        f"{JTWC_PRODUCTS}/{sid_lower}/{sid_lower}.fdat",
-        # Text warning files
-        f"{JTWC_PRODUCTS}/{sid_lower}/{sid_lower}.TCW",
-        f"{JTWC_PRODUCTS}/{sid_lower}/{sid_lower}web.txt",
-        f"{JTWC_PRODUCTS}/{sid_lower}/{sid_lower}prog.txt",
-        # Alternative capitalisation / structure
-        f"{JTWC_PRODUCTS}/{cy}{storm_id[4]}.{year}.TCW",
-    ]
+    storm = None
 
-    # Deduplicate while preserving order
-    seen: set[str] = set()
-    unique_urls = []
-    for u in candidate_urls:
-        if u and u not in seen:
-            seen.add(u)
-            unique_urls.append(u)
+    # ── Try TCW (JMV 3.0) first
+    if tcw_url:
+        print(f"  Fetching TCW: {tcw_url.split('/')[-1]}")
+        tcw_text = fetch(tcw_url)
+        if tcw_text and len(tcw_text.strip()) > 50:
+            storm = parse_tcw(tcw_text, pid)
+            if storm:
+                print(f"  ✓ TCW parsed OK — {storm.get('name')} @ {storm['current']['wind_kt']} kt")
 
-    for url in unique_urls:
-        print(f"  Trying {url} …")
-        content = fetch(url)
-        if not content or len(content.strip()) < 50:
-            continue
+    # ── Fall back to web.txt
+    if not storm and web_url:
+        print(f"  Fallback to web.txt: {web_url.split('/')[-1]}")
+        web_text = fetch(web_url)
+        if web_text and len(web_text.strip()) > 50:
+            storm = parse_web_txt(web_text, pid)
+            if storm:
+                print(f"  ✓ web.txt parsed OK — {storm.get('name')} @ {storm['current']['wind_kt']} kt")
 
-        # Detect format: ATCF lines start with basin code + comma
-        first_line = content.strip().splitlines()[0]
-        if re.match(r"^[A-Z]{2},\s*\d+,", first_line):
-            print(f"  → Detected ATCF a-deck format")
-            result = parse_atcf(content, storm_id)
-        else:
-            print(f"  → Detected TCW text format")
-            result = parse_tcw(content, storm_id)
+    if not storm:
+        print(f"  ✗ Could not parse {pid.upper()}")
+        return None
 
-        if result:
-            print(f"  ✓ Parsed {storm_id}: {result.get('name')} "
-                  f"@ {result['current']['wind_kt']} kt")
-            return result
+    # ── Enrich with MSLP from web.txt (TCW format has no pressure data)
+    if storm["current"]["pressure_mb"] == 0 and web_url:
+        print(f"  Fetching web.txt for MSLP: {web_url.split('/')[-1]}")
+        web_text = fetch(web_url)
+        if web_text:
+            mslp = extract_mslp(web_text)
+            if mslp:
+                storm["current"]["pressure_mb"] = mslp
+                if storm["forecast"]:
+                    storm["forecast"][0]["pressure_mb"] = mslp
+                print(f"  ✓ MSLP = {mslp} mb")
 
-    print(f"  ✗ Could not retrieve data for {storm_id}")
-    return None
+    storm["is_final_warning"] = entry["is_final"]
+    return storm
 
 
-# ---------------------------------------------------------------------------
-# Main
-# ---------------------------------------------------------------------------
+# ─── Main ─────────────────────────────────────────────────────────────────────
 
 def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
+    now_str = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     print("=" * 60)
-    print("JTWC Typhoon Data Fetcher")
-    print(f"Run time: {datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')}")
+    print("JTWC Typhoon Data Fetcher  v3")
+    print(f"Run time: {now_str}")
     print("=" * 60)
 
-    storm_urls = get_active_storm_urls()
-
-    if not storm_urls:
-        print("\n[INFO] No active storms found on JTWC page.")
+    entries = get_storms_from_rss()
+    if not entries:
+        print("\n[INFO] No active storm products found in RSS.")
 
     storms = []
-    for storm_id, url in storm_urls:
-        print(f"\nProcessing {storm_id} …")
-        storm = fetch_storm(storm_id, url)
+    for entry in entries:
+        print(f"\nProcessing {entry['product_id'].upper()} …")
+        storm = fetch_storm(entry)
         if storm:
             storms.append(storm)
 
-    # Sort by basin then number
     storms.sort(key=lambda s: (s["basin"], s["number"]))
 
-    output = {
-        "generated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "source": "JTWC - Joint Typhoon Warning Center",
-        "source_url": JTWC_MAIN,
-        "api_version": "2.0",
+    payload = {
+        "generated":   now_str,
+        "source":      "JTWC — Joint Typhoon Warning Center",
+        "source_url":  JTWC_RSS,
+        "api_version": "3.0",
         "storm_count": len(storms),
-        "storms": storms,
+        "storms":      storms,
     }
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as fh:
-        json.dump(output, fh, indent=2, ensure_ascii=False)
+        json.dump(payload, fh, indent=2, ensure_ascii=False)
 
     print(f"\n{'=' * 60}")
-    print(f"Written {len(storms)} storm(s) to {OUTPUT_FILE}")
+    print(f"Wrote {len(storms)} storm(s) → {OUTPUT_FILE}")
     print("=" * 60)
-
-    return 0 if storms is not None else 1
+    return 0
 
 
 if __name__ == "__main__":
