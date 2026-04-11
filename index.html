@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JTWC Typhoon Forecast Viewer</title>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <!-- Viewer styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════  SIDEBAR  ═══════════════════════ -->
+<aside id="sidebar">
+
+  <header id="sidebar-header">
+    <div id="logo-row">
+      <svg id="logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="18" r="17" stroke="#00d4ff" stroke-width="2"/>
+        <path d="M18 4 C24 8 28 14 18 18 C8 22 12 28 18 32" stroke="#00d4ff" stroke-width="2.5"
+              fill="none" stroke-linecap="round"/>
+        <path d="M18 18 C22 12 28 14 32 18" stroke="#c800ff" stroke-width="2"
+              fill="none" stroke-linecap="round"/>
+        <circle cx="18" cy="18" r="3" fill="#00d4ff"/>
+      </svg>
+      <div>
+        <h1>JTWC Typhoon Viewer</h1>
+        <p id="subtitle">Joint Typhoon Warning Center</p>
+      </div>
+    </div>
+
+    <div id="update-bar">
+      <span id="update-label">Updated:</span>
+      <span id="update-time">Loading…</span>
+    </div>
+  </header>
+
+  <!-- Storm list -->
+  <section id="storm-section">
+    <h2 class="section-title">Active Storms <span id="storm-count-badge">0</span></h2>
+    <div id="storm-list">
+      <div class="no-storms">
+        <div class="spinner"></div>
+        <p>Fetching storm data…</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intensity legend -->
+  <section id="legend-section">
+    <h2 class="section-title">Intensity Scale</h2>
+    <div id="legend">
+      <div class="legend-item">
+        <span class="legend-dot" style="background:#7ec8e3;"></span>
+        <span>Tropical Depression (&lt;34 kt)</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot" style="background:#00d4ff;"></span>
+        <span>Tropical Storm (34–63 kt)</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot" style="background:#aaff00;"></span>
+        <span>Typhoon — Cat 1 (64–82 kt)</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot" style="background:#ffd700;"></span>
+        <span>Typhoon — Cat 2 (83–95 kt)</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot" style="background:#ff8c00;"></span>
+        <span>Typhoon — Cat 3 (96–112 kt)</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot" style="background:#ff3a3a;"></span>
+        <span>Typhoon — Cat 4 (113–129 kt)</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot" style="background:#c800ff;"></span>
+        <span>Super Typhoon — Cat 5 (≥130 kt)</span>
+      </div>
+      <div class="legend-divider"></div>
+      <div class="legend-item">
+        <span class="legend-current-dot"></span>
+        <span>Current / Initial position</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-forecast-dot"></span>
+        <span>Forecast position (+h)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data API section -->
+  <section id="api-section">
+    <h2 class="section-title">Data API</h2>
+    <p class="api-description">
+      Embed live storm data in any website — CORS-open JSON hosted on
+      GitHub Pages, updated every 3 hours by GitHub Actions.
+    </p>
+
+    <label class="api-label">JSON endpoint</label>
+    <div class="api-url-row">
+      <code id="api-url-display">—</code>
+      <button id="copy-btn" title="Copy URL" onclick="copyApiUrl()">
+        <svg viewBox="0 0 20 20" fill="currentColor">
+          <path d="M8 3a1 1 0 000 2h2a1 1 0 100-2H8z"/>
+          <path d="M6 4a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2V6a2 2 0 00-2-2h-1a1 1 0 110-2h1a4 4 0 014 4v8a4 4 0 01-4 4H6a4 4 0 01-4-4V6a4 4 0 014-4h1a1 1 0 000 2H6z"/>
+        </svg>
+        Copy
+      </button>
+    </div>
+
+    <label class="api-label">Example fetch snippet</label>
+    <pre class="code-snippet" id="snippet-display">// Loading…</pre>
+  </section>
+
+  <footer id="sidebar-footer">
+    <p>Data: <a href="https://www.metoc.navy.mil/jtwc/jtwc.html" target="_blank">JTWC</a></p>
+    <p>Map: <a href="https://leafletjs.com" target="_blank">Leaflet</a> /
+       <a href="https://carto.com" target="_blank">CARTO</a></p>
+    <p id="refresh-note">Auto-refreshes every 30 min</p>
+  </footer>
+
+</aside>
+
+<!-- ═══════════════════════  MAP  ═══════════════════════ -->
+<main id="map-container">
+  <div id="map"></div>
+
+  <!-- Floating controls -->
+  <div id="map-controls">
+    <button id="btn-fit" title="Fit all storms" onclick="fitAllStorms()">⤢</button>
+    <button id="btn-refresh" title="Reload data" onclick="loadData()">↺</button>
+  </div>
+
+  <!-- Sidebar toggle for mobile -->
+  <button id="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+</main>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WPc=" crossorigin=""></script>
+
+<!-- Viewer script -->
+<script src="js/viewer.js"></script>
+</body>
+</html>
