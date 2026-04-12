@@ -1,94 +1,10 @@
 {
-  "generated": "2026-04-12T00:00:18Z",
+  "generated": "2026-04-12T01:00:15Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
-  "storm_count": 2,
+  "storm_count": 1,
   "storms": [
-    {
-      "id": "SH3026",
-      "basin": "SH",
-      "basin_name": "Southern Hemisphere",
-      "number": 3026,
-      "year": 2026,
-      "name": "Maila",
-      "advisory_time": "2026-04-11T00:00:00Z",
-      "is_final_warning": true,
-      "current": {
-        "tau": 0,
-        "lat": -7.8,
-        "lon": 154.6,
-        "wind_kt": 35,
-        "wind_mph": 40,
-        "wind_kmh": 65,
-        "pressure_mb": 0,
-        "classification": "TS",
-        "classification_label": "Tropical Storm",
-        "intensity_code": "TS",
-        "intensity_color": "#00d4ff",
-        "datetime": "2026-04-11T00:00:00Z",
-        "wind_radii_nm": {
-          "034": {
-            "NE": 70,
-            "SE": 60,
-            "SW": 75,
-            "NW": 110
-          }
-        }
-      },
-      "forecast": [
-        {
-          "tau": 0,
-          "lat": -7.8,
-          "lon": 154.6,
-          "wind_kt": 35,
-          "wind_mph": 40,
-          "wind_kmh": 65,
-          "pressure_mb": 0,
-          "classification": "TS",
-          "classification_label": "Tropical Storm",
-          "intensity_code": "TS",
-          "intensity_color": "#00d4ff",
-          "datetime": "2026-04-11T00:00:00Z",
-          "wind_radii_nm": {
-            "034": {
-              "NE": 70,
-              "SE": 60,
-              "SW": 75,
-              "NW": 110
-            }
-          }
-        },
-        {
-          "tau": 12,
-          "lat": -8.0,
-          "lon": 154.7,
-          "wind_kt": 30,
-          "wind_mph": 35,
-          "wind_kmh": 56,
-          "pressure_mb": 0,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-04-11T12:00:00Z"
-        },
-        {
-          "tau": 24,
-          "lat": -8.3,
-          "lon": 154.7,
-          "wind_kt": 30,
-          "wind_mph": 35,
-          "wind_kmh": 56,
-          "pressure_mb": 0,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-04-12T00:00:00Z"
-        }
-      ]
-    },
     {
       "id": "WP0426",
       "basin": "WP",
