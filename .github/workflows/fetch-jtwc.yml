@@ -1,4 +1,4 @@
-name: Fetch JTWC Typhoon Data
+name: Fetch Storm Data (JTWC + NHC)
 
 on:
   schedule:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       force_update:
-        description: 'Force update even if data unchanged'
+        description: 'Force commit even if data unchanged'
         required: false
         default: 'false'
 
@@ -15,9 +15,9 @@ permissions:
   contents: write
 
 jobs:
-  fetch-jtwc-data:
+  fetch-storm-data:
     runs-on: ubuntu-latest
-    name: Fetch and parse JTWC ATCF data
+    name: Fetch JTWC + NHC storm data
 
     steps:
       - name: Checkout repository
@@ -33,8 +33,13 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r scripts/requirements.txt
 
-      - name: Fetch JTWC data
+      - name: Fetch JTWC data  →  data/storms.json
         run: python scripts/fetch_jtwc.py
+        env:
+          PYTHONUNBUFFERED: '1'
+
+      - name: Fetch NHC data   →  data/nhc_atlantic.json + data/nhc_pacific.json
+        run: python scripts/fetch_nhc.py
         env:
           PYTHONUNBUFFERED: '1'
 
@@ -46,8 +51,10 @@ jobs:
           if git diff --staged --quiet && [ "${{ github.event.inputs.force_update }}" != "true" ]; then
             echo "No storm data changes detected, skipping commit."
           else
-            STORM_COUNT=$(python -c "import json; d=json.load(open('data/storms.json')); print(len(d.get('storms', [])))")
-            git commit -m "chore: update JTWC storm data — ${STORM_COUNT} active storm(s) [skip ci]"
+            JTWC=$(python -c "import json; d=json.load(open('data/storms.json')); print(len(d.get('storms',[])))")
+            ATL=$(python -c "import json; d=json.load(open('data/nhc_atlantic.json')); print(len(d.get('storms',[])))")
+            PAC=$(python -c "import json; d=json.load(open('data/nhc_pacific.json')); print(len(d.get('storms',[])))")
+            git commit -m "chore: update storm data — JTWC:${JTWC} ATL:${ATL} PAC:${PAC} [skip ci]"
             git push -u origin ${{ github.ref_name }}
             echo "Data committed and pushed successfully."
           fi

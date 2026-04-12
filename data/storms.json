@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-12T01:00:15Z",
+  "generated": "2026-04-12T00:59:43Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
@@ -9,7 +9,7 @@
       "id": "WP0426",
       "basin": "WP",
       "basin_name": "Western North Pacific",
-      "number": 426,
+      "number": 4,
       "year": 2026,
       "name": "Sinlaku",
       "advisory_time": "2026-04-11T18:00:00Z",

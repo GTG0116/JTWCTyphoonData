@@ -99,8 +99,8 @@ def build_position(lat, lon, wind_kt, pressure_mb, storm_type, dt, tau,
     return pos
 
 def build_storm(product_id, basin, name, dtg, current, positions, is_final=False):
-    m = re.search(r"(\d+)", product_id)
-    cy   = int(m.group(1)) if m else 0
+    # product_id format: wp0426 → basin=wp, cy=04, year_short=26
+    cy   = int(product_id[2:4]) if len(product_id) >= 4 else 0
     year = int(dtg[:4]) if len(dtg) >= 4 else datetime.now(timezone.utc).year
     adv_dt = parse_dtg(dtg)
     return {

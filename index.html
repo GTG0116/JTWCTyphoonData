@@ -28,9 +28,28 @@
         <circle cx="18" cy="18" r="3" fill="#00d4ff"/>
       </svg>
       <div>
-        <h1>JTWC Typhoon Viewer</h1>
-        <p id="subtitle">Joint Typhoon Warning Center</p>
+        <h1>Global Storm Viewer</h1>
+        <p id="subtitle">JTWC · NHC</p>
       </div>
+    </div>
+
+    <!-- Basin tabs -->
+    <div id="basin-tabs">
+      <button class="tab-btn active" data-basin="jtwc"
+              title="JTWC — W. Pacific, Indian Ocean, S. Hemisphere"
+              onclick="switchBasin('jtwc')">
+        <span class="tab-icon">🌀</span> JTWC
+      </button>
+      <button class="tab-btn" data-basin="nhc-atlantic"
+              title="NHC — North Atlantic"
+              onclick="switchBasin('nhc-atlantic')">
+        <span class="tab-icon">🌀</span> Atlantic
+      </button>
+      <button class="tab-btn" data-basin="nhc-pacific"
+              title="NHC — Eastern &amp; Central North Pacific"
+              onclick="switchBasin('nhc-pacific')">
+        <span class="tab-icon">🌀</span> Pacific
+      </button>
     </div>
 
     <div id="update-bar">

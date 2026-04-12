@@ -8,9 +8,16 @@
 
 // ─── Configuration ────────────────────────────────────────────────────────────
 
+const BASINS = {
+  'jtwc':         { url: 'data/storms.json',       center: [15, 130], zoom: 4 },
+  'nhc-atlantic': { url: 'data/nhc_atlantic.json', center: [25,  -60], zoom: 4 },
+  'nhc-pacific':  { url: 'data/nhc_pacific.json',  center: [18, -120], zoom: 4 },
+};
+
+let currentBasin = 'jtwc';
+
 const CONFIG = {
-  dataUrl:         'data/storms.json',
-  refreshInterval: 30 * 60 * 1000,   // 30 min
+  refreshInterval: 30 * 60 * 1000,
   defaultCenter:   [15, 135],
   defaultZoom:     4,
   tileUrl: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
@@ -277,11 +284,25 @@ function buildStormCard(storm) {
 
 // ─── Data loading ─────────────────────────────────────────────────────────────
 
+function switchBasin(basin) {
+  if (!BASINS[basin]) return;
+  currentBasin = basin;
+  // Update tab active state
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.basin === basin);
+  });
+  // Fly map to the default view for this basin
+  const { center, zoom } = BASINS[basin];
+  map.flyTo(center, zoom, { duration: 1 });
+  loadData();
+}
+
 async function loadData() {
   const btn = document.getElementById('btn-refresh');
   if (btn) btn.classList.add('spinning');
+  const url = BASINS[currentBasin]?.url || 'data/storms.json';
   try {
-    const res = await fetch(`${CONFIG.dataUrl}?_=${Date.now()}`);
+    const res = await fetch(`${url}?_=${Date.now()}`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     renderAll(await res.json());
   } catch (e) {
@@ -338,27 +359,36 @@ function showError(msg) {
 function updateApiSection() {
   const base = location.origin +
     location.pathname.replace(/\/[^/]*$/, '');
-  const apiUrl = `${base}/data/storms.json`;
 
-  const urlEl = document.getElementById('api-url-display');
+  const API_URLS = {
+    'jtwc':         `${base}/data/storms.json`,
+    'nhc-atlantic': `${base}/data/nhc_atlantic.json`,
+    'nhc-pacific':  `${base}/data/nhc_pacific.json`,
+  };
+
+  const apiUrl = API_URLS[currentBasin] || API_URLS.jtwc;
+  const urlEl  = document.getElementById('api-url-display');
   if (urlEl) urlEl.textContent = apiUrl;
 
   const snip = document.getElementById('snippet-display');
   if (snip) snip.textContent =
-`fetch('${apiUrl}')
+`// JTWC (W. Pacific + Indian Ocean + S. Hemisphere):
+//   ${API_URLS.jtwc}
+// NHC Atlantic:
+//   ${API_URLS['nhc-atlantic']}
+// NHC Eastern/Central Pacific:
+//   ${API_URLS['nhc-pacific']}
+
+fetch('${apiUrl}')
   .then(r => r.json())
   .then(data => {
-    // data.storms — array of active storms
-    // data.generated — ISO timestamp of last update
     data.storms.forEach(s => {
       const c = s.current;
-      console.log(
-        s.name, s.id,
+      console.log(s.name, s.id,
         c.wind_kt + ' kt', c.pressure_mb + ' mb',
-        c.lat + '°, ' + c.lon + '°'
-      );
-      // c.wind_radii_nm — { '034': {NE,SE,SW,NW}, '050': ..., '064': ... }
-      // s.forecast — array of positions at +0h, +12h, +24h … +120h
+        c.lat + '°, ' + c.lon + '°');
+      // s.forecast — positions at +0h … +120h
+      // c.wind_radii_nm — {034,050,064} NE/SE/SW/NW nm
     });
   });`;
 }
@@ -389,8 +419,12 @@ function focusStorm(lat, lon) {
 }
 
 function fitAllStorms() {
-  if (stormBounds) map.fitBounds(stormBounds.pad(0.3), { maxZoom: 6, animate: true });
-  else map.setView(CONFIG.defaultCenter, CONFIG.defaultZoom, { animate: true });
+  if (stormBounds) {
+    map.fitBounds(stormBounds.pad(0.3), { maxZoom: 6, animate: true });
+  } else {
+    const { center, zoom } = BASINS[currentBasin] || BASINS.jtwc;
+    map.setView(center, zoom, { animate: true });
+  }
 }
 
 function toggleSidebar() {
