@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-18T19:50:11Z",
+  "generated": "2026-04-18T20:00:17Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
@@ -12,97 +12,69 @@
       "number": 4,
       "year": 2026,
       "name": "Sinlaku",
-      "advisory_time": "2026-04-18T12:00:00Z",
+      "advisory_time": "2026-04-18T18:00:00Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 24.3,
-        "lon": 147.5,
-        "wind_kt": 60,
-        "wind_mph": 69,
-        "wind_kmh": 111,
-        "pressure_mb": 981,
+        "lat": 25.3,
+        "lon": 148.5,
+        "wind_kt": 55,
+        "wind_mph": 63,
+        "wind_kmh": 102,
+        "pressure_mb": 983,
         "classification": "TS",
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-04-18T12:00:00Z",
+        "datetime": "2026-04-18T18:00:00Z",
         "wind_radii_nm": {
           "050": {
-            "NE": 55,
-            "SE": 100,
-            "SW": 0,
+            "NE": 80,
+            "SE": 110,
+            "SW": 70,
             "NW": 110
           },
           "034": {
             "NE": 215,
             "SE": 220,
-            "SW": 180,
-            "NW": 185
+            "SW": 170,
+            "NW": 180
           }
         }
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 24.3,
-          "lon": 147.5,
-          "wind_kt": 60,
-          "wind_mph": 69,
-          "wind_kmh": 111,
-          "pressure_mb": 981,
+          "lat": 25.3,
+          "lon": 148.5,
+          "wind_kt": 55,
+          "wind_mph": 63,
+          "wind_kmh": 102,
+          "pressure_mb": 983,
           "classification": "TS",
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-04-18T12:00:00Z",
+          "datetime": "2026-04-18T18:00:00Z",
           "wind_radii_nm": {
             "050": {
-              "NE": 55,
-              "SE": 100,
-              "SW": 0,
+              "NE": 80,
+              "SE": 110,
+              "SW": 70,
               "NW": 110
             },
             "034": {
               "NE": 215,
               "SE": 220,
-              "SW": 180,
-              "NW": 185
+              "SW": 170,
+              "NW": 180
             }
           }
         },
         {
           "tau": 12,
-          "lat": 26.5,
-          "lon": 149.8,
-          "wind_kt": 55,
-          "wind_mph": 63,
-          "wind_kmh": 102,
-          "pressure_mb": 0,
-          "classification": "TS",
-          "classification_label": "Tropical Storm",
-          "intensity_code": "TS",
-          "intensity_color": "#00d4ff",
-          "datetime": "2026-04-19T00:00:00Z",
-          "wind_radii_nm": {
-            "050": {
-              "NE": 40,
-              "SE": 60,
-              "SW": 40,
-              "NW": 50
-            },
-            "034": {
-              "NE": 190,
-              "SE": 210,
-              "SW": 180,
-              "NW": 140
-            }
-          }
-        },
-        {
-          "tau": 24,
-          "lat": 28.3,
-          "lon": 153.7,
+          "lat": 27.3,
+          "lon": 151.4,
           "wind_kt": 50,
           "wind_mph": 58,
           "wind_kmh": 93,
@@ -111,26 +83,48 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-04-19T12:00:00Z",
+          "datetime": "2026-04-19T06:00:00Z",
           "wind_radii_nm": {
             "050": {
-              "NE": 40,
-              "SE": 50,
+              "NE": 70,
+              "SE": 100,
               "SW": 60,
-              "NW": 40
+              "NW": 60
             },
             "034": {
-              "NE": 190,
+              "NE": 200,
+              "SE": 210,
+              "SW": 180,
+              "NW": 160
+            }
+          }
+        },
+        {
+          "tau": 24,
+          "lat": 28.8,
+          "lon": 155.7,
+          "wind_kt": 45,
+          "wind_mph": 52,
+          "wind_kmh": 83,
+          "pressure_mb": 0,
+          "classification": "TS",
+          "classification_label": "Tropical Storm",
+          "intensity_code": "TS",
+          "intensity_color": "#00d4ff",
+          "datetime": "2026-04-19T18:00:00Z",
+          "wind_radii_nm": {
+            "034": {
+              "NE": 200,
               "SE": 220,
-              "SW": 220,
-              "NW": 140
+              "SW": 190,
+              "NW": 170
             }
           }
         },
         {
           "tau": 36,
-          "lat": 29.4,
-          "lon": 158.5,
+          "lat": 29.7,
+          "lon": 160.8,
           "wind_kt": 45,
           "wind_mph": 52,
           "wind_kmh": 83,
@@ -139,35 +133,13 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-04-20T00:00:00Z",
+          "datetime": "2026-04-20T06:00:00Z",
           "wind_radii_nm": {
             "034": {
-              "NE": 190,
-              "SE": 210,
-              "SW": 230,
-              "NW": 140
-            }
-          }
-        },
-        {
-          "tau": 48,
-          "lat": 30.0,
-          "lon": 163.7,
-          "wind_kt": 45,
-          "wind_mph": 52,
-          "wind_kmh": 83,
-          "pressure_mb": 0,
-          "classification": "TS",
-          "classification_label": "Tropical Storm",
-          "intensity_code": "TS",
-          "intensity_color": "#00d4ff",
-          "datetime": "2026-04-20T12:00:00Z",
-          "wind_radii_nm": {
-            "034": {
-              "NE": 225,
-              "SE": 215,
-              "SW": 245,
-              "NW": 160
+              "NE": 210,
+              "SE": 220,
+              "SW": 220,
+              "NW": 170
             }
           }
         }
