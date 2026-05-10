@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-10T13:40:11Z",
+  "generated": "2026-05-10T13:50:12Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
@@ -13,7 +13,7 @@
       "year": 2026,
       "name": "Hagupit",
       "advisory_time": "2026-05-10T12:00:00Z",
-      "is_final_warning": false,
+      "is_final_warning": true,
       "current": {
         "tau": 0,
         "lat": 10.3,
@@ -21,7 +21,7 @@
         "wind_kt": 25,
         "wind_mph": 29,
         "wind_kmh": 46,
-        "pressure_mb": 1004,
+        "pressure_mb": 0,
         "classification": "TD",
         "classification_label": "Tropical Depression",
         "intensity_code": "TD",
@@ -36,7 +36,7 @@
           "wind_kt": 25,
           "wind_mph": 29,
           "wind_kmh": 46,
-          "pressure_mb": 1004,
+          "pressure_mb": 0,
           "classification": "TD",
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
