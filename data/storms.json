@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-10T12:50:11Z",
+  "generated": "2026-05-10T13:00:20Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
@@ -12,12 +12,12 @@
       "number": 5,
       "year": 2026,
       "name": "Hagupit",
-      "advisory_time": "2026-05-10T06:00:00Z",
+      "advisory_time": "2026-05-10T12:00:00Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 10.1,
-        "lon": 131.9,
+        "lat": 10.3,
+        "lon": 131.0,
         "wind_kt": 25,
         "wind_mph": 29,
         "wind_kmh": 46,
@@ -26,13 +26,13 @@
         "classification_label": "Tropical Depression",
         "intensity_code": "TD",
         "intensity_color": "#7ec8e3",
-        "datetime": "2026-05-10T06:00:00Z"
+        "datetime": "2026-05-10T12:00:00Z"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 10.1,
-          "lon": 131.9,
+          "lat": 10.3,
+          "lon": 131.0,
           "wind_kt": 25,
           "wind_mph": 29,
           "wind_kmh": 46,
@@ -41,26 +41,12 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-05-10T06:00:00Z"
+          "datetime": "2026-05-10T12:00:00Z"
         },
         {
           "tau": 12,
-          "lat": 10.6,
-          "lon": 130.6,
-          "wind_kt": 25,
-          "wind_mph": 29,
-          "wind_kmh": 46,
-          "pressure_mb": 0,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-05-10T18:00:00Z"
-        },
-        {
-          "tau": 24,
-          "lat": 11.3,
-          "lon": 129.3,
+          "lat": 10.9,
+          "lon": 129.6,
           "wind_kt": 20,
           "wind_mph": 23,
           "wind_kmh": 37,
@@ -69,7 +55,21 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-05-11T06:00:00Z"
+          "datetime": "2026-05-11T00:00:00Z"
+        },
+        {
+          "tau": 24,
+          "lat": 11.5,
+          "lon": 128.3,
+          "wind_kt": 20,
+          "wind_mph": 23,
+          "wind_kmh": 37,
+          "pressure_mb": 0,
+          "classification": "TD",
+          "classification_label": "Tropical Depression",
+          "intensity_code": "TD",
+          "intensity_color": "#7ec8e3",
+          "datetime": "2026-05-11T12:00:00Z"
         }
       ]
     }
