@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-05T08:30:20Z",
+  "generated": "2026-06-05T08:40:13Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
@@ -13,12 +13,12 @@
       "year": 2026,
       "name": "Amanda",
       "source_agency": "NHC",
-      "advisory_time": "2026-06-05T08:30:20Z",
+      "advisory_time": "2026-06-05T08:40:14Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 13.3,
-        "lon": -132.0,
+        "lat": 13.4,
+        "lon": -132.7,
         "wind_kt": 39,
         "wind_mph": 45,
         "wind_kmh": 72,
@@ -27,15 +27,15 @@
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-06-05T08:30:20Z",
+        "datetime": "2026-06-05T08:40:14Z",
         "color": "#00d4ff",
         "code": "TS"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 13.3,
-          "lon": -132.0,
+          "lat": 13.4,
+          "lon": -132.7,
           "wind_kt": 39,
           "wind_mph": 45,
           "wind_kmh": 72,
@@ -44,7 +44,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-06-05T08:30:20Z",
+          "datetime": "2026-06-05T08:40:14Z",
           "color": "#00d4ff",
           "code": "TS"
         }
