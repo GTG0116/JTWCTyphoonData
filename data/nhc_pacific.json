@@ -1,9 +1,9 @@
 {
-  "generated": "2026-06-07T14:50:12Z",
+  "generated": "2026-06-07T15:00:19Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
-  "storm_count": 1,
+  "storm_count": 2,
   "storms": [
     {
       "id": "EP012026",
@@ -13,7 +13,7 @@
       "year": 2026,
       "name": "Amanda",
       "source_agency": "NHC",
-      "advisory_time": "2026-06-07T14:50:12Z",
+      "advisory_time": "2026-06-07T15:00:19Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
@@ -27,7 +27,7 @@
         "classification_label": "Post-Tropical Cyclone",
         "intensity_code": "PT",
         "intensity_color": "#7ec8e3",
-        "datetime": "2026-06-07T14:50:12Z",
+        "datetime": "2026-06-07T15:00:19Z",
         "color": "#7ec8e3",
         "code": "PT"
       },
@@ -44,9 +44,54 @@
           "classification_label": "Post-Tropical Cyclone",
           "intensity_code": "PT",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-06-07T14:50:12Z",
+          "datetime": "2026-06-07T15:00:19Z",
           "color": "#7ec8e3",
           "code": "PT"
+        }
+      ]
+    },
+    {
+      "id": "EP022026",
+      "basin": "EP",
+      "basin_name": "Eastern North Pacific",
+      "number": 2,
+      "year": 2026,
+      "name": "Two-E",
+      "source_agency": "NHC",
+      "advisory_time": "2026-06-07T15:00:19Z",
+      "is_final_warning": false,
+      "current": {
+        "tau": 0,
+        "lat": 15.5,
+        "lon": -99.9,
+        "wind_kt": 30,
+        "wind_mph": 35,
+        "wind_kmh": 56,
+        "pressure_mb": 1005,
+        "classification": "TD",
+        "classification_label": "Tropical Depression",
+        "intensity_code": "TD",
+        "intensity_color": "#7ec8e3",
+        "datetime": "2026-06-07T15:00:19Z",
+        "color": "#7ec8e3",
+        "code": "TD"
+      },
+      "forecast": [
+        {
+          "tau": 0,
+          "lat": 15.5,
+          "lon": -99.9,
+          "wind_kt": 30,
+          "wind_mph": 35,
+          "wind_kmh": 56,
+          "pressure_mb": 1005,
+          "classification": "TD",
+          "classification_label": "Tropical Depression",
+          "intensity_code": "TD",
+          "intensity_color": "#7ec8e3",
+          "datetime": "2026-06-07T15:00:19Z",
+          "color": "#7ec8e3",
+          "code": "TD"
         }
       ]
     }
