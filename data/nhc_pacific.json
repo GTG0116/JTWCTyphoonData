@@ -1,55 +1,10 @@
 {
-  "generated": "2026-06-09T22:50:14Z",
+  "generated": "2026-06-09T23:00:16Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
-  "storm_count": 2,
+  "storm_count": 1,
   "storms": [
-    {
-      "id": "EP022026",
-      "basin": "EP",
-      "basin_name": "Eastern North Pacific",
-      "number": 2,
-      "year": 2026,
-      "name": "Boris",
-      "source_agency": "NHC",
-      "advisory_time": "2026-06-09T22:50:14Z",
-      "is_final_warning": true,
-      "current": {
-        "tau": 0,
-        "lat": 16.9,
-        "lon": -98.9,
-        "wind_kt": 26,
-        "wind_mph": 30,
-        "wind_kmh": 48,
-        "pressure_mb": 1004,
-        "classification": "PT",
-        "classification_label": "Post-Tropical Cyclone",
-        "intensity_code": "PT",
-        "intensity_color": "#7ec8e3",
-        "datetime": "2026-06-09T22:50:14Z",
-        "color": "#7ec8e3",
-        "code": "PT"
-      },
-      "forecast": [
-        {
-          "tau": 0,
-          "lat": 16.9,
-          "lon": -98.9,
-          "wind_kt": 26,
-          "wind_mph": 30,
-          "wind_kmh": 48,
-          "pressure_mb": 1004,
-          "classification": "PT",
-          "classification_label": "Post-Tropical Cyclone",
-          "intensity_code": "PT",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-06-09T22:50:14Z",
-          "color": "#7ec8e3",
-          "code": "PT"
-        }
-      ]
-    },
     {
       "id": "EP032026",
       "basin": "EP",
@@ -58,7 +13,7 @@
       "year": 2026,
       "name": "Cristina",
       "source_agency": "NHC",
-      "advisory_time": "2026-06-09T22:50:15Z",
+      "advisory_time": "2026-06-09T23:00:17Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
@@ -72,7 +27,7 @@
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-06-09T22:50:15Z",
+        "datetime": "2026-06-09T23:00:17Z",
         "color": "#00d4ff",
         "code": "TS"
       },
@@ -89,7 +44,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-06-09T22:50:15Z",
+          "datetime": "2026-06-09T23:00:17Z",
           "color": "#00d4ff",
           "code": "TS"
         }
