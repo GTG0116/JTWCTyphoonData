@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-10T08:40:19Z",
+  "generated": "2026-06-10T08:50:20Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
@@ -13,12 +13,12 @@
       "year": 2026,
       "name": "Cristina",
       "source_agency": "NHC",
-      "advisory_time": "2026-06-10T08:40:20Z",
+      "advisory_time": "2026-06-10T08:50:20Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
         "lat": 12.4,
-        "lon": -88.3,
+        "lon": -88.5,
         "wind_kt": 35,
         "wind_mph": 40,
         "wind_kmh": 65,
@@ -27,7 +27,7 @@
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-06-10T08:40:20Z",
+        "datetime": "2026-06-10T08:50:20Z",
         "color": "#00d4ff",
         "code": "TS"
       },
@@ -35,7 +35,7 @@
         {
           "tau": 0,
           "lat": 12.4,
-          "lon": -88.3,
+          "lon": -88.5,
           "wind_kt": 35,
           "wind_mph": 40,
           "wind_kmh": 65,
@@ -44,7 +44,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-06-10T08:40:20Z",
+          "datetime": "2026-06-10T08:50:20Z",
           "color": "#00d4ff",
           "code": "TS"
         }
