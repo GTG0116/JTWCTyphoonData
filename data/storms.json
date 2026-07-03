@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-03T20:20:15Z",
+  "generated": "2026-07-03T20:30:22Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
@@ -476,61 +476,39 @@
       "number": 10,
       "year": 2026,
       "name": "Maysak",
-      "advisory_time": "2026-07-03T06:00:00Z",
+      "advisory_time": "2026-07-03T18:00:00Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 17.6,
-        "lon": 109.7,
-        "wind_kt": 35,
-        "wind_mph": 40,
-        "wind_kmh": 65,
-        "pressure_mb": 0,
+        "lat": 19.8,
+        "lon": 108.7,
+        "wind_kt": 40,
+        "wind_mph": 46,
+        "wind_kmh": 74,
+        "pressure_mb": 1000,
         "classification": "TS",
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-07-03T06:00:00Z",
+        "datetime": "2026-07-03T18:00:00Z",
         "wind_radii_nm": {
           "034": {
-            "NE": 55,
-            "SE": 70,
-            "SW": 70,
-            "NW": 0
+            "NE": 30,
+            "SE": 145,
+            "SW": 115,
+            "NW": 30
           }
         }
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 17.6,
-          "lon": 109.7,
-          "wind_kt": 35,
-          "wind_mph": 40,
-          "wind_kmh": 65,
-          "pressure_mb": 0,
-          "classification": "TS",
-          "classification_label": "Tropical Storm",
-          "intensity_code": "TS",
-          "intensity_color": "#00d4ff",
-          "datetime": "2026-07-03T06:00:00Z",
-          "wind_radii_nm": {
-            "034": {
-              "NE": 55,
-              "SE": 70,
-              "SW": 70,
-              "NW": 0
-            }
-          }
-        },
-        {
-          "tau": 12,
-          "lat": 19.0,
+          "lat": 19.8,
           "lon": 108.7,
-          "wind_kt": 35,
-          "wind_mph": 40,
-          "wind_kmh": 65,
-          "pressure_mb": 0,
+          "wind_kt": 40,
+          "wind_mph": 46,
+          "wind_kmh": 74,
+          "pressure_mb": 1000,
           "classification": "TS",
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
@@ -538,20 +516,20 @@
           "datetime": "2026-07-03T18:00:00Z",
           "wind_radii_nm": {
             "034": {
-              "NE": 60,
-              "SE": 90,
-              "SW": 55,
-              "NW": 0
+              "NE": 30,
+              "SE": 145,
+              "SW": 115,
+              "NW": 30
             }
           }
         },
         {
-          "tau": 24,
-          "lat": 20.3,
+          "tau": 12,
+          "lat": 21.2,
           "lon": 107.9,
-          "wind_kt": 40,
-          "wind_mph": 46,
-          "wind_kmh": 74,
+          "wind_kt": 45,
+          "wind_mph": 52,
+          "wind_kmh": 83,
           "pressure_mb": 0,
           "classification": "TS",
           "classification_label": "Tropical Storm",
@@ -560,17 +538,17 @@
           "datetime": "2026-07-04T06:00:00Z",
           "wind_radii_nm": {
             "034": {
-              "NE": 60,
-              "SE": 90,
-              "SW": 60,
-              "NW": 0
+              "NE": 40,
+              "SE": 100,
+              "SW": 90,
+              "NW": 30
             }
           }
         },
         {
-          "tau": 36,
-          "lat": 21.4,
-          "lon": 107.5,
+          "tau": 24,
+          "lat": 22.5,
+          "lon": 107.7,
           "wind_kt": 40,
           "wind_mph": 46,
           "wind_kmh": 74,
@@ -582,17 +560,17 @@
           "datetime": "2026-07-04T18:00:00Z",
           "wind_radii_nm": {
             "034": {
-              "NE": 0,
+              "NE": 20,
               "SE": 90,
-              "SW": 60,
-              "NW": 0
+              "SW": 100,
+              "NW": 10
             }
           }
         },
         {
-          "tau": 48,
-          "lat": 22.6,
-          "lon": 107.8,
+          "tau": 36,
+          "lat": 23.8,
+          "lon": 107.9,
           "wind_kt": 30,
           "wind_mph": 35,
           "wind_kmh": 56,
@@ -604,9 +582,9 @@
           "datetime": "2026-07-05T06:00:00Z"
         },
         {
-          "tau": 60,
-          "lat": 23.9,
-          "lon": 108.3,
+          "tau": 48,
+          "lat": 25.5,
+          "lon": 108.6,
           "wind_kt": 20,
           "wind_mph": 23,
           "wind_kmh": 37,
