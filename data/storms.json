@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-04T08:00:26Z",
+  "generated": "2026-07-04T08:10:17Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
@@ -476,26 +476,26 @@
       "number": 10,
       "year": 2026,
       "name": "Maysak",
-      "advisory_time": "2026-07-04T00:00:00Z",
+      "advisory_time": "2026-07-04T06:00:00Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 20.2,
-        "lon": 108.4,
+        "lat": 20.6,
+        "lon": 107.8,
         "wind_kt": 45,
         "wind_mph": 52,
         "wind_kmh": 83,
-        "pressure_mb": 996,
+        "pressure_mb": 991,
         "classification": "TS",
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-07-04T00:00:00Z",
+        "datetime": "2026-07-04T06:00:00Z",
         "wind_radii_nm": {
           "034": {
-            "NE": 30,
-            "SE": 145,
-            "SW": 115,
+            "NE": 60,
+            "SE": 180,
+            "SW": 140,
             "NW": 30
           }
         }
@@ -503,46 +503,40 @@
       "forecast": [
         {
           "tau": 0,
-          "lat": 20.2,
-          "lon": 108.4,
+          "lat": 20.6,
+          "lon": 107.8,
           "wind_kt": 45,
           "wind_mph": 52,
           "wind_kmh": 83,
-          "pressure_mb": 996,
+          "pressure_mb": 991,
           "classification": "TS",
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-07-04T00:00:00Z",
+          "datetime": "2026-07-04T06:00:00Z",
           "wind_radii_nm": {
             "034": {
-              "NE": 30,
-              "SE": 145,
-              "SW": 115,
+              "NE": 60,
+              "SE": 180,
+              "SW": 140,
               "NW": 30
             }
           }
         },
         {
           "tau": 12,
-          "lat": 21.4,
-          "lon": 107.9,
-          "wind_kt": 50,
-          "wind_mph": 58,
-          "wind_kmh": 93,
+          "lat": 21.7,
+          "lon": 107.6,
+          "wind_kt": 35,
+          "wind_mph": 40,
+          "wind_kmh": 65,
           "pressure_mb": 0,
           "classification": "TS",
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-07-04T12:00:00Z",
+          "datetime": "2026-07-04T18:00:00Z",
           "wind_radii_nm": {
-            "050": {
-              "NE": 10,
-              "SE": 15,
-              "SW": 10,
-              "NW": 5
-            },
             "034": {
               "NE": 30,
               "SE": 120,
@@ -553,30 +547,22 @@
         },
         {
           "tau": 24,
-          "lat": 22.7,
+          "lat": 22.9,
           "lon": 107.8,
-          "wind_kt": 35,
-          "wind_mph": 40,
-          "wind_kmh": 65,
+          "wind_kt": 25,
+          "wind_mph": 29,
+          "wind_kmh": 46,
           "pressure_mb": 0,
-          "classification": "TS",
-          "classification_label": "Tropical Storm",
-          "intensity_code": "TS",
-          "intensity_color": "#00d4ff",
-          "datetime": "2026-07-05T00:00:00Z",
-          "wind_radii_nm": {
-            "034": {
-              "NE": 20,
-              "SE": 120,
-              "SW": 90,
-              "NW": 0
-            }
-          }
+          "classification": "TD",
+          "classification_label": "Tropical Depression",
+          "intensity_code": "TD",
+          "intensity_color": "#7ec8e3",
+          "datetime": "2026-07-05T06:00:00Z"
         },
         {
           "tau": 36,
-          "lat": 24.0,
-          "lon": 108.2,
+          "lat": 24.4,
+          "lon": 108.3,
           "wind_kt": 20,
           "wind_mph": 23,
           "wind_kmh": 37,
@@ -585,7 +571,7 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-07-05T12:00:00Z"
+          "datetime": "2026-07-05T18:00:00Z"
         }
       ]
     }
