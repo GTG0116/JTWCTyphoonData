@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-15T02:30:30Z",
+  "generated": "2026-07-15T02:40:21Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
@@ -13,12 +13,12 @@
       "year": 2026,
       "name": "Five-E",
       "source_agency": "NHC",
-      "advisory_time": "2026-07-15T02:30:31Z",
+      "advisory_time": "2026-07-15T02:40:21Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 14.8,
-        "lon": -109.2,
+        "lat": 14.7,
+        "lon": -110.5,
         "wind_kt": 30,
         "wind_mph": 35,
         "wind_kmh": 56,
@@ -27,15 +27,15 @@
         "classification_label": "Tropical Depression",
         "intensity_code": "TD",
         "intensity_color": "#7ec8e3",
-        "datetime": "2026-07-15T02:30:31Z",
+        "datetime": "2026-07-15T02:40:21Z",
         "color": "#7ec8e3",
         "code": "TD"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 14.8,
-          "lon": -109.2,
+          "lat": 14.7,
+          "lon": -110.5,
           "wind_kt": 30,
           "wind_mph": 35,
           "wind_kmh": 56,
@@ -44,7 +44,7 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-07-15T02:30:31Z",
+          "datetime": "2026-07-15T02:40:21Z",
           "color": "#7ec8e3",
           "code": "TD"
         }
