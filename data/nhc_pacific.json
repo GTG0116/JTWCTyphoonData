@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-16T14:30:28Z",
+  "generated": "2026-07-16T14:40:27Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
@@ -13,12 +13,12 @@
       "year": 2026,
       "name": "Elida",
       "source_agency": "NHC",
-      "advisory_time": "2026-07-16T14:30:28Z",
+      "advisory_time": "2026-07-16T14:40:27Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 15.6,
-        "lon": -116.5,
+        "lat": 15.7,
+        "lon": -117.4,
         "wind_kt": 52,
         "wind_mph": 60,
         "wind_kmh": 96,
@@ -27,15 +27,15 @@
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-07-16T14:30:28Z",
+        "datetime": "2026-07-16T14:40:27Z",
         "color": "#00d4ff",
         "code": "TS"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 15.6,
-          "lon": -116.5,
+          "lat": 15.7,
+          "lon": -117.4,
           "wind_kt": 52,
           "wind_mph": 60,
           "wind_kmh": 96,
@@ -44,7 +44,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-07-16T14:30:28Z",
+          "datetime": "2026-07-16T14:40:27Z",
           "color": "#00d4ff",
           "code": "TS"
         }
