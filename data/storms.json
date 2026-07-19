@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-19T02:50:15Z",
+  "generated": "2026-07-19T03:00:16Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
@@ -12,12 +12,12 @@
       "number": 5,
       "year": 2026,
       "name": "Elida",
-      "advisory_time": "2026-07-18T18:00:00Z",
+      "advisory_time": "2026-07-19T00:00:00Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 19.3,
-        "lon": -123.5,
+        "lat": 20.1,
+        "lon": -124.5,
         "wind_kt": 60,
         "wind_mph": 69,
         "wind_kmh": 111,
@@ -26,7 +26,7 @@
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-07-18T18:00:00Z",
+        "datetime": "2026-07-19T00:00:00Z",
         "wind_radii_nm": {
           "050": {
             "NE": 60,
@@ -37,16 +37,16 @@
           "034": {
             "NE": 150,
             "SE": 170,
-            "SW": 50,
-            "NW": 90
+            "SW": 70,
+            "NW": 110
           }
         }
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 19.3,
-          "lon": -123.5,
+          "lat": 20.1,
+          "lon": -124.5,
           "wind_kt": 60,
           "wind_mph": 69,
           "wind_kmh": 111,
@@ -55,7 +55,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-07-18T18:00:00Z",
+          "datetime": "2026-07-19T00:00:00Z",
           "wind_radii_nm": {
             "050": {
               "NE": 60,
@@ -66,15 +66,15 @@
             "034": {
               "NE": 150,
               "SE": 170,
-              "SW": 50,
-              "NW": 90
+              "SW": 70,
+              "NW": 110
             }
           }
         },
         {
           "tau": 12,
-          "lat": 21.0,
-          "lon": -124.6,
+          "lat": 21.9,
+          "lon": -125.7,
           "wind_kt": 55,
           "wind_mph": 63,
           "wind_kmh": 102,
@@ -83,26 +83,26 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-07-19T06:00:00Z",
+          "datetime": "2026-07-19T12:00:00Z",
           "wind_radii_nm": {
             "050": {
-              "NE": 20,
+              "NE": 30,
               "SE": 0,
               "SW": 0,
               "NW": 30
             },
             "034": {
               "NE": 140,
-              "SE": 140,
+              "SE": 150,
               "SW": 50,
-              "NW": 90
+              "NW": 100
             }
           }
         },
         {
           "tau": 24,
-          "lat": 23.0,
-          "lon": -125.7,
+          "lat": 24.0,
+          "lon": -126.6,
           "wind_kt": 50,
           "wind_mph": 58,
           "wind_kmh": 93,
@@ -111,7 +111,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-07-19T18:00:00Z",
+          "datetime": "2026-07-20T00:00:00Z",
           "wind_radii_nm": {
             "050": {
               "NE": 20,
@@ -129,8 +129,8 @@
         },
         {
           "tau": 36,
-          "lat": 25.2,
-          "lon": -126.4,
+          "lat": 26.4,
+          "lon": -127.3,
           "wind_kt": 45,
           "wind_mph": 52,
           "wind_kmh": 83,
@@ -139,42 +139,20 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-07-20T06:00:00Z",
+          "datetime": "2026-07-20T12:00:00Z",
           "wind_radii_nm": {
             "034": {
-              "NE": 120,
+              "NE": 110,
               "SE": 100,
               "SW": 40,
-              "NW": 80
+              "NW": 70
             }
           }
         },
         {
           "tau": 48,
-          "lat": 27.6,
-          "lon": -127.0,
-          "wind_kt": 40,
-          "wind_mph": 46,
-          "wind_kmh": 74,
-          "pressure_mb": 0,
-          "classification": "TS",
-          "classification_label": "Tropical Storm",
-          "intensity_code": "TS",
-          "intensity_color": "#00d4ff",
-          "datetime": "2026-07-20T18:00:00Z",
-          "wind_radii_nm": {
-            "034": {
-              "NE": 70,
-              "SE": 70,
-              "SW": 20,
-              "NW": 60
-            }
-          }
-        },
-        {
-          "tau": 60,
-          "lat": 30.1,
-          "lon": -127.3,
+          "lat": 29.0,
+          "lon": -127.7,
           "wind_kt": 35,
           "wind_mph": 40,
           "wind_kmh": 65,
@@ -183,20 +161,20 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-07-21T06:00:00Z",
+          "datetime": "2026-07-21T00:00:00Z",
           "wind_radii_nm": {
             "034": {
-              "NE": 30,
-              "SE": 40,
+              "NE": 70,
+              "SE": 60,
               "SW": 20,
               "NW": 50
             }
           }
         },
         {
-          "tau": 72,
-          "lat": 32.9,
-          "lon": -127.6,
+          "tau": 60,
+          "lat": 31.4,
+          "lon": -127.8,
           "wind_kt": 30,
           "wind_mph": 35,
           "wind_kmh": 56,
@@ -205,21 +183,21 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-07-21T18:00:00Z"
+          "datetime": "2026-07-21T12:00:00Z"
         },
         {
-          "tau": 96,
-          "lat": 37.0,
-          "lon": -127.7,
-          "wind_kt": 20,
-          "wind_mph": 23,
-          "wind_kmh": 37,
+          "tau": 72,
+          "lat": 33.9,
+          "lon": -127.8,
+          "wind_kt": 25,
+          "wind_mph": 29,
+          "wind_kmh": 46,
           "pressure_mb": 0,
           "classification": "TD",
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-07-22T18:00:00Z"
+          "datetime": "2026-07-22T00:00:00Z"
         }
       ]
     }
