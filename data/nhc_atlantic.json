@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-22T08:40:15Z",
+  "generated": "2026-07-22T08:50:14Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
@@ -13,12 +13,12 @@
       "year": 2026,
       "name": "Bertha",
       "source_agency": "NHC",
-      "advisory_time": "2026-07-22T08:40:15Z",
+      "advisory_time": "2026-07-22T08:50:14Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 29.3,
-        "lon": -87.9,
+        "lat": 29.4,
+        "lon": -88.3,
         "wind_kt": 43,
         "wind_mph": 49,
         "wind_kmh": 80,
@@ -27,15 +27,15 @@
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-07-22T08:40:15Z",
+        "datetime": "2026-07-22T08:50:14Z",
         "color": "#00d4ff",
         "code": "TS"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 29.3,
-          "lon": -87.9,
+          "lat": 29.4,
+          "lon": -88.3,
           "wind_kt": 43,
           "wind_mph": 49,
           "wind_kmh": 80,
@@ -44,7 +44,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-07-22T08:40:15Z",
+          "datetime": "2026-07-22T08:50:14Z",
           "color": "#00d4ff",
           "code": "TS"
         }
