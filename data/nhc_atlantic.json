@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-24T02:30:25Z",
+  "generated": "2026-07-24T02:40:15Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
@@ -11,42 +11,42 @@
       "basin_name": "North Atlantic",
       "number": 2,
       "year": 2026,
-      "name": "Bertha",
+      "name": "Center",
       "source_agency": "NHC",
-      "advisory_time": "2026-07-24T02:30:25Z",
-      "is_final_warning": false,
+      "advisory_time": "2026-07-24T02:40:15Z",
+      "is_final_warning": true,
       "current": {
         "tau": 0,
-        "lat": 29.9,
-        "lon": -95.3,
+        "lat": 30.0,
+        "lon": -96.0,
         "wind_kt": 30,
         "wind_mph": 35,
         "wind_kmh": 56,
-        "pressure_mb": 1007,
-        "classification": "TD",
-        "classification_label": "Tropical Depression",
-        "intensity_code": "TD",
+        "pressure_mb": 1008,
+        "classification": "PT",
+        "classification_label": "Post-Tropical Cyclone",
+        "intensity_code": "PT",
         "intensity_color": "#7ec8e3",
-        "datetime": "2026-07-24T02:30:25Z",
+        "datetime": "2026-07-24T02:40:15Z",
         "color": "#7ec8e3",
-        "code": "TD"
+        "code": "PT"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 29.9,
-          "lon": -95.3,
+          "lat": 30.0,
+          "lon": -96.0,
           "wind_kt": 30,
           "wind_mph": 35,
           "wind_kmh": 56,
-          "pressure_mb": 1007,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
+          "pressure_mb": 1008,
+          "classification": "PT",
+          "classification_label": "Post-Tropical Cyclone",
+          "intensity_code": "PT",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-07-24T02:30:25Z",
+          "datetime": "2026-07-24T02:40:15Z",
           "color": "#7ec8e3",
-          "code": "TD"
+          "code": "PT"
         }
       ]
     }
