@@ -1,55 +1,10 @@
 {
-  "generated": "2026-07-26T14:50:18Z",
+  "generated": "2026-07-26T15:00:24Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
   "storm_count": 2,
   "storms": [
-    {
-      "id": "EP062026",
-      "basin": "EP",
-      "basin_name": "Eastern North Pacific",
-      "number": 6,
-      "year": 2026,
-      "name": "Fausto",
-      "source_agency": "NHC",
-      "advisory_time": "2026-07-26T14:50:18Z",
-      "is_final_warning": false,
-      "current": {
-        "tau": 0,
-        "lat": 19.9,
-        "lon": -141.1,
-        "wind_kt": 74,
-        "wind_mph": 85,
-        "wind_kmh": 137,
-        "pressure_mb": 977,
-        "classification": "HU1",
-        "classification_label": "Hurricane (Category 1)",
-        "intensity_code": "HU1",
-        "intensity_color": "#aaff00",
-        "datetime": "2026-07-26T14:50:18Z",
-        "color": "#aaff00",
-        "code": "HU1"
-      },
-      "forecast": [
-        {
-          "tau": 0,
-          "lat": 19.9,
-          "lon": -141.1,
-          "wind_kt": 74,
-          "wind_mph": 85,
-          "wind_kmh": 137,
-          "pressure_mb": 977,
-          "classification": "HU1",
-          "classification_label": "Hurricane (Category 1)",
-          "intensity_code": "HU1",
-          "intensity_color": "#aaff00",
-          "datetime": "2026-07-26T14:50:18Z",
-          "color": "#aaff00",
-          "code": "HU1"
-        }
-      ]
-    },
     {
       "id": "EP072026",
       "basin": "EP",
@@ -58,7 +13,7 @@
       "year": 2026,
       "name": "Genevieve",
       "source_agency": "NHC",
-      "advisory_time": "2026-07-26T14:50:19Z",
+      "advisory_time": "2026-07-26T15:00:25Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
@@ -72,7 +27,7 @@
         "classification_label": "Hurricane (Category 3)",
         "intensity_code": "HU3",
         "intensity_color": "#ff8c00",
-        "datetime": "2026-07-26T14:50:19Z",
+        "datetime": "2026-07-26T15:00:25Z",
         "color": "#ff8c00",
         "code": "HU3"
       },
@@ -89,9 +44,54 @@
           "classification_label": "Hurricane (Category 3)",
           "intensity_code": "HU3",
           "intensity_color": "#ff8c00",
-          "datetime": "2026-07-26T14:50:19Z",
+          "datetime": "2026-07-26T15:00:25Z",
           "color": "#ff8c00",
           "code": "HU3"
+        }
+      ]
+    },
+    {
+      "id": "EP062026",
+      "basin": "EP",
+      "basin_name": "Eastern North Pacific",
+      "number": 6,
+      "year": 2026,
+      "name": "Fausto",
+      "source_agency": "NHC",
+      "advisory_time": "2026-07-26T15:00:25Z",
+      "is_final_warning": false,
+      "current": {
+        "tau": 0,
+        "lat": 19.9,
+        "lon": -141.1,
+        "wind_kt": 74,
+        "wind_mph": 85,
+        "wind_kmh": 137,
+        "pressure_mb": 977,
+        "classification": "HU1",
+        "classification_label": "Hurricane (Category 1)",
+        "intensity_code": "HU1",
+        "intensity_color": "#aaff00",
+        "datetime": "2026-07-26T15:00:25Z",
+        "color": "#aaff00",
+        "code": "HU1"
+      },
+      "forecast": [
+        {
+          "tau": 0,
+          "lat": 19.9,
+          "lon": -141.1,
+          "wind_kt": 74,
+          "wind_mph": 85,
+          "wind_kmh": 137,
+          "pressure_mb": 977,
+          "classification": "HU1",
+          "classification_label": "Hurricane (Category 1)",
+          "intensity_code": "HU1",
+          "intensity_color": "#aaff00",
+          "datetime": "2026-07-26T15:00:25Z",
+          "color": "#aaff00",
+          "code": "HU1"
         }
       ]
     }
