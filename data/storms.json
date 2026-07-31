@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-31T21:10:18Z",
+  "generated": "2026-07-31T21:20:15Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
@@ -12,12 +12,12 @@
       "number": 7,
       "year": 2026,
       "name": "Genevieve",
-      "advisory_time": "2026-07-31T12:00:00Z",
+      "advisory_time": "2026-07-31T18:00:00Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 21.9,
-        "lon": -127.9,
+        "lat": 22.1,
+        "lon": -129.5,
         "wind_kt": 50,
         "wind_mph": 58,
         "wind_kmh": 93,
@@ -26,12 +26,12 @@
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-07-31T12:00:00Z",
+        "datetime": "2026-07-31T18:00:00Z",
         "wind_radii_nm": {
           "050": {
             "NE": 40,
-            "SE": 40,
-            "SW": 30,
+            "SE": 0,
+            "SW": 0,
             "NW": 40
           },
           "034": {
@@ -45,8 +45,8 @@
       "forecast": [
         {
           "tau": 0,
-          "lat": 21.9,
-          "lon": -127.9,
+          "lat": 22.1,
+          "lon": -129.5,
           "wind_kt": 50,
           "wind_mph": 58,
           "wind_kmh": 93,
@@ -55,12 +55,12 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-07-31T12:00:00Z",
+          "datetime": "2026-07-31T18:00:00Z",
           "wind_radii_nm": {
             "050": {
               "NE": 40,
-              "SE": 40,
-              "SW": 30,
+              "SE": 0,
+              "SW": 0,
               "NW": 40
             },
             "034": {
@@ -73,8 +73,8 @@
         },
         {
           "tau": 12,
-          "lat": 22.6,
-          "lon": -130.6,
+          "lat": 22.8,
+          "lon": -132.3,
           "wind_kt": 45,
           "wind_mph": 52,
           "wind_kmh": 83,
@@ -83,7 +83,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-08-01T00:00:00Z",
+          "datetime": "2026-08-01T06:00:00Z",
           "wind_radii_nm": {
             "034": {
               "NE": 80,
@@ -95,8 +95,8 @@
         },
         {
           "tau": 24,
-          "lat": 23.4,
-          "lon": -133.5,
+          "lat": 23.6,
+          "lon": -135.2,
           "wind_kt": 45,
           "wind_mph": 52,
           "wind_kmh": 83,
@@ -105,7 +105,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-08-01T12:00:00Z",
+          "datetime": "2026-08-01T18:00:00Z",
           "wind_radii_nm": {
             "034": {
               "NE": 80,
@@ -117,8 +117,8 @@
         },
         {
           "tau": 36,
-          "lat": 24.2,
-          "lon": -136.4,
+          "lat": 24.4,
+          "lon": -138.0,
           "wind_kt": 40,
           "wind_mph": 46,
           "wind_kmh": 74,
@@ -127,20 +127,20 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-08-02T00:00:00Z",
+          "datetime": "2026-08-02T06:00:00Z",
           "wind_radii_nm": {
             "034": {
-              "NE": 70,
+              "NE": 60,
               "SE": 30,
               "SW": 30,
-              "NW": 70
+              "NW": 60
             }
           }
         },
         {
           "tau": 48,
-          "lat": 25.1,
-          "lon": -139.1,
+          "lat": 25.4,
+          "lon": -140.6,
           "wind_kt": 35,
           "wind_mph": 40,
           "wind_kmh": 65,
@@ -149,20 +149,20 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-08-02T12:00:00Z",
+          "datetime": "2026-08-02T18:00:00Z",
           "wind_radii_nm": {
             "034": {
-              "NE": 50,
+              "NE": 40,
               "SE": 0,
               "SW": 0,
-              "NW": 50
+              "NW": 40
             }
           }
         },
         {
           "tau": 60,
-          "lat": 26.1,
-          "lon": -141.6,
+          "lat": 26.4,
+          "lon": -142.8,
           "wind_kt": 30,
           "wind_mph": 35,
           "wind_kmh": 56,
@@ -171,12 +171,12 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-08-03T00:00:00Z"
+          "datetime": "2026-08-03T06:00:00Z"
         },
         {
           "tau": 72,
-          "lat": 27.2,
-          "lon": -143.5,
+          "lat": 27.6,
+          "lon": -144.5,
           "wind_kt": 30,
           "wind_mph": 35,
           "wind_kmh": 56,
@@ -185,12 +185,12 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-08-03T12:00:00Z"
+          "datetime": "2026-08-03T18:00:00Z"
         },
         {
           "tau": 96,
-          "lat": 29.9,
-          "lon": -145.8,
+          "lat": 30.3,
+          "lon": -146.5,
           "wind_kt": 25,
           "wind_mph": 29,
           "wind_kmh": 46,
@@ -199,12 +199,12 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-08-04T12:00:00Z"
+          "datetime": "2026-08-04T18:00:00Z"
         },
         {
           "tau": 120,
-          "lat": 33.3,
-          "lon": -147.5,
+          "lat": 33.7,
+          "lon": -148.1,
           "wind_kt": 25,
           "wind_mph": 29,
           "wind_kmh": 46,
@@ -213,7 +213,7 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-08-05T12:00:00Z"
+          "datetime": "2026-08-05T18:00:00Z"
         }
       ]
     },
