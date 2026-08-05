@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-05T02:10:16Z",
+  "generated": "2026-08-05T02:20:13Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
@@ -364,12 +364,12 @@
       "number": 13,
       "year": 2026,
       "name": "Kujira",
-      "advisory_time": "2026-08-04T18:00:00Z",
+      "advisory_time": "2026-08-05T00:00:00Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 17.5,
-        "lon": 118.9,
+        "lat": 17.6,
+        "lon": 118.7,
         "wind_kt": 30,
         "wind_mph": 35,
         "wind_kmh": 56,
@@ -378,13 +378,13 @@
         "classification_label": "Tropical Depression",
         "intensity_code": "TD",
         "intensity_color": "#7ec8e3",
-        "datetime": "2026-08-04T18:00:00Z"
+        "datetime": "2026-08-05T00:00:00Z"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 17.5,
-          "lon": 118.9,
+          "lat": 17.6,
+          "lon": 118.7,
           "wind_kt": 30,
           "wind_mph": 35,
           "wind_kmh": 56,
@@ -393,12 +393,12 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-08-04T18:00:00Z"
+          "datetime": "2026-08-05T00:00:00Z"
         },
         {
           "tau": 12,
-          "lat": 17.6,
-          "lon": 119.6,
+          "lat": 17.8,
+          "lon": 119.7,
           "wind_kt": 35,
           "wind_mph": 40,
           "wind_kmh": 65,
@@ -407,20 +407,20 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-08-05T06:00:00Z",
+          "datetime": "2026-08-05T12:00:00Z",
           "wind_radii_nm": {
             "034": {
-              "NE": 40,
-              "SE": 60,
-              "SW": 60,
-              "NW": 30
+              "NE": 20,
+              "SE": 50,
+              "SW": 80,
+              "NW": 40
             }
           }
         },
         {
           "tau": 24,
-          "lat": 17.5,
-          "lon": 121.0,
+          "lat": 17.4,
+          "lon": 121.6,
           "wind_kt": 30,
           "wind_mph": 35,
           "wind_kmh": 56,
@@ -429,12 +429,12 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-08-05T18:00:00Z"
+          "datetime": "2026-08-06T00:00:00Z"
         },
         {
           "tau": 36,
-          "lat": 17.4,
-          "lon": 122.1,
+          "lat": 17.3,
+          "lon": 123.8,
           "wind_kt": 20,
           "wind_mph": 23,
           "wind_kmh": 37,
@@ -443,7 +443,7 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-08-06T06:00:00Z"
+          "datetime": "2026-08-06T12:00:00Z"
         }
       ]
     }
