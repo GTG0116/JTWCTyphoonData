@@ -1,9 +1,9 @@
 {
-  "generated": "2026-08-07T12:00:21Z",
+  "generated": "2026-08-07T12:10:15Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
-  "storm_count": 3,
+  "storm_count": 2,
   "storms": [
     {
       "id": "WP1226",
@@ -13,7 +13,7 @@
       "year": 2026,
       "name": "Dolphin",
       "advisory_time": "2026-08-07T06:00:00Z",
-      "is_final_warning": true,
+      "is_final_warning": false,
       "current": {
         "tau": 0,
         "lat": 26.7,
@@ -292,74 +292,6 @@
       ]
     },
     {
-      "id": "WP1326",
-      "basin": "WP",
-      "basin_name": "Western North Pacific",
-      "number": 13,
-      "year": 2026,
-      "name": "Kujira",
-      "advisory_time": "2026-08-06T12:00:00Z",
-      "is_final_warning": true,
-      "current": {
-        "tau": 0,
-        "lat": 16.7,
-        "lon": 122.9,
-        "wind_kt": 25,
-        "wind_mph": 29,
-        "wind_kmh": 46,
-        "pressure_mb": 0,
-        "classification": "TD",
-        "classification_label": "Tropical Depression",
-        "intensity_code": "TD",
-        "intensity_color": "#7ec8e3",
-        "datetime": "2026-08-06T12:00:00Z"
-      },
-      "forecast": [
-        {
-          "tau": 0,
-          "lat": 16.7,
-          "lon": 122.9,
-          "wind_kt": 25,
-          "wind_mph": 29,
-          "wind_kmh": 46,
-          "pressure_mb": 0,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-08-06T12:00:00Z"
-        },
-        {
-          "tau": 12,
-          "lat": 17.1,
-          "lon": 125.3,
-          "wind_kt": 25,
-          "wind_mph": 29,
-          "wind_kmh": 46,
-          "pressure_mb": 0,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-08-07T00:00:00Z"
-        },
-        {
-          "tau": 24,
-          "lat": 17.8,
-          "lon": 127.7,
-          "wind_kt": 25,
-          "wind_mph": 29,
-          "wind_kmh": 46,
-          "pressure_mb": 0,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-08-07T12:00:00Z"
-        }
-      ]
-    },
-    {
       "id": "WP1426",
       "basin": "WP",
       "basin_name": "Western North Pacific",
@@ -367,7 +299,7 @@
       "year": 2026,
       "name": null,
       "advisory_time": "2026-08-07T06:00:00Z",
-      "is_final_warning": true,
+      "is_final_warning": false,
       "current": {
         "tau": 0,
         "lat": 29.7,
