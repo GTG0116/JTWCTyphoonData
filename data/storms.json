@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-09T13:20:14Z",
+  "generated": "2026-08-09T13:30:15Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
@@ -13,7 +13,7 @@
       "year": 2026,
       "name": "Dolphin",
       "advisory_time": "2026-08-09T06:00:00Z",
-      "is_final_warning": false,
+      "is_final_warning": true,
       "current": {
         "tau": 0,
         "lat": 28.1,
@@ -21,7 +21,7 @@
         "wind_kt": 75,
         "wind_mph": 86,
         "wind_kmh": 139,
-        "pressure_mb": 0,
+        "pressure_mb": 958,
         "classification": "TY",
         "classification_label": "Typhoon (Category 1)",
         "intensity_code": "TY1",
@@ -56,7 +56,7 @@
           "wind_kt": 75,
           "wind_mph": 86,
           "wind_kmh": 139,
-          "pressure_mb": 0,
+          "pressure_mb": 958,
           "classification": "TY",
           "classification_label": "Typhoon (Category 1)",
           "intensity_code": "TY1",
@@ -171,7 +171,7 @@
       "year": 2026,
       "name": "Kujira",
       "advisory_time": "2026-08-09T06:00:00Z",
-      "is_final_warning": false,
+      "is_final_warning": true,
       "current": {
         "tau": 0,
         "lat": 21.2,
@@ -343,7 +343,7 @@
       "year": 2026,
       "name": null,
       "advisory_time": "2026-08-09T06:00:00Z",
-      "is_final_warning": false,
+      "is_final_warning": true,
       "current": {
         "tau": 0,
         "lat": 32.3,
