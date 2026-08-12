@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-12T19:00:19Z",
+  "generated": "2026-08-12T19:10:14Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
@@ -13,7 +13,7 @@
       "year": 2026,
       "name": "Peilou",
       "advisory_time": "2026-08-12T12:00:00Z",
-      "is_final_warning": true,
+      "is_final_warning": false,
       "current": {
         "tau": 0,
         "lat": 30.3,
@@ -95,7 +95,7 @@
       "year": 2026,
       "name": "Nangka",
       "advisory_time": "2026-08-12T12:00:00Z",
-      "is_final_warning": true,
+      "is_final_warning": false,
       "current": {
         "tau": 0,
         "lat": 23.0,
