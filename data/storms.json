@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-13T19:50:15Z",
+  "generated": "2026-08-13T20:00:22Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
@@ -422,27 +422,41 @@
       "number": 13,
       "year": 2026,
       "name": "Peilou",
-      "advisory_time": "2026-08-13T12:00:00Z",
-      "is_final_warning": false,
+      "advisory_time": "2026-08-13T18:00:00Z",
+      "is_final_warning": true,
       "current": {
         "tau": 0,
-        "lat": 32.9,
-        "lon": 169.1,
+        "lat": 33.8,
+        "lon": 170.2,
         "wind_kt": 30,
         "wind_mph": 35,
         "wind_kmh": 56,
-        "pressure_mb": 0,
+        "pressure_mb": 991,
         "classification": "TD",
         "classification_label": "Tropical Depression",
         "intensity_code": "TD",
         "intensity_color": "#7ec8e3",
-        "datetime": "2026-08-13T12:00:00Z"
+        "datetime": "2026-08-13T18:00:00Z"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 32.9,
-          "lon": 169.1,
+          "lat": 33.8,
+          "lon": 170.2,
+          "wind_kt": 30,
+          "wind_mph": 35,
+          "wind_kmh": 56,
+          "pressure_mb": 991,
+          "classification": "TD",
+          "classification_label": "Tropical Depression",
+          "intensity_code": "TD",
+          "intensity_color": "#7ec8e3",
+          "datetime": "2026-08-13T18:00:00Z"
+        },
+        {
+          "tau": 12,
+          "lat": 36.5,
+          "lon": 174.2,
           "wind_kt": 30,
           "wind_mph": 35,
           "wind_kmh": 56,
@@ -451,34 +465,12 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-08-13T12:00:00Z"
-        },
-        {
-          "tau": 12,
-          "lat": 35.2,
-          "lon": 172.5,
-          "wind_kt": 35,
-          "wind_mph": 40,
-          "wind_kmh": 65,
-          "pressure_mb": 0,
-          "classification": "TS",
-          "classification_label": "Tropical Storm",
-          "intensity_code": "TS",
-          "intensity_color": "#00d4ff",
-          "datetime": "2026-08-14T00:00:00Z",
-          "wind_radii_nm": {
-            "034": {
-              "NE": 60,
-              "SE": 110,
-              "SW": 40,
-              "NW": 20
-            }
-          }
+          "datetime": "2026-08-14T06:00:00Z"
         },
         {
           "tau": 24,
-          "lat": 38.4,
-          "lon": 177.0,
+          "lat": 40.1,
+          "lon": 179.5,
           "wind_kt": 35,
           "wind_mph": 40,
           "wind_kmh": 65,
@@ -487,13 +479,13 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-08-14T12:00:00Z",
+          "datetime": "2026-08-14T18:00:00Z",
           "wind_radii_nm": {
             "034": {
-              "NE": 60,
+              "NE": 0,
               "SE": 160,
-              "SW": 50,
-              "NW": 50
+              "SW": 0,
+              "NW": 0
             }
           }
         }
@@ -507,7 +499,7 @@
       "year": 2026,
       "name": "Nangka",
       "advisory_time": "2026-08-13T12:00:00Z",
-      "is_final_warning": false,
+      "is_final_warning": true,
       "current": {
         "tau": 0,
         "lat": 28.0,
