@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-20T02:40:20Z",
+  "generated": "2026-08-20T02:50:19Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
@@ -13,12 +13,12 @@
       "year": 2026,
       "name": "Lala",
       "source_agency": "NHC",
-      "advisory_time": "2026-08-20T02:40:20Z",
+      "advisory_time": "2026-08-20T02:50:19Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 22.5,
-        "lon": -171.5,
+        "lat": 22.8,
+        "lon": -171.6,
         "wind_kt": 100,
         "wind_mph": 115,
         "wind_kmh": 185,
@@ -27,15 +27,15 @@
         "classification_label": "Hurricane (Category 3)",
         "intensity_code": "HU3",
         "intensity_color": "#ff8c00",
-        "datetime": "2026-08-20T02:40:20Z",
+        "datetime": "2026-08-20T02:50:19Z",
         "color": "#ff8c00",
         "code": "HU3"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 22.5,
-          "lon": -171.5,
+          "lat": 22.8,
+          "lon": -171.6,
           "wind_kt": 100,
           "wind_mph": 115,
           "wind_kmh": 185,
@@ -44,7 +44,7 @@
           "classification_label": "Hurricane (Category 3)",
           "intensity_code": "HU3",
           "intensity_color": "#ff8c00",
-          "datetime": "2026-08-20T02:40:20Z",
+          "datetime": "2026-08-20T02:50:19Z",
           "color": "#ff8c00",
           "code": "HU3"
         }
