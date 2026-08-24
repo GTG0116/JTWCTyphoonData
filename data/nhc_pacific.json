@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-24T08:40:17Z",
+  "generated": "2026-08-24T08:50:15Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
@@ -13,7 +13,7 @@
       "year": 2026,
       "name": "Iselle",
       "source_agency": "NHC",
-      "advisory_time": "2026-08-24T08:40:18Z",
+      "advisory_time": "2026-08-24T08:50:15Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
@@ -27,7 +27,7 @@
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-08-24T08:40:18Z",
+        "datetime": "2026-08-24T08:50:15Z",
         "color": "#00d4ff",
         "code": "TS"
       },
@@ -44,7 +44,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-08-24T08:40:18Z",
+          "datetime": "2026-08-24T08:50:15Z",
           "color": "#00d4ff",
           "code": "TS"
         }
@@ -58,7 +58,7 @@
       "year": 2026,
       "name": "Lala",
       "source_agency": "NHC",
-      "advisory_time": "2026-08-24T08:40:18Z",
+      "advisory_time": "2026-08-24T08:50:15Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
@@ -72,7 +72,7 @@
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-08-24T08:40:18Z",
+        "datetime": "2026-08-24T08:50:15Z",
         "color": "#00d4ff",
         "code": "TS"
       },
@@ -89,7 +89,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-08-24T08:40:18Z",
+          "datetime": "2026-08-24T08:50:15Z",
           "color": "#00d4ff",
           "code": "TS"
         }
@@ -103,21 +103,21 @@
       "year": 2026,
       "name": "Moke",
       "source_agency": "NHC",
-      "advisory_time": "2026-08-24T08:40:18Z",
+      "advisory_time": "2026-08-24T08:50:15Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
         "lat": 15.3,
-        "lon": -157.3,
+        "lon": -158.6,
         "wind_kt": 30,
         "wind_mph": 35,
         "wind_kmh": 56,
-        "pressure_mb": 1003,
+        "pressure_mb": 1004,
         "classification": "TD",
         "classification_label": "Tropical Depression",
         "intensity_code": "TD",
         "intensity_color": "#7ec8e3",
-        "datetime": "2026-08-24T08:40:18Z",
+        "datetime": "2026-08-24T08:50:15Z",
         "color": "#7ec8e3",
         "code": "TD"
       },
@@ -125,16 +125,16 @@
         {
           "tau": 0,
           "lat": 15.3,
-          "lon": -157.3,
+          "lon": -158.6,
           "wind_kt": 30,
           "wind_mph": 35,
           "wind_kmh": 56,
-          "pressure_mb": 1003,
+          "pressure_mb": 1004,
           "classification": "TD",
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-08-24T08:40:18Z",
+          "datetime": "2026-08-24T08:50:15Z",
           "color": "#7ec8e3",
           "code": "TD"
         }
