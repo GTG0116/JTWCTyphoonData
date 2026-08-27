@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-27T14:30:23Z",
+  "generated": "2026-08-27T14:40:22Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
@@ -13,12 +13,12 @@
       "year": 2026,
       "name": "Lala",
       "source_agency": "NHC",
-      "advisory_time": "2026-08-27T14:30:26Z",
+      "advisory_time": "2026-08-27T14:40:22Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 37.0,
-        "lon": -178.3,
+        "lat": 37.2,
+        "lon": -178.6,
         "wind_kt": 39,
         "wind_mph": 45,
         "wind_kmh": 72,
@@ -27,15 +27,15 @@
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-08-27T14:30:26Z",
+        "datetime": "2026-08-27T14:40:22Z",
         "color": "#00d4ff",
         "code": "TS"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 37.0,
-          "lon": -178.3,
+          "lat": 37.2,
+          "lon": -178.6,
           "wind_kt": 39,
           "wind_mph": 45,
           "wind_kmh": 72,
@@ -44,7 +44,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-08-27T14:30:26Z",
+          "datetime": "2026-08-27T14:40:22Z",
           "color": "#00d4ff",
           "code": "TS"
         }
