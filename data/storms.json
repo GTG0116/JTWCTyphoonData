@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-28T09:30:19Z",
+  "generated": "2026-08-28T09:40:16Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
@@ -13,7 +13,7 @@
       "year": 2026,
       "name": "Lala",
       "advisory_time": "2026-08-28T00:00:00Z",
-      "is_final_warning": false,
+      "is_final_warning": true,
       "current": {
         "tau": 0,
         "lat": 37.7,
@@ -21,7 +21,7 @@
         "wind_kt": 35,
         "wind_mph": 40,
         "wind_kmh": 65,
-        "pressure_mb": 1002,
+        "pressure_mb": 1003,
         "classification": "TS",
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
@@ -44,7 +44,7 @@
           "wind_kt": 35,
           "wind_mph": 40,
           "wind_kmh": 65,
-          "pressure_mb": 1002,
+          "pressure_mb": 1003,
           "classification": "TS",
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
@@ -133,7 +133,7 @@
       "year": 2026,
       "name": "Karina",
       "advisory_time": "2026-08-28T00:00:00Z",
-      "is_final_warning": false,
+      "is_final_warning": true,
       "current": {
         "tau": 0,
         "lat": 11.6,
@@ -443,7 +443,7 @@
       "year": 2026,
       "name": "Lowell",
       "advisory_time": "2026-08-28T00:00:00Z",
-      "is_final_warning": false,
+      "is_final_warning": true,
       "current": {
         "tau": 0,
         "lat": 11.3,
