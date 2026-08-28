@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-28T14:40:21Z",
+  "generated": "2026-08-28T14:50:13Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
@@ -13,12 +13,12 @@
       "year": 2026,
       "name": "Karina",
       "source_agency": "NHC",
-      "advisory_time": "2026-08-28T14:40:22Z",
+      "advisory_time": "2026-08-28T14:50:13Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 12.7,
-        "lon": -114.3,
+        "lat": 13.2,
+        "lon": -115.0,
         "wind_kt": 43,
         "wind_mph": 49,
         "wind_kmh": 80,
@@ -27,15 +27,15 @@
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-08-28T14:40:22Z",
+        "datetime": "2026-08-28T14:50:13Z",
         "color": "#00d4ff",
         "code": "TS"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 12.7,
-          "lon": -114.3,
+          "lat": 13.2,
+          "lon": -115.0,
           "wind_kt": 43,
           "wind_mph": 49,
           "wind_kmh": 80,
@@ -44,7 +44,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-08-28T14:40:22Z",
+          "datetime": "2026-08-28T14:50:13Z",
           "color": "#00d4ff",
           "code": "TS"
         }
@@ -58,7 +58,7 @@
       "year": 2026,
       "name": "Lowell",
       "source_agency": "NHC",
-      "advisory_time": "2026-08-28T14:40:22Z",
+      "advisory_time": "2026-08-28T14:50:13Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
@@ -72,7 +72,7 @@
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-08-28T14:40:22Z",
+        "datetime": "2026-08-28T14:50:13Z",
         "color": "#00d4ff",
         "code": "TS"
       },
@@ -89,7 +89,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-08-28T14:40:22Z",
+          "datetime": "2026-08-28T14:50:13Z",
           "color": "#00d4ff",
           "code": "TS"
         }
@@ -103,7 +103,7 @@
       "year": 2026,
       "name": "Lala",
       "source_agency": "NHC",
-      "advisory_time": "2026-08-28T14:40:23Z",
+      "advisory_time": "2026-08-28T14:50:13Z",
       "is_final_warning": true,
       "current": {
         "tau": 0,
@@ -117,7 +117,7 @@
         "classification_label": "Post-Tropical Cyclone",
         "intensity_code": "PT",
         "intensity_color": "#7ec8e3",
-        "datetime": "2026-08-28T14:40:23Z",
+        "datetime": "2026-08-28T14:50:13Z",
         "color": "#7ec8e3",
         "code": "PT"
       },
@@ -134,7 +134,7 @@
           "classification_label": "Post-Tropical Cyclone",
           "intensity_code": "PT",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-08-28T14:40:23Z",
+          "datetime": "2026-08-28T14:50:13Z",
           "color": "#7ec8e3",
           "code": "PT"
         }
