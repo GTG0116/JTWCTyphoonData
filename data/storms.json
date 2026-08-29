@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-29T00:20:14Z",
+  "generated": "2026-08-29T00:30:14Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
@@ -719,7 +719,7 @@
       "year": 2026,
       "name": null,
       "advisory_time": "2026-08-28T18:00:00Z",
-      "is_final_warning": true,
+      "is_final_warning": false,
       "current": {
         "tau": 0,
         "lat": 20.5,
@@ -985,7 +985,7 @@
       "year": 2026,
       "name": "Etau",
       "advisory_time": "2026-08-28T18:00:00Z",
-      "is_final_warning": true,
+      "is_final_warning": false,
       "current": {
         "tau": 0,
         "lat": 26.2,
