@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-30T02:50:17Z",
+  "generated": "2026-08-30T03:00:20Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
@@ -13,12 +13,12 @@
       "year": 2026,
       "name": "Karina",
       "source_agency": "NHC",
-      "advisory_time": "2026-08-30T02:50:17Z",
+      "advisory_time": "2026-08-30T03:00:20Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 16.4,
-        "lon": -118.8,
+        "lat": 17.0,
+        "lon": -120.2,
         "wind_kt": 61,
         "wind_mph": 70,
         "wind_kmh": 113,
@@ -27,15 +27,15 @@
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-08-30T02:50:17Z",
+        "datetime": "2026-08-30T03:00:20Z",
         "color": "#00d4ff",
         "code": "TS"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 16.4,
-          "lon": -118.8,
+          "lat": 17.0,
+          "lon": -120.2,
           "wind_kt": 61,
           "wind_mph": 70,
           "wind_kmh": 113,
@@ -44,7 +44,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-08-30T02:50:17Z",
+          "datetime": "2026-08-30T03:00:20Z",
           "color": "#00d4ff",
           "code": "TS"
         }
@@ -58,7 +58,7 @@
       "year": 2026,
       "name": "Lowell",
       "source_agency": "NHC",
-      "advisory_time": "2026-08-30T02:50:17Z",
+      "advisory_time": "2026-08-30T03:00:20Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
@@ -72,7 +72,7 @@
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-08-30T02:50:17Z",
+        "datetime": "2026-08-30T03:00:20Z",
         "color": "#00d4ff",
         "code": "TS"
       },
@@ -89,7 +89,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-08-30T02:50:17Z",
+          "datetime": "2026-08-30T03:00:20Z",
           "color": "#00d4ff",
           "code": "TS"
         }
