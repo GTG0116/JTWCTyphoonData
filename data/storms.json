@@ -1,9 +1,9 @@
 {
-  "generated": "2026-08-31T18:20:16Z",
+  "generated": "2026-08-31T18:30:14Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
-  "storm_count": 3,
+  "storm_count": 2,
   "storms": [
     {
       "id": "EP1126",
@@ -670,74 +670,6 @@
               "NW": 100
             }
           }
-        }
-      ]
-    },
-    {
-      "id": "WP2126",
-      "basin": "WP",
-      "basin_name": "Western North Pacific",
-      "number": 21,
-      "year": 2026,
-      "name": "Etau",
-      "advisory_time": "2026-08-30T18:00:00Z",
-      "is_final_warning": true,
-      "current": {
-        "tau": 0,
-        "lat": 31.7,
-        "lon": 166.8,
-        "wind_kt": 30,
-        "wind_mph": 35,
-        "wind_kmh": 56,
-        "pressure_mb": 991,
-        "classification": "TD",
-        "classification_label": "Tropical Depression",
-        "intensity_code": "TD",
-        "intensity_color": "#7ec8e3",
-        "datetime": "2026-08-30T18:00:00Z"
-      },
-      "forecast": [
-        {
-          "tau": 0,
-          "lat": 31.7,
-          "lon": 166.8,
-          "wind_kt": 30,
-          "wind_mph": 35,
-          "wind_kmh": 56,
-          "pressure_mb": 991,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-08-30T18:00:00Z"
-        },
-        {
-          "tau": 12,
-          "lat": 33.7,
-          "lon": 167.6,
-          "wind_kt": 30,
-          "wind_mph": 35,
-          "wind_kmh": 56,
-          "pressure_mb": 0,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-08-31T06:00:00Z"
-        },
-        {
-          "tau": 24,
-          "lat": 36.3,
-          "lon": 168.0,
-          "wind_kt": 30,
-          "wind_mph": 35,
-          "wind_kmh": 56,
-          "pressure_mb": 0,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-08-31T18:00:00Z"
         }
       ]
     }
