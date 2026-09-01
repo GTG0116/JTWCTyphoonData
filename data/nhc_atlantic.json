@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-01T17:40:20Z",
+  "generated": "2026-09-01T17:50:18Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
@@ -13,12 +13,12 @@
       "year": 2026,
       "name": "Edouard",
       "source_agency": "NHC",
-      "advisory_time": "2026-09-01T17:40:20Z",
+      "advisory_time": "2026-09-01T17:50:18Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 29.4,
-        "lon": -93.3,
+        "lat": 29.7,
+        "lon": -93.6,
         "wind_kt": 43,
         "wind_mph": 49,
         "wind_kmh": 80,
@@ -27,15 +27,15 @@
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-09-01T17:40:20Z",
+        "datetime": "2026-09-01T17:50:18Z",
         "color": "#00d4ff",
         "code": "TS"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 29.4,
-          "lon": -93.3,
+          "lat": 29.7,
+          "lon": -93.6,
           "wind_kt": 43,
           "wind_mph": 49,
           "wind_kmh": 80,
@@ -44,7 +44,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-09-01T17:40:20Z",
+          "datetime": "2026-09-01T17:50:18Z",
           "color": "#00d4ff",
           "code": "TS"
         }
