@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-02T07:50:15Z",
+  "generated": "2026-09-02T08:00:18Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
@@ -1020,41 +1020,41 @@
       "number": 17,
       "year": 2026,
       "name": "Saudel",
-      "advisory_time": "2026-09-02T00:00:00Z",
+      "advisory_time": "2026-09-02T06:00:00Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 22.1,
-        "lon": 116.7,
+        "lat": 22.3,
+        "lon": 117.4,
         "wind_kt": 30,
         "wind_mph": 35,
         "wind_kmh": 56,
-        "pressure_mb": 994,
+        "pressure_mb": 0,
         "classification": "TD",
         "classification_label": "Tropical Depression",
         "intensity_code": "TD",
         "intensity_color": "#7ec8e3",
-        "datetime": "2026-09-02T00:00:00Z"
+        "datetime": "2026-09-02T06:00:00Z"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 22.1,
-          "lon": 116.7,
+          "lat": 22.3,
+          "lon": 117.4,
           "wind_kt": 30,
           "wind_mph": 35,
           "wind_kmh": 56,
-          "pressure_mb": 994,
+          "pressure_mb": 0,
           "classification": "TD",
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-09-02T00:00:00Z"
+          "datetime": "2026-09-02T06:00:00Z"
         },
         {
           "tau": 12,
-          "lat": 22.8,
-          "lon": 117.6,
+          "lat": 23.1,
+          "lon": 117.8,
           "wind_kt": 30,
           "wind_mph": 35,
           "wind_kmh": 56,
@@ -1063,12 +1063,12 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-09-02T12:00:00Z"
+          "datetime": "2026-09-02T18:00:00Z"
         },
         {
           "tau": 24,
-          "lat": 23.4,
-          "lon": 117.6,
+          "lat": 23.6,
+          "lon": 117.1,
           "wind_kt": 30,
           "wind_mph": 35,
           "wind_kmh": 56,
@@ -1077,26 +1077,12 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-09-03T00:00:00Z"
+          "datetime": "2026-09-03T06:00:00Z"
         },
         {
           "tau": 36,
           "lat": 23.5,
-          "lon": 117.0,
-          "wind_kt": 30,
-          "wind_mph": 35,
-          "wind_kmh": 56,
-          "pressure_mb": 0,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-09-03T12:00:00Z"
-        },
-        {
-          "tau": 48,
-          "lat": 23.5,
-          "lon": 115.7,
+          "lon": 115.8,
           "wind_kt": 25,
           "wind_mph": 29,
           "wind_kmh": 46,
@@ -1105,11 +1091,11 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-09-04T00:00:00Z"
+          "datetime": "2026-09-03T18:00:00Z"
         },
         {
-          "tau": 60,
-          "lat": 23.1,
+          "tau": 48,
+          "lat": 23.2,
           "lon": 114.4,
           "wind_kt": 25,
           "wind_mph": 29,
@@ -1119,12 +1105,12 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-09-04T12:00:00Z"
+          "datetime": "2026-09-04T06:00:00Z"
         },
         {
-          "tau": 72,
-          "lat": 22.6,
-          "lon": 113.4,
+          "tau": 60,
+          "lat": 22.9,
+          "lon": 113.1,
           "wind_kt": 20,
           "wind_mph": 23,
           "wind_kmh": 37,
@@ -1133,7 +1119,7 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-09-05T00:00:00Z"
+          "datetime": "2026-09-04T18:00:00Z"
         }
       ]
     },
