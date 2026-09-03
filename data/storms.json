@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-03T01:40:14Z",
+  "generated": "2026-09-03T01:50:16Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
@@ -1014,69 +1014,47 @@
       "number": 17,
       "year": 2026,
       "name": "Saudel",
-      "advisory_time": "2026-09-02T18:00:00Z",
-      "is_final_warning": false,
+      "advisory_time": "2026-09-03T00:00:00Z",
+      "is_final_warning": true,
       "current": {
         "tau": 0,
-        "lat": 23.4,
-        "lon": 118.4,
-        "wind_kt": 35,
-        "wind_mph": 40,
-        "wind_kmh": 65,
-        "pressure_mb": 992,
+        "lat": 23.8,
+        "lon": 117.4,
+        "wind_kt": 40,
+        "wind_mph": 46,
+        "wind_kmh": 74,
+        "pressure_mb": 989,
         "classification": "TS",
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-09-02T18:00:00Z",
+        "datetime": "2026-09-03T00:00:00Z",
         "wind_radii_nm": {
           "034": {
-            "NE": 0,
-            "SE": 0,
+            "NE": 40,
+            "SE": 40,
             "SW": 35,
-            "NW": 50
+            "NW": 0
           }
         }
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 23.4,
-          "lon": 118.4,
-          "wind_kt": 35,
-          "wind_mph": 40,
-          "wind_kmh": 65,
-          "pressure_mb": 992,
+          "lat": 23.8,
+          "lon": 117.4,
+          "wind_kt": 40,
+          "wind_mph": 46,
+          "wind_kmh": 74,
+          "pressure_mb": 989,
           "classification": "TS",
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-09-02T18:00:00Z",
+          "datetime": "2026-09-03T00:00:00Z",
           "wind_radii_nm": {
             "034": {
-              "NE": 0,
-              "SE": 0,
-              "SW": 35,
-              "NW": 50
-            }
-          }
-        },
-        {
-          "tau": 12,
-          "lat": 23.9,
-          "lon": 117.6,
-          "wind_kt": 35,
-          "wind_mph": 40,
-          "wind_kmh": 65,
-          "pressure_mb": 0,
-          "classification": "TS",
-          "classification_label": "Tropical Storm",
-          "intensity_code": "TS",
-          "intensity_color": "#00d4ff",
-          "datetime": "2026-09-03T06:00:00Z",
-          "wind_radii_nm": {
-            "034": {
-              "NE": 0,
+              "NE": 40,
               "SE": 40,
               "SW": 35,
               "NW": 0
@@ -1084,23 +1062,23 @@
           }
         },
         {
-          "tau": 24,
-          "lat": 23.9,
-          "lon": 116.5,
-          "wind_kt": 25,
-          "wind_mph": 29,
-          "wind_kmh": 46,
+          "tau": 12,
+          "lat": 24.0,
+          "lon": 116.2,
+          "wind_kt": 30,
+          "wind_mph": 35,
+          "wind_kmh": 56,
           "pressure_mb": 0,
           "classification": "TD",
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-09-03T18:00:00Z"
+          "datetime": "2026-09-03T12:00:00Z"
         },
         {
-          "tau": 36,
-          "lat": 23.7,
-          "lon": 115.3,
+          "tau": 24,
+          "lat": 23.9,
+          "lon": 114.9,
           "wind_kt": 20,
           "wind_mph": 23,
           "wind_kmh": 37,
@@ -1109,7 +1087,7 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-09-04T06:00:00Z"
+          "datetime": "2026-09-04T00:00:00Z"
         }
       ]
     },
@@ -1121,7 +1099,7 @@
       "year": 2026,
       "name": "Krovanh",
       "advisory_time": "2026-09-02T18:00:00Z",
-      "is_final_warning": false,
+      "is_final_warning": true,
       "current": {
         "tau": 0,
         "lat": 24.8,
