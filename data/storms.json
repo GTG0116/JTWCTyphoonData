@@ -1,9 +1,9 @@
 {
-  "generated": "2026-09-04T00:00:20Z",
+  "generated": "2026-09-04T00:10:11Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
-  "storm_count": 5,
+  "storm_count": 4,
   "storms": [
     {
       "id": "EP1126",
@@ -968,90 +968,6 @@
       ]
     },
     {
-      "id": "WP1726",
-      "basin": "WP",
-      "basin_name": "Western North Pacific",
-      "number": 17,
-      "year": 2026,
-      "name": "Saudel",
-      "advisory_time": "2026-09-03T00:00:00Z",
-      "is_final_warning": true,
-      "current": {
-        "tau": 0,
-        "lat": 23.8,
-        "lon": 117.4,
-        "wind_kt": 40,
-        "wind_mph": 46,
-        "wind_kmh": 74,
-        "pressure_mb": 989,
-        "classification": "TS",
-        "classification_label": "Tropical Storm",
-        "intensity_code": "TS",
-        "intensity_color": "#00d4ff",
-        "datetime": "2026-09-03T00:00:00Z",
-        "wind_radii_nm": {
-          "034": {
-            "NE": 40,
-            "SE": 40,
-            "SW": 35,
-            "NW": 0
-          }
-        }
-      },
-      "forecast": [
-        {
-          "tau": 0,
-          "lat": 23.8,
-          "lon": 117.4,
-          "wind_kt": 40,
-          "wind_mph": 46,
-          "wind_kmh": 74,
-          "pressure_mb": 989,
-          "classification": "TS",
-          "classification_label": "Tropical Storm",
-          "intensity_code": "TS",
-          "intensity_color": "#00d4ff",
-          "datetime": "2026-09-03T00:00:00Z",
-          "wind_radii_nm": {
-            "034": {
-              "NE": 40,
-              "SE": 40,
-              "SW": 35,
-              "NW": 0
-            }
-          }
-        },
-        {
-          "tau": 12,
-          "lat": 24.0,
-          "lon": 116.2,
-          "wind_kt": 30,
-          "wind_mph": 35,
-          "wind_kmh": 56,
-          "pressure_mb": 0,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-09-03T12:00:00Z"
-        },
-        {
-          "tau": 24,
-          "lat": 23.9,
-          "lon": 114.9,
-          "wind_kt": 20,
-          "wind_mph": 23,
-          "wind_kmh": 37,
-          "pressure_mb": 0,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-09-04T00:00:00Z"
-        }
-      ]
-    },
-    {
       "id": "WP2226",
       "basin": "WP",
       "basin_name": "Western North Pacific",
@@ -1059,7 +975,7 @@
       "year": 2026,
       "name": "Krovanh",
       "advisory_time": "2026-09-03T18:00:00Z",
-      "is_final_warning": true,
+      "is_final_warning": false,
       "current": {
         "tau": 0,
         "lat": 29.0,
