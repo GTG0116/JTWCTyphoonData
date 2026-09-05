@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-05T02:40:17Z",
+  "generated": "2026-09-05T02:50:15Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
@@ -13,7 +13,7 @@
       "year": 2026,
       "name": "Marie",
       "source_agency": "NHC",
-      "advisory_time": "2026-09-05T02:40:17Z",
+      "advisory_time": "2026-09-05T02:50:15Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
@@ -27,7 +27,7 @@
         "classification_label": "Hurricane (Category 2)",
         "intensity_code": "HU2",
         "intensity_color": "#ffd700",
-        "datetime": "2026-09-05T02:40:17Z",
+        "datetime": "2026-09-05T02:50:15Z",
         "color": "#ffd700",
         "code": "HU2"
       },
@@ -44,7 +44,7 @@
           "classification_label": "Hurricane (Category 2)",
           "intensity_code": "HU2",
           "intensity_color": "#ffd700",
-          "datetime": "2026-09-05T02:40:17Z",
+          "datetime": "2026-09-05T02:50:15Z",
           "color": "#ffd700",
           "code": "HU2"
         }
@@ -58,40 +58,40 @@
       "year": 2026,
       "name": "Lowell",
       "source_agency": "NHC",
-      "advisory_time": "2026-09-05T02:40:18Z",
+      "advisory_time": "2026-09-05T02:50:15Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 13.2,
-        "lon": -160.7,
-        "wind_kt": 130,
-        "wind_mph": 150,
-        "wind_kmh": 241,
-        "pressure_mb": 926,
-        "classification": "HU4",
-        "classification_label": "Hurricane (Category 4)",
-        "intensity_code": "HU4",
-        "intensity_color": "#ff3a3a",
-        "datetime": "2026-09-05T02:40:18Z",
-        "color": "#ff3a3a",
-        "code": "HU4"
+        "lat": 13.3,
+        "lon": -161.4,
+        "wind_kt": 139,
+        "wind_mph": 160,
+        "wind_kmh": 257,
+        "pressure_mb": 922,
+        "classification": "HU5",
+        "classification_label": "Hurricane (Category 5)",
+        "intensity_code": "HU5",
+        "intensity_color": "#c800ff",
+        "datetime": "2026-09-05T02:50:15Z",
+        "color": "#c800ff",
+        "code": "HU5"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 13.2,
-          "lon": -160.7,
-          "wind_kt": 130,
-          "wind_mph": 150,
-          "wind_kmh": 241,
-          "pressure_mb": 926,
-          "classification": "HU4",
-          "classification_label": "Hurricane (Category 4)",
-          "intensity_code": "HU4",
-          "intensity_color": "#ff3a3a",
-          "datetime": "2026-09-05T02:40:18Z",
-          "color": "#ff3a3a",
-          "code": "HU4"
+          "lat": 13.3,
+          "lon": -161.4,
+          "wind_kt": 139,
+          "wind_mph": 160,
+          "wind_kmh": 257,
+          "pressure_mb": 922,
+          "classification": "HU5",
+          "classification_label": "Hurricane (Category 5)",
+          "intensity_code": "HU5",
+          "intensity_color": "#c800ff",
+          "datetime": "2026-09-05T02:50:15Z",
+          "color": "#c800ff",
+          "code": "HU5"
         }
       ]
     },
@@ -103,7 +103,7 @@
       "year": 2026,
       "name": "Karina",
       "source_agency": "NHC",
-      "advisory_time": "2026-09-05T02:40:18Z",
+      "advisory_time": "2026-09-05T02:50:15Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
@@ -117,7 +117,7 @@
         "classification_label": "Hurricane (Category 1)",
         "intensity_code": "HU1",
         "intensity_color": "#aaff00",
-        "datetime": "2026-09-05T02:40:18Z",
+        "datetime": "2026-09-05T02:50:15Z",
         "color": "#aaff00",
         "code": "HU1"
       },
@@ -134,7 +134,7 @@
           "classification_label": "Hurricane (Category 1)",
           "intensity_code": "HU1",
           "intensity_color": "#aaff00",
-          "datetime": "2026-09-05T02:40:18Z",
+          "datetime": "2026-09-05T02:50:15Z",
           "color": "#aaff00",
           "code": "HU1"
         }
