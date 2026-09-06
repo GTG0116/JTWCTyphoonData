@@ -1,9 +1,9 @@
 {
-  "generated": "2026-09-06T12:30:17Z",
+  "generated": "2026-09-06T12:40:13Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
-  "storm_count": 5,
+  "storm_count": 4,
   "storms": [
     {
       "id": "EP1126",
@@ -757,7 +757,7 @@
       "year": 2026,
       "name": "Krovanh",
       "advisory_time": "2026-09-06T06:00:00Z",
-      "is_final_warning": true,
+      "is_final_warning": false,
       "current": {
         "tau": 0,
         "lat": 25.5,
@@ -870,74 +870,6 @@
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
           "datetime": "2026-09-09T06:00:00Z"
-        }
-      ]
-    },
-    {
-      "id": "WP2326",
-      "basin": "WP",
-      "basin_name": "Western North Pacific",
-      "number": 23,
-      "year": 2026,
-      "name": "Twentythre",
-      "advisory_time": "2026-09-05T12:00:00Z",
-      "is_final_warning": true,
-      "current": {
-        "tau": 0,
-        "lat": 28.5,
-        "lon": 133.8,
-        "wind_kt": 25,
-        "wind_mph": 29,
-        "wind_kmh": 46,
-        "pressure_mb": 998,
-        "classification": "TD",
-        "classification_label": "Tropical Depression",
-        "intensity_code": "TD",
-        "intensity_color": "#7ec8e3",
-        "datetime": "2026-09-05T12:00:00Z"
-      },
-      "forecast": [
-        {
-          "tau": 0,
-          "lat": 28.5,
-          "lon": 133.8,
-          "wind_kt": 25,
-          "wind_mph": 29,
-          "wind_kmh": 46,
-          "pressure_mb": 998,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-09-05T12:00:00Z"
-        },
-        {
-          "tau": 12,
-          "lat": 29.7,
-          "lon": 132.1,
-          "wind_kt": 20,
-          "wind_mph": 23,
-          "wind_kmh": 37,
-          "pressure_mb": 0,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-09-06T00:00:00Z"
-        },
-        {
-          "tau": 24,
-          "lat": 30.6,
-          "lon": 130.8,
-          "wind_kt": 20,
-          "wind_mph": 23,
-          "wind_kmh": 37,
-          "pressure_mb": 0,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-09-06T12:00:00Z"
         }
       ]
     }
