@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-08T05:40:16Z",
+  "generated": "2026-09-08T05:50:13Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
@@ -13,7 +13,7 @@
       "year": 2026,
       "name": "Marie",
       "source_agency": "NHC",
-      "advisory_time": "2026-09-08T05:40:16Z",
+      "advisory_time": "2026-09-08T05:50:13Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
@@ -27,7 +27,7 @@
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-09-08T05:40:16Z",
+        "datetime": "2026-09-08T05:50:13Z",
         "color": "#00d4ff",
         "code": "TS"
       },
@@ -44,7 +44,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-09-08T05:40:16Z",
+          "datetime": "2026-09-08T05:50:13Z",
           "color": "#00d4ff",
           "code": "TS"
         }
@@ -58,38 +58,38 @@
       "year": 2026,
       "name": "Lowell",
       "source_agency": "NHC",
-      "advisory_time": "2026-09-08T05:40:16Z",
+      "advisory_time": "2026-09-08T05:50:13Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 20.3,
-        "lon": -161.3,
+        "lat": 20.9,
+        "lon": -161.1,
         "wind_kt": 96,
         "wind_mph": 110,
         "wind_kmh": 178,
-        "pressure_mb": 956,
+        "pressure_mb": 961,
         "classification": "HU3",
         "classification_label": "Hurricane (Category 3)",
         "intensity_code": "HU3",
         "intensity_color": "#ff8c00",
-        "datetime": "2026-09-08T05:40:16Z",
+        "datetime": "2026-09-08T05:50:13Z",
         "color": "#ff8c00",
         "code": "HU3"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 20.3,
-          "lon": -161.3,
+          "lat": 20.9,
+          "lon": -161.1,
           "wind_kt": 96,
           "wind_mph": 110,
           "wind_kmh": 178,
-          "pressure_mb": 956,
+          "pressure_mb": 961,
           "classification": "HU3",
           "classification_label": "Hurricane (Category 3)",
           "intensity_code": "HU3",
           "intensity_color": "#ff8c00",
-          "datetime": "2026-09-08T05:40:16Z",
+          "datetime": "2026-09-08T05:50:13Z",
           "color": "#ff8c00",
           "code": "HU3"
         }
