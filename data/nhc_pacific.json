@@ -1,55 +1,10 @@
 {
-  "generated": "2026-09-11T02:30:16Z",
+  "generated": "2026-09-11T02:40:15Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
-  "storm_count": 2,
+  "storm_count": 1,
   "storms": [
-    {
-      "id": "EP142026",
-      "basin": "EP",
-      "basin_name": "Eastern North Pacific",
-      "number": 14,
-      "year": 2026,
-      "name": "Norbert",
-      "source_agency": "NHC",
-      "advisory_time": "2026-09-11T02:30:17Z",
-      "is_final_warning": false,
-      "current": {
-        "tau": 0,
-        "lat": 16.5,
-        "lon": -120.5,
-        "wind_kt": 39,
-        "wind_mph": 45,
-        "wind_kmh": 72,
-        "pressure_mb": 1002,
-        "classification": "TS",
-        "classification_label": "Tropical Storm",
-        "intensity_code": "TS",
-        "intensity_color": "#00d4ff",
-        "datetime": "2026-09-11T02:30:17Z",
-        "color": "#00d4ff",
-        "code": "TS"
-      },
-      "forecast": [
-        {
-          "tau": 0,
-          "lat": 16.5,
-          "lon": -120.5,
-          "wind_kt": 39,
-          "wind_mph": 45,
-          "wind_kmh": 72,
-          "pressure_mb": 1002,
-          "classification": "TS",
-          "classification_label": "Tropical Storm",
-          "intensity_code": "TS",
-          "intensity_color": "#00d4ff",
-          "datetime": "2026-09-11T02:30:17Z",
-          "color": "#00d4ff",
-          "code": "TS"
-        }
-      ]
-    },
     {
       "id": "EP122026",
       "basin": "EP",
@@ -58,40 +13,40 @@
       "year": 2026,
       "name": "Lowell",
       "source_agency": "NHC",
-      "advisory_time": "2026-09-11T02:30:17Z",
-      "is_final_warning": false,
+      "advisory_time": "2026-09-11T02:40:15Z",
+      "is_final_warning": true,
       "current": {
         "tau": 0,
         "lat": 29.0,
-        "lon": -168.9,
+        "lon": -169.9,
         "wind_kt": 43,
         "wind_mph": 49,
         "wind_kmh": 80,
-        "pressure_mb": 995,
-        "classification": "TS",
-        "classification_label": "Tropical Storm",
-        "intensity_code": "TS",
-        "intensity_color": "#00d4ff",
-        "datetime": "2026-09-11T02:30:17Z",
-        "color": "#00d4ff",
-        "code": "TS"
+        "pressure_mb": 997,
+        "classification": "PT",
+        "classification_label": "Post-Tropical Cyclone",
+        "intensity_code": "PT",
+        "intensity_color": "#7ec8e3",
+        "datetime": "2026-09-11T02:40:15Z",
+        "color": "#7ec8e3",
+        "code": "PT"
       },
       "forecast": [
         {
           "tau": 0,
           "lat": 29.0,
-          "lon": -168.9,
+          "lon": -169.9,
           "wind_kt": 43,
           "wind_mph": 49,
           "wind_kmh": 80,
-          "pressure_mb": 995,
-          "classification": "TS",
-          "classification_label": "Tropical Storm",
-          "intensity_code": "TS",
-          "intensity_color": "#00d4ff",
-          "datetime": "2026-09-11T02:30:17Z",
-          "color": "#00d4ff",
-          "code": "TS"
+          "pressure_mb": 997,
+          "classification": "PT",
+          "classification_label": "Post-Tropical Cyclone",
+          "intensity_code": "PT",
+          "intensity_color": "#7ec8e3",
+          "datetime": "2026-09-11T02:40:15Z",
+          "color": "#7ec8e3",
+          "code": "PT"
         }
       ]
     }
