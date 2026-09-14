@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-14T02:40:13Z",
+  "generated": "2026-09-14T02:50:14Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
@@ -13,12 +13,12 @@
       "year": 2026,
       "name": "Norbert",
       "source_agency": "NHC",
-      "advisory_time": "2026-09-14T02:40:14Z",
+      "advisory_time": "2026-09-14T02:50:15Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 18.8,
-        "lon": -134.0,
+        "lat": 19.2,
+        "lon": -135.3,
         "wind_kt": 39,
         "wind_mph": 45,
         "wind_kmh": 72,
@@ -27,15 +27,15 @@
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-09-14T02:40:14Z",
+        "datetime": "2026-09-14T02:50:15Z",
         "color": "#00d4ff",
         "code": "TS"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 18.8,
-          "lon": -134.0,
+          "lat": 19.2,
+          "lon": -135.3,
           "wind_kt": 39,
           "wind_mph": 45,
           "wind_kmh": 72,
@@ -44,7 +44,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-09-14T02:40:14Z",
+          "datetime": "2026-09-14T02:50:15Z",
           "color": "#00d4ff",
           "code": "TS"
         }
@@ -58,7 +58,7 @@
       "year": 2026,
       "name": "Fifteen-E",
       "source_agency": "NHC",
-      "advisory_time": "2026-09-14T02:40:14Z",
+      "advisory_time": "2026-09-14T02:50:15Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
@@ -72,7 +72,7 @@
         "classification_label": "Tropical Depression",
         "intensity_code": "TD",
         "intensity_color": "#7ec8e3",
-        "datetime": "2026-09-14T02:40:14Z",
+        "datetime": "2026-09-14T02:50:15Z",
         "color": "#7ec8e3",
         "code": "TD"
       },
@@ -89,7 +89,7 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-09-14T02:40:14Z",
+          "datetime": "2026-09-14T02:50:15Z",
           "color": "#7ec8e3",
           "code": "TD"
         }
