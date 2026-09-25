@@ -1,9 +1,9 @@
 {
-  "generated": "2026-09-25T02:40:17Z",
+  "generated": "2026-09-25T02:50:12Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
-  "storm_count": 1,
+  "storm_count": 2,
   "storms": [
     {
       "id": "AL062026",
@@ -13,12 +13,12 @@
       "year": 2026,
       "name": "Fay",
       "source_agency": "NHC",
-      "advisory_time": "2026-09-25T02:40:17Z",
+      "advisory_time": "2026-09-25T02:50:12Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
         "lat": 29.8,
-        "lon": -41.8,
+        "lon": -42.3,
         "wind_kt": 43,
         "wind_mph": 49,
         "wind_kmh": 80,
@@ -27,7 +27,7 @@
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-09-25T02:40:17Z",
+        "datetime": "2026-09-25T02:50:12Z",
         "color": "#00d4ff",
         "code": "TS"
       },
@@ -35,7 +35,7 @@
         {
           "tau": 0,
           "lat": 29.8,
-          "lon": -41.8,
+          "lon": -42.3,
           "wind_kt": 43,
           "wind_mph": 49,
           "wind_kmh": 80,
@@ -44,7 +44,52 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-09-25T02:40:17Z",
+          "datetime": "2026-09-25T02:50:12Z",
+          "color": "#00d4ff",
+          "code": "TS"
+        }
+      ]
+    },
+    {
+      "id": "AL072026",
+      "basin": "AL",
+      "basin_name": "North Atlantic",
+      "number": 7,
+      "year": 2026,
+      "name": "Gonzalo",
+      "source_agency": "NHC",
+      "advisory_time": "2026-09-25T02:50:12Z",
+      "is_final_warning": false,
+      "current": {
+        "tau": 0,
+        "lat": 13.2,
+        "lon": -22.1,
+        "wind_kt": 39,
+        "wind_mph": 45,
+        "wind_kmh": 72,
+        "pressure_mb": 1004,
+        "classification": "TS",
+        "classification_label": "Tropical Storm",
+        "intensity_code": "TS",
+        "intensity_color": "#00d4ff",
+        "datetime": "2026-09-25T02:50:12Z",
+        "color": "#00d4ff",
+        "code": "TS"
+      },
+      "forecast": [
+        {
+          "tau": 0,
+          "lat": 13.2,
+          "lon": -22.1,
+          "wind_kt": 39,
+          "wind_mph": 45,
+          "wind_kmh": 72,
+          "pressure_mb": 1004,
+          "classification": "TS",
+          "classification_label": "Tropical Storm",
+          "intensity_code": "TS",
+          "intensity_color": "#00d4ff",
+          "datetime": "2026-09-25T02:50:12Z",
           "color": "#00d4ff",
           "code": "TS"
         }
