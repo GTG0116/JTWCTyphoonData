@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-26T02:40:15Z",
+  "generated": "2026-09-26T02:50:18Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
@@ -13,7 +13,7 @@
       "year": 2026,
       "name": "Odalys",
       "source_agency": "NHC",
-      "advisory_time": "2026-09-26T02:40:15Z",
+      "advisory_time": "2026-09-26T02:50:18Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
@@ -27,7 +27,7 @@
         "classification_label": "Hurricane (Category 3)",
         "intensity_code": "HU3",
         "intensity_color": "#ff8c00",
-        "datetime": "2026-09-26T02:40:15Z",
+        "datetime": "2026-09-26T02:50:18Z",
         "color": "#ff8c00",
         "code": "HU3"
       },
@@ -44,7 +44,7 @@
           "classification_label": "Hurricane (Category 3)",
           "intensity_code": "HU3",
           "intensity_color": "#ff8c00",
-          "datetime": "2026-09-26T02:40:15Z",
+          "datetime": "2026-09-26T02:50:18Z",
           "color": "#ff8c00",
           "code": "HU3"
         }
@@ -58,7 +58,7 @@
       "year": 2026,
       "name": "Polo",
       "source_agency": "NHC",
-      "advisory_time": "2026-09-26T02:40:15Z",
+      "advisory_time": "2026-09-26T02:50:18Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
@@ -72,7 +72,7 @@
         "classification_label": "Hurricane (Category 5)",
         "intensity_code": "HU5",
         "intensity_color": "#c800ff",
-        "datetime": "2026-09-26T02:40:15Z",
+        "datetime": "2026-09-26T02:50:18Z",
         "color": "#c800ff",
         "code": "HU5"
       },
@@ -89,7 +89,7 @@
           "classification_label": "Hurricane (Category 5)",
           "intensity_code": "HU5",
           "intensity_color": "#c800ff",
-          "datetime": "2026-09-26T02:40:15Z",
+          "datetime": "2026-09-26T02:50:18Z",
           "color": "#c800ff",
           "code": "HU5"
         }
@@ -103,12 +103,12 @@
       "year": 2026,
       "name": "Nolo",
       "source_agency": "NHC",
-      "advisory_time": "2026-09-26T02:40:15Z",
+      "advisory_time": "2026-09-26T02:50:18Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 16.8,
-        "lon": -155.4,
+        "lat": 16.9,
+        "lon": -155.3,
         "wind_kt": 91,
         "wind_mph": 105,
         "wind_kmh": 169,
@@ -117,15 +117,15 @@
         "classification_label": "Hurricane (Category 2)",
         "intensity_code": "HU2",
         "intensity_color": "#ffd700",
-        "datetime": "2026-09-26T02:40:15Z",
+        "datetime": "2026-09-26T02:50:18Z",
         "color": "#ffd700",
         "code": "HU2"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 16.8,
-          "lon": -155.4,
+          "lat": 16.9,
+          "lon": -155.3,
           "wind_kt": 91,
           "wind_mph": 105,
           "wind_kmh": 169,
@@ -134,7 +134,7 @@
           "classification_label": "Hurricane (Category 2)",
           "intensity_code": "HU2",
           "intensity_color": "#ffd700",
-          "datetime": "2026-09-26T02:40:15Z",
+          "datetime": "2026-09-26T02:50:18Z",
           "color": "#ffd700",
           "code": "HU2"
         }
