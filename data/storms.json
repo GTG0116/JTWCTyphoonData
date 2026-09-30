@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-30T14:50:16Z",
+  "generated": "2026-09-30T15:00:23Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
@@ -805,7 +805,7 @@
       "year": 2026,
       "name": "Surigae",
       "advisory_time": "2026-09-30T12:00:00Z",
-      "is_final_warning": false,
+      "is_final_warning": true,
       "current": {
         "tau": 0,
         "lat": 31.8,
@@ -873,7 +873,7 @@
       "year": 2026,
       "name": "Twentysix",
       "advisory_time": "2026-09-30T12:00:00Z",
-      "is_final_warning": false,
+      "is_final_warning": true,
       "current": {
         "tau": 0,
         "lat": 16.0,
