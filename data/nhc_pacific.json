@@ -1,55 +1,10 @@
 {
-  "generated": "2026-09-30T12:30:21Z",
+  "generated": "2026-09-30T12:40:15Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
-  "storm_count": 4,
+  "storm_count": 3,
   "storms": [
-    {
-      "id": "EP172026",
-      "basin": "EP",
-      "basin_name": "Eastern North Pacific",
-      "number": 17,
-      "year": 2026,
-      "name": "Center",
-      "source_agency": "NHC",
-      "advisory_time": "2026-09-30T12:30:21Z",
-      "is_final_warning": true,
-      "current": {
-        "tau": 0,
-        "lat": 30.5,
-        "lon": -108.0,
-        "wind_kt": 30,
-        "wind_mph": 35,
-        "wind_kmh": 56,
-        "pressure_mb": 996,
-        "classification": "PT",
-        "classification_label": "Post-Tropical Cyclone",
-        "intensity_code": "PT",
-        "intensity_color": "#7ec8e3",
-        "datetime": "2026-09-30T12:30:21Z",
-        "color": "#7ec8e3",
-        "code": "PT"
-      },
-      "forecast": [
-        {
-          "tau": 0,
-          "lat": 30.5,
-          "lon": -108.0,
-          "wind_kt": 30,
-          "wind_mph": 35,
-          "wind_kmh": 56,
-          "pressure_mb": 996,
-          "classification": "PT",
-          "classification_label": "Post-Tropical Cyclone",
-          "intensity_code": "PT",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-09-30T12:30:21Z",
-          "color": "#7ec8e3",
-          "code": "PT"
-        }
-      ]
-    },
     {
       "id": "EP182026",
       "basin": "EP",
@@ -58,7 +13,7 @@
       "year": 2026,
       "name": "Rachel",
       "source_agency": "NHC",
-      "advisory_time": "2026-09-30T12:30:21Z",
+      "advisory_time": "2026-09-30T12:40:15Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
@@ -72,7 +27,7 @@
         "classification_label": "Hurricane (Category 1)",
         "intensity_code": "HU1",
         "intensity_color": "#aaff00",
-        "datetime": "2026-09-30T12:30:21Z",
+        "datetime": "2026-09-30T12:40:15Z",
         "color": "#aaff00",
         "code": "HU1"
       },
@@ -89,7 +44,7 @@
           "classification_label": "Hurricane (Category 1)",
           "intensity_code": "HU1",
           "intensity_color": "#aaff00",
-          "datetime": "2026-09-30T12:30:21Z",
+          "datetime": "2026-09-30T12:40:15Z",
           "color": "#aaff00",
           "code": "HU1"
         }
@@ -103,7 +58,7 @@
       "year": 2026,
       "name": "Nineteen-E",
       "source_agency": "NHC",
-      "advisory_time": "2026-09-30T12:30:21Z",
+      "advisory_time": "2026-09-30T12:40:15Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
@@ -117,7 +72,7 @@
         "classification_label": "Tropical Depression",
         "intensity_code": "TD",
         "intensity_color": "#7ec8e3",
-        "datetime": "2026-09-30T12:30:21Z",
+        "datetime": "2026-09-30T12:40:15Z",
         "color": "#7ec8e3",
         "code": "TD"
       },
@@ -134,7 +89,7 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-09-30T12:30:21Z",
+          "datetime": "2026-09-30T12:40:15Z",
           "color": "#7ec8e3",
           "code": "TD"
         }
@@ -148,7 +103,7 @@
       "year": 2026,
       "name": "Nolo",
       "source_agency": "NHC",
-      "advisory_time": "2026-09-30T12:30:21Z",
+      "advisory_time": "2026-09-30T12:40:15Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
@@ -162,7 +117,7 @@
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-09-30T12:30:21Z",
+        "datetime": "2026-09-30T12:40:15Z",
         "color": "#00d4ff",
         "code": "TS"
       },
@@ -179,7 +134,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-09-30T12:30:21Z",
+          "datetime": "2026-09-30T12:40:15Z",
           "color": "#00d4ff",
           "code": "TS"
         }
