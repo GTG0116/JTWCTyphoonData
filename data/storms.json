@@ -1,9 +1,9 @@
 {
-  "generated": "2026-10-01T12:20:14Z",
+  "generated": "2026-10-01T12:30:15Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
-  "storm_count": 5,
+  "storm_count": 4,
   "storms": [
     {
       "id": "EP1526",
@@ -694,74 +694,6 @@
       ]
     },
     {
-      "id": "WP2526",
-      "basin": "WP",
-      "basin_name": "Western North Pacific",
-      "number": 25,
-      "year": 2026,
-      "name": "Surigae",
-      "advisory_time": "2026-09-30T12:00:00Z",
-      "is_final_warning": true,
-      "current": {
-        "tau": 0,
-        "lat": 31.8,
-        "lon": 138.8,
-        "wind_kt": 30,
-        "wind_mph": 35,
-        "wind_kmh": 56,
-        "pressure_mb": 0,
-        "classification": "TD",
-        "classification_label": "Tropical Depression",
-        "intensity_code": "TD",
-        "intensity_color": "#7ec8e3",
-        "datetime": "2026-09-30T12:00:00Z"
-      },
-      "forecast": [
-        {
-          "tau": 0,
-          "lat": 31.8,
-          "lon": 138.8,
-          "wind_kt": 30,
-          "wind_mph": 35,
-          "wind_kmh": 56,
-          "pressure_mb": 0,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-09-30T12:00:00Z"
-        },
-        {
-          "tau": 12,
-          "lat": 33.7,
-          "lon": 141.1,
-          "wind_kt": 30,
-          "wind_mph": 35,
-          "wind_kmh": 56,
-          "pressure_mb": 0,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-10-01T00:00:00Z"
-        },
-        {
-          "tau": 24,
-          "lat": 36.5,
-          "lon": 145.2,
-          "wind_kt": 30,
-          "wind_mph": 35,
-          "wind_kmh": 56,
-          "pressure_mb": 0,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-10-01T12:00:00Z"
-        }
-      ]
-    },
-    {
       "id": "WP2626",
       "basin": "WP",
       "basin_name": "Western North Pacific",
@@ -769,7 +701,7 @@
       "year": 2026,
       "name": null,
       "advisory_time": "2026-10-01T06:00:00Z",
-      "is_final_warning": true,
+      "is_final_warning": false,
       "current": {
         "tau": 0,
         "lat": 16.9,
