@@ -1,9 +1,9 @@
 {
-  "generated": "2026-10-02T03:20:14Z",
+  "generated": "2026-10-02T03:30:19Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
-  "storm_count": 4,
+  "storm_count": 3,
   "storms": [
     {
       "id": "EP1526",
@@ -13,7 +13,7 @@
       "year": 2026,
       "name": "Nolo",
       "advisory_time": "2026-10-01T18:00:00Z",
-      "is_final_warning": true,
+      "is_final_warning": false,
       "current": {
         "tau": 0,
         "lat": 22.0,
@@ -329,7 +329,7 @@
       "year": 2026,
       "name": "Rachel",
       "advisory_time": "2026-10-01T18:00:00Z",
-      "is_final_warning": true,
+      "is_final_warning": false,
       "current": {
         "tau": 0,
         "lat": 19.4,
@@ -658,46 +658,6 @@
               "NW": 90
             }
           }
-        }
-      ]
-    },
-    {
-      "id": "EP1926",
-      "basin": "EP",
-      "basin_name": "Eastern North Pacific",
-      "number": 19,
-      "year": 2026,
-      "name": "Nineteen",
-      "advisory_time": "2026-10-01T18:00:00Z",
-      "is_final_warning": true,
-      "current": {
-        "tau": 0,
-        "lat": 15.2,
-        "lon": -123.3,
-        "wind_kt": 25,
-        "wind_mph": 29,
-        "wind_kmh": 46,
-        "pressure_mb": 1006,
-        "classification": "TD",
-        "classification_label": "Tropical Depression",
-        "intensity_code": "TD",
-        "intensity_color": "#7ec8e3",
-        "datetime": "2026-10-01T18:00:00Z"
-      },
-      "forecast": [
-        {
-          "tau": 0,
-          "lat": 15.2,
-          "lon": -123.3,
-          "wind_kt": 25,
-          "wind_mph": 29,
-          "wind_kmh": 46,
-          "pressure_mb": 1006,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-10-01T18:00:00Z"
         }
       ]
     },
