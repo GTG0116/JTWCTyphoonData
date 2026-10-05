@@ -1,9 +1,9 @@
 {
-  "generated": "2026-10-05T05:00:20Z",
+  "generated": "2026-10-05T05:10:50Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
-  "storm_count": 2,
+  "storm_count": 1,
   "storms": [
     {
       "id": "EP182026",
@@ -13,7 +13,7 @@
       "year": 2026,
       "name": "Rachel",
       "source_agency": "NHC",
-      "advisory_time": "2026-10-05T05:00:21Z",
+      "advisory_time": "2026-10-05T05:10:50Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
@@ -27,7 +27,7 @@
         "classification_label": "Hurricane (Category 2)",
         "intensity_code": "HU2",
         "intensity_color": "#ffd700",
-        "datetime": "2026-10-05T05:00:21Z",
+        "datetime": "2026-10-05T05:10:50Z",
         "color": "#ffd700",
         "code": "HU2"
       },
@@ -44,54 +44,9 @@
           "classification_label": "Hurricane (Category 2)",
           "intensity_code": "HU2",
           "intensity_color": "#ffd700",
-          "datetime": "2026-10-05T05:00:21Z",
+          "datetime": "2026-10-05T05:10:50Z",
           "color": "#ffd700",
           "code": "HU2"
-        }
-      ]
-    },
-    {
-      "id": "EP152026",
-      "basin": "EP",
-      "basin_name": "Eastern North Pacific",
-      "number": 15,
-      "year": 2026,
-      "name": "Nolo",
-      "source_agency": "NHC",
-      "advisory_time": "2026-10-05T05:00:21Z",
-      "is_final_warning": true,
-      "current": {
-        "tau": 0,
-        "lat": 24.2,
-        "lon": 180.0,
-        "wind_kt": 100,
-        "wind_mph": 115,
-        "wind_kmh": 185,
-        "pressure_mb": 959,
-        "classification": "HU3",
-        "classification_label": "Hurricane (Category 3)",
-        "intensity_code": "HU3",
-        "intensity_color": "#ff8c00",
-        "datetime": "2026-10-05T05:00:21Z",
-        "color": "#ff8c00",
-        "code": "HU3"
-      },
-      "forecast": [
-        {
-          "tau": 0,
-          "lat": 24.2,
-          "lon": 180.0,
-          "wind_kt": 100,
-          "wind_mph": 115,
-          "wind_kmh": 185,
-          "pressure_mb": 959,
-          "classification": "HU3",
-          "classification_label": "Hurricane (Category 3)",
-          "intensity_code": "HU3",
-          "intensity_color": "#ff8c00",
-          "datetime": "2026-10-05T05:00:21Z",
-          "color": "#ff8c00",
-          "code": "HU3"
         }
       ]
     }
