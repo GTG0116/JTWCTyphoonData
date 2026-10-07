@@ -1,9 +1,9 @@
 {
-  "generated": "2026-10-07T18:10:12Z",
+  "generated": "2026-10-07T18:20:20Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
-  "storm_count": 5,
+  "storm_count": 4,
   "storms": [
     {
       "id": "EP1526",
@@ -13,7 +13,7 @@
       "year": 2026,
       "name": "Nolo",
       "advisory_time": "2026-10-07T12:00:00Z",
-      "is_final_warning": true,
+      "is_final_warning": false,
       "current": {
         "tau": 0,
         "lat": 25.8,
@@ -858,154 +858,6 @@
       ]
     },
     {
-      "id": "WP2626",
-      "basin": "WP",
-      "basin_name": "Western North Pacific",
-      "number": 26,
-      "year": 2026,
-      "name": null,
-      "advisory_time": "2026-10-06T18:00:00Z",
-      "is_final_warning": true,
-      "current": {
-        "tau": 0,
-        "lat": 36.3,
-        "lon": 149.5,
-        "wind_kt": 75,
-        "wind_mph": 86,
-        "wind_kmh": 139,
-        "pressure_mb": 959,
-        "classification": "TY",
-        "classification_label": "Typhoon (Category 1)",
-        "intensity_code": "TY1",
-        "intensity_color": "#aaff00",
-        "datetime": "2026-10-06T18:00:00Z",
-        "wind_radii_nm": {
-          "064": {
-            "NE": 105,
-            "SE": 115,
-            "SW": 20,
-            "NW": 0
-          },
-          "050": {
-            "NE": 180,
-            "SE": 180,
-            "SW": 120,
-            "NW": 20
-          },
-          "034": {
-            "NE": 330,
-            "SE": 330,
-            "SW": 270,
-            "NW": 325
-          }
-        }
-      },
-      "forecast": [
-        {
-          "tau": 0,
-          "lat": 36.3,
-          "lon": 149.5,
-          "wind_kt": 75,
-          "wind_mph": 86,
-          "wind_kmh": 139,
-          "pressure_mb": 959,
-          "classification": "TY",
-          "classification_label": "Typhoon (Category 1)",
-          "intensity_code": "TY1",
-          "intensity_color": "#aaff00",
-          "datetime": "2026-10-06T18:00:00Z",
-          "wind_radii_nm": {
-            "064": {
-              "NE": 105,
-              "SE": 115,
-              "SW": 20,
-              "NW": 0
-            },
-            "050": {
-              "NE": 180,
-              "SE": 180,
-              "SW": 120,
-              "NW": 20
-            },
-            "034": {
-              "NE": 330,
-              "SE": 330,
-              "SW": 270,
-              "NW": 325
-            }
-          }
-        },
-        {
-          "tau": 12,
-          "lat": 42.6,
-          "lon": 156.8,
-          "wind_kt": 70,
-          "wind_mph": 81,
-          "wind_kmh": 130,
-          "pressure_mb": 0,
-          "classification": "TY",
-          "classification_label": "Typhoon (Category 1)",
-          "intensity_code": "TY1",
-          "intensity_color": "#aaff00",
-          "datetime": "2026-10-07T06:00:00Z",
-          "wind_radii_nm": {
-            "064": {
-              "NE": 95,
-              "SE": 95,
-              "SW": 15,
-              "NW": 0
-            },
-            "050": {
-              "NE": 170,
-              "SE": 170,
-              "SW": 100,
-              "NW": 40
-            },
-            "034": {
-              "NE": 340,
-              "SE": 340,
-              "SW": 220,
-              "NW": 300
-            }
-          }
-        },
-        {
-          "tau": 24,
-          "lat": 50.2,
-          "lon": 167.1,
-          "wind_kt": 65,
-          "wind_mph": 75,
-          "wind_kmh": 120,
-          "pressure_mb": 0,
-          "classification": "TY",
-          "classification_label": "Typhoon (Category 1)",
-          "intensity_code": "TY1",
-          "intensity_color": "#aaff00",
-          "datetime": "2026-10-07T18:00:00Z",
-          "wind_radii_nm": {
-            "064": {
-              "NE": 85,
-              "SE": 0,
-              "SW": 10,
-              "NW": 0
-            },
-            "050": {
-              "NE": 180,
-              "SE": 170,
-              "SW": 60,
-              "NW": 60
-            },
-            "034": {
-              "NE": 380,
-              "SE": 360,
-              "SW": 160,
-              "NW": 280
-            }
-          }
-        }
-      ]
-    },
-    {
       "id": "WP2726",
       "basin": "WP",
       "basin_name": "Western North Pacific",
@@ -1013,7 +865,7 @@
       "year": 2026,
       "name": "Koguma",
       "advisory_time": "2026-10-07T12:00:00Z",
-      "is_final_warning": true,
+      "is_final_warning": false,
       "current": {
         "tau": 0,
         "lat": 15.7,
