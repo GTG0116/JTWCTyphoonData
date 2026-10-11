@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-11T05:50:15Z",
+  "generated": "2026-10-11T06:00:21Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
@@ -13,11 +13,11 @@
       "year": 2026,
       "name": "Rachel",
       "source_agency": "NHC",
-      "advisory_time": "2026-10-11T05:50:16Z",
+      "advisory_time": "2026-10-11T06:00:21Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 30.0,
+        "lat": 31.5,
         "lon": -116.5,
         "wind_kt": 52,
         "wind_mph": 60,
@@ -27,14 +27,14 @@
         "classification_label": "Post-Tropical Cyclone",
         "intensity_code": "PT",
         "intensity_color": "#7ec8e3",
-        "datetime": "2026-10-11T05:50:16Z",
+        "datetime": "2026-10-11T06:00:21Z",
         "color": "#7ec8e3",
         "code": "PT"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 30.0,
+          "lat": 31.5,
           "lon": -116.5,
           "wind_kt": 52,
           "wind_mph": 60,
@@ -44,7 +44,7 @@
           "classification_label": "Post-Tropical Cyclone",
           "intensity_code": "PT",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-10-11T05:50:16Z",
+          "datetime": "2026-10-11T06:00:21Z",
           "color": "#7ec8e3",
           "code": "PT"
         }
@@ -58,12 +58,12 @@
       "year": 2026,
       "name": "Simon",
       "source_agency": "NHC",
-      "advisory_time": "2026-10-11T05:50:16Z",
+      "advisory_time": "2026-10-11T06:00:21Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 18.2,
-        "lon": -104.8,
+        "lat": 18.4,
+        "lon": -105.0,
         "wind_kt": 135,
         "wind_mph": 155,
         "wind_kmh": 250,
@@ -72,15 +72,15 @@
         "classification_label": "Hurricane (Category 4)",
         "intensity_code": "HU4",
         "intensity_color": "#ff3a3a",
-        "datetime": "2026-10-11T05:50:16Z",
+        "datetime": "2026-10-11T06:00:21Z",
         "color": "#ff3a3a",
         "code": "HU4"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 18.2,
-          "lon": -104.8,
+          "lat": 18.4,
+          "lon": -105.0,
           "wind_kt": 135,
           "wind_mph": 155,
           "wind_kmh": 250,
@@ -89,7 +89,7 @@
           "classification_label": "Hurricane (Category 4)",
           "intensity_code": "HU4",
           "intensity_color": "#ff3a3a",
-          "datetime": "2026-10-11T05:50:16Z",
+          "datetime": "2026-10-11T06:00:21Z",
           "color": "#ff3a3a",
           "code": "HU4"
         }
