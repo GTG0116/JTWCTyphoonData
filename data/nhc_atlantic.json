@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-11T15:00:15Z",
+  "generated": "2026-10-11T15:10:14Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
@@ -13,12 +13,12 @@
       "year": 2026,
       "name": "Isaias",
       "source_agency": "NHC",
-      "advisory_time": "2026-10-11T15:00:16Z",
-      "is_final_warning": false,
+      "advisory_time": "2026-10-11T15:10:14Z",
+      "is_final_warning": true,
       "current": {
         "tau": 0,
-        "lat": 35.4,
-        "lon": -85.9,
+        "lat": 37.5,
+        "lon": -84.0,
         "wind_kt": 22,
         "wind_mph": 25,
         "wind_kmh": 41,
@@ -27,15 +27,15 @@
         "classification_label": "Post-Tropical Cyclone",
         "intensity_code": "PT",
         "intensity_color": "#7ec8e3",
-        "datetime": "2026-10-11T15:00:16Z",
+        "datetime": "2026-10-11T15:10:14Z",
         "color": "#7ec8e3",
         "code": "PT"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 35.4,
-          "lon": -85.9,
+          "lat": 37.5,
+          "lon": -84.0,
           "wind_kt": 22,
           "wind_mph": 25,
           "wind_kmh": 41,
@@ -44,7 +44,7 @@
           "classification_label": "Post-Tropical Cyclone",
           "intensity_code": "PT",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-10-11T15:00:16Z",
+          "datetime": "2026-10-11T15:10:14Z",
           "color": "#7ec8e3",
           "code": "PT"
         }
