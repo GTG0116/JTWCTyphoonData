@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-15T23:30:13Z",
+  "generated": "2026-10-15T23:40:11Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
@@ -154,11 +154,11 @@
       "number": 21,
       "year": 2026,
       "name": "Trudy",
-      "advisory_time": "2026-10-15T12:00:00Z",
+      "advisory_time": "2026-10-15T18:00:00Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 12.9,
+        "lat": 13.5,
         "lon": -101.6,
         "wind_kt": 80,
         "wind_mph": 92,
@@ -168,7 +168,7 @@
         "classification_label": "Typhoon (Category 1)",
         "intensity_code": "TY1",
         "intensity_color": "#aaff00",
-        "datetime": "2026-10-15T12:00:00Z",
+        "datetime": "2026-10-15T18:00:00Z",
         "wind_radii_nm": {
           "064": {
             "NE": 20,
@@ -184,7 +184,7 @@
           },
           "034": {
             "NE": 90,
-            "SE": 40,
+            "SE": 50,
             "SW": 40,
             "NW": 80
           }
@@ -193,7 +193,7 @@
       "forecast": [
         {
           "tau": 0,
-          "lat": 12.9,
+          "lat": 13.5,
           "lon": -101.6,
           "wind_kt": 80,
           "wind_mph": 92,
@@ -203,7 +203,7 @@
           "classification_label": "Typhoon (Category 1)",
           "intensity_code": "TY1",
           "intensity_color": "#aaff00",
-          "datetime": "2026-10-15T12:00:00Z",
+          "datetime": "2026-10-15T18:00:00Z",
           "wind_radii_nm": {
             "064": {
               "NE": 20,
@@ -219,7 +219,7 @@
             },
             "034": {
               "NE": 90,
-              "SE": 40,
+              "SE": 50,
               "SW": 40,
               "NW": 80
             }
@@ -227,7 +227,7 @@
         },
         {
           "tau": 12,
-          "lat": 13.6,
+          "lat": 14.3,
           "lon": -101.9,
           "wind_kt": 95,
           "wind_mph": 109,
@@ -237,7 +237,7 @@
           "classification_label": "Typhoon (Category 2)",
           "intensity_code": "TY2",
           "intensity_color": "#ffd700",
-          "datetime": "2026-10-16T00:00:00Z",
+          "datetime": "2026-10-16T06:00:00Z",
           "wind_radii_nm": {
             "064": {
               "NE": 25,
@@ -254,14 +254,14 @@
             "034": {
               "NE": 90,
               "SE": 60,
-              "SW": 40,
+              "SW": 50,
               "NW": 80
             }
           }
         },
         {
           "tau": 24,
-          "lat": 14.6,
+          "lat": 15.2,
           "lon": -102.2,
           "wind_kt": 115,
           "wind_mph": 132,
@@ -271,7 +271,7 @@
           "classification_label": "Typhoon (Category 4)",
           "intensity_code": "TY4",
           "intensity_color": "#ff3a3a",
-          "datetime": "2026-10-16T12:00:00Z",
+          "datetime": "2026-10-16T18:00:00Z",
           "wind_radii_nm": {
             "064": {
               "NE": 30,
@@ -295,8 +295,8 @@
         },
         {
           "tau": 36,
-          "lat": 15.5,
-          "lon": -102.5,
+          "lat": 16.3,
+          "lon": -102.9,
           "wind_kt": 125,
           "wind_mph": 144,
           "wind_kmh": 232,
@@ -305,7 +305,7 @@
           "classification_label": "Typhoon (Category 4)",
           "intensity_code": "TY4",
           "intensity_color": "#ff3a3a",
-          "datetime": "2026-10-17T00:00:00Z",
+          "datetime": "2026-10-17T06:00:00Z",
           "wind_radii_nm": {
             "064": {
               "NE": 35,
@@ -329,8 +329,8 @@
         },
         {
           "tau": 48,
-          "lat": 16.7,
-          "lon": -103.4,
+          "lat": 17.5,
+          "lon": -103.9,
           "wind_kt": 120,
           "wind_mph": 138,
           "wind_kmh": 222,
@@ -339,7 +339,7 @@
           "classification_label": "Typhoon (Category 4)",
           "intensity_code": "TY4",
           "intensity_color": "#ff3a3a",
-          "datetime": "2026-10-17T12:00:00Z",
+          "datetime": "2026-10-17T18:00:00Z",
           "wind_radii_nm": {
             "064": {
               "NE": 35,
@@ -363,8 +363,8 @@
         },
         {
           "tau": 60,
-          "lat": 18.0,
-          "lon": -104.3,
+          "lat": 18.8,
+          "lon": -104.9,
           "wind_kt": 105,
           "wind_mph": 121,
           "wind_kmh": 194,
@@ -373,7 +373,7 @@
           "classification_label": "Typhoon (Category 3)",
           "intensity_code": "TY3",
           "intensity_color": "#ff8c00",
-          "datetime": "2026-10-18T00:00:00Z",
+          "datetime": "2026-10-18T06:00:00Z",
           "wind_radii_nm": {
             "064": {
               "NE": 30,
@@ -397,8 +397,8 @@
         },
         {
           "tau": 72,
-          "lat": 19.4,
-          "lon": -105.4,
+          "lat": 19.8,
+          "lon": -105.8,
           "wind_kt": 90,
           "wind_mph": 104,
           "wind_kmh": 167,
@@ -407,7 +407,7 @@
           "classification_label": "Typhoon (Category 2)",
           "intensity_code": "TY2",
           "intensity_color": "#ffd700",
-          "datetime": "2026-10-18T12:00:00Z",
+          "datetime": "2026-10-18T18:00:00Z",
           "wind_radii_nm": {
             "064": {
               "NE": 20,
@@ -431,7 +431,7 @@
         },
         {
           "tau": 96,
-          "lat": 20.2,
+          "lat": 20.5,
           "lon": -107.4,
           "wind_kt": 55,
           "wind_mph": 63,
@@ -441,7 +441,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-10-19T12:00:00Z",
+          "datetime": "2026-10-19T18:00:00Z",
           "wind_radii_nm": {
             "050": {
               "NE": 30,
@@ -459,7 +459,7 @@
         },
         {
           "tau": 120,
-          "lat": 20.3,
+          "lat": 20.5,
           "lon": -108.4,
           "wind_kt": 50,
           "wind_mph": 58,
@@ -469,7 +469,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-10-20T12:00:00Z",
+          "datetime": "2026-10-20T18:00:00Z",
           "wind_radii_nm": {
             "050": {
               "NE": 20,
