@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-16T14:50:18Z",
+  "generated": "2026-10-16T15:00:22Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
@@ -13,11 +13,11 @@
       "year": 2026,
       "name": "Trudy",
       "source_agency": "NHC",
-      "advisory_time": "2026-10-16T14:50:18Z",
+      "advisory_time": "2026-10-16T15:00:22Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 14.5,
+        "lat": 14.6,
         "lon": -102.5,
         "wind_kt": 104,
         "wind_mph": 120,
@@ -27,14 +27,14 @@
         "classification_label": "Hurricane (Category 3)",
         "intensity_code": "HU3",
         "intensity_color": "#ff8c00",
-        "datetime": "2026-10-16T14:50:18Z",
+        "datetime": "2026-10-16T15:00:22Z",
         "color": "#ff8c00",
         "code": "HU3"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 14.5,
+          "lat": 14.6,
           "lon": -102.5,
           "wind_kt": 104,
           "wind_mph": 120,
@@ -44,7 +44,7 @@
           "classification_label": "Hurricane (Category 3)",
           "intensity_code": "HU3",
           "intensity_color": "#ff8c00",
-          "datetime": "2026-10-16T14:50:18Z",
+          "datetime": "2026-10-16T15:00:22Z",
           "color": "#ff8c00",
           "code": "HU3"
         }
@@ -58,40 +58,40 @@
       "year": 2026,
       "name": "Simon",
       "source_agency": "NHC",
-      "advisory_time": "2026-10-16T14:50:19Z",
+      "advisory_time": "2026-10-16T15:00:22Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 20.0,
-        "lon": -108.8,
+        "lat": 20.6,
+        "lon": -109.5,
         "wind_kt": 35,
         "wind_mph": 40,
         "wind_kmh": 65,
         "pressure_mb": 1002,
-        "classification": "PT",
-        "classification_label": "Post-Tropical Cyclone",
-        "intensity_code": "PT",
-        "intensity_color": "#7ec8e3",
-        "datetime": "2026-10-16T14:50:19Z",
-        "color": "#7ec8e3",
-        "code": "PT"
+        "classification": "TS",
+        "classification_label": "Tropical Storm",
+        "intensity_code": "TS",
+        "intensity_color": "#00d4ff",
+        "datetime": "2026-10-16T15:00:22Z",
+        "color": "#00d4ff",
+        "code": "TS"
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 20.0,
-          "lon": -108.8,
+          "lat": 20.6,
+          "lon": -109.5,
           "wind_kt": 35,
           "wind_mph": 40,
           "wind_kmh": 65,
           "pressure_mb": 1002,
-          "classification": "PT",
-          "classification_label": "Post-Tropical Cyclone",
-          "intensity_code": "PT",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-10-16T14:50:19Z",
-          "color": "#7ec8e3",
-          "code": "PT"
+          "classification": "TS",
+          "classification_label": "Tropical Storm",
+          "intensity_code": "TS",
+          "intensity_color": "#00d4ff",
+          "datetime": "2026-10-16T15:00:22Z",
+          "color": "#00d4ff",
+          "code": "TS"
         }
       ]
     }
