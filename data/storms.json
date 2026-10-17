@@ -1,50 +1,10 @@
 {
-  "generated": "2026-10-17T05:10:13Z",
+  "generated": "2026-10-17T05:20:11Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
-  "storm_count": 4,
+  "storm_count": 3,
   "storms": [
-    {
-      "id": "EP2026",
-      "basin": "EP",
-      "basin_name": "Eastern North Pacific",
-      "number": 20,
-      "year": 2026,
-      "name": "Simon",
-      "advisory_time": "2026-10-16T18:00:00Z",
-      "is_final_warning": true,
-      "current": {
-        "tau": 0,
-        "lat": 21.3,
-        "lon": -110.0,
-        "wind_kt": 30,
-        "wind_mph": 35,
-        "wind_kmh": 56,
-        "pressure_mb": 0,
-        "classification": "TD",
-        "classification_label": "Tropical Depression",
-        "intensity_code": "TD",
-        "intensity_color": "#7ec8e3",
-        "datetime": "2026-10-16T18:00:00Z"
-      },
-      "forecast": [
-        {
-          "tau": 0,
-          "lat": 21.3,
-          "lon": -110.0,
-          "wind_kt": 30,
-          "wind_mph": 35,
-          "wind_kmh": 56,
-          "pressure_mb": 0,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-10-16T18:00:00Z"
-        }
-      ]
-    },
     {
       "id": "EP2126",
       "basin": "EP",
@@ -53,7 +13,7 @@
       "year": 2026,
       "name": "Trudy",
       "advisory_time": "2026-10-17T00:00:00Z",
-      "is_final_warning": true,
+      "is_final_warning": false,
       "current": {
         "tau": 0,
         "lat": 15.1,
