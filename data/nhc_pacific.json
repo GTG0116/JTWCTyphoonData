@@ -1,9 +1,9 @@
 {
-  "generated": "2026-10-17T04:50:18Z",
+  "generated": "2026-10-17T05:00:19Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
-  "storm_count": 2,
+  "storm_count": 1,
   "storms": [
     {
       "id": "EP212026",
@@ -13,7 +13,7 @@
       "year": 2026,
       "name": "Trudy",
       "source_agency": "NHC",
-      "advisory_time": "2026-10-17T04:50:18Z",
+      "advisory_time": "2026-10-17T05:00:19Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
@@ -27,7 +27,7 @@
         "classification_label": "Hurricane (Category 1)",
         "intensity_code": "HU1",
         "intensity_color": "#aaff00",
-        "datetime": "2026-10-17T04:50:18Z",
+        "datetime": "2026-10-17T05:00:19Z",
         "color": "#aaff00",
         "code": "HU1"
       },
@@ -44,54 +44,9 @@
           "classification_label": "Hurricane (Category 1)",
           "intensity_code": "HU1",
           "intensity_color": "#aaff00",
-          "datetime": "2026-10-17T04:50:18Z",
+          "datetime": "2026-10-17T05:00:19Z",
           "color": "#aaff00",
           "code": "HU1"
-        }
-      ]
-    },
-    {
-      "id": "EP202026",
-      "basin": "EP",
-      "basin_name": "Eastern North Pacific",
-      "number": 20,
-      "year": 2026,
-      "name": "Center",
-      "source_agency": "NHC",
-      "advisory_time": "2026-10-17T04:50:18Z",
-      "is_final_warning": true,
-      "current": {
-        "tau": 0,
-        "lat": 21.5,
-        "lon": -110.3,
-        "wind_kt": 30,
-        "wind_mph": 35,
-        "wind_kmh": 56,
-        "pressure_mb": 1006,
-        "classification": "PT",
-        "classification_label": "Post-Tropical Cyclone",
-        "intensity_code": "PT",
-        "intensity_color": "#7ec8e3",
-        "datetime": "2026-10-17T04:50:18Z",
-        "color": "#7ec8e3",
-        "code": "PT"
-      },
-      "forecast": [
-        {
-          "tau": 0,
-          "lat": 21.5,
-          "lon": -110.3,
-          "wind_kt": 30,
-          "wind_mph": 35,
-          "wind_kmh": 56,
-          "pressure_mb": 1006,
-          "classification": "PT",
-          "classification_label": "Post-Tropical Cyclone",
-          "intensity_code": "PT",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-10-17T04:50:18Z",
-          "color": "#7ec8e3",
-          "code": "PT"
         }
       ]
     }
