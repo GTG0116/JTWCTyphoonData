@@ -1,9 +1,9 @@
 {
-  "generated": "2026-10-24T12:20:13Z",
+  "generated": "2026-10-24T12:30:14Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
-  "storm_count": 4,
+  "storm_count": 3,
   "storms": [
     {
       "id": "EP2226",
@@ -342,60 +342,6 @@
               "NW": 60
             }
           }
-        }
-      ]
-    },
-    {
-      "id": "SH0227",
-      "basin": "SH",
-      "basin_name": "Southern Hemisphere",
-      "number": 2,
-      "year": 2026,
-      "name": "Agueda",
-      "advisory_time": "2026-10-23T18:00:00Z",
-      "is_final_warning": true,
-      "current": {
-        "tau": 0,
-        "lat": -5.7,
-        "lon": 47.7,
-        "wind_kt": 30,
-        "wind_mph": 35,
-        "wind_kmh": 56,
-        "pressure_mb": 0,
-        "classification": "TD",
-        "classification_label": "Tropical Depression",
-        "intensity_code": "TD",
-        "intensity_color": "#7ec8e3",
-        "datetime": "2026-10-23T18:00:00Z"
-      },
-      "forecast": [
-        {
-          "tau": 0,
-          "lat": -5.7,
-          "lon": 47.7,
-          "wind_kt": 30,
-          "wind_mph": 35,
-          "wind_kmh": 56,
-          "pressure_mb": 0,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-10-23T18:00:00Z"
-        },
-        {
-          "tau": 12,
-          "lat": -5.6,
-          "lon": 46.3,
-          "wind_kt": 25,
-          "wind_mph": 29,
-          "wind_kmh": 46,
-          "pressure_mb": 0,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-10-24T06:00:00Z"
         }
       ]
     },
