@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-29T08:40:12Z",
+  "generated": "2026-10-29T08:50:11Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
@@ -12,41 +12,57 @@
       "number": 22,
       "year": 2026,
       "name": "Vance",
-      "advisory_time": "2026-10-29T00:00:00Z",
+      "advisory_time": "2026-10-29T06:00:00Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 20.7,
-        "lon": -108.4,
-        "wind_kt": 30,
-        "wind_mph": 35,
-        "wind_kmh": 56,
-        "pressure_mb": 1002,
-        "classification": "TD",
-        "classification_label": "Tropical Depression",
-        "intensity_code": "TD",
-        "intensity_color": "#7ec8e3",
-        "datetime": "2026-10-29T00:00:00Z"
+        "lat": 20.6,
+        "lon": -108.5,
+        "wind_kt": 35,
+        "wind_mph": 40,
+        "wind_kmh": 65,
+        "pressure_mb": 1001,
+        "classification": "TS",
+        "classification_label": "Tropical Storm",
+        "intensity_code": "TS",
+        "intensity_color": "#00d4ff",
+        "datetime": "2026-10-29T06:00:00Z",
+        "wind_radii_nm": {
+          "034": {
+            "NE": 70,
+            "SE": 0,
+            "SW": 0,
+            "NW": 30
+          }
+        }
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 20.7,
-          "lon": -108.4,
-          "wind_kt": 30,
-          "wind_mph": 35,
-          "wind_kmh": 56,
-          "pressure_mb": 1002,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-10-29T00:00:00Z"
+          "lat": 20.6,
+          "lon": -108.5,
+          "wind_kt": 35,
+          "wind_mph": 40,
+          "wind_kmh": 65,
+          "pressure_mb": 1001,
+          "classification": "TS",
+          "classification_label": "Tropical Storm",
+          "intensity_code": "TS",
+          "intensity_color": "#00d4ff",
+          "datetime": "2026-10-29T06:00:00Z",
+          "wind_radii_nm": {
+            "034": {
+              "NE": 70,
+              "SE": 0,
+              "SW": 0,
+              "NW": 30
+            }
+          }
         },
         {
           "tau": 12,
-          "lat": 22.2,
-          "lon": -107.6,
+          "lat": 22.0,
+          "lon": -108.0,
           "wind_kt": 30,
           "wind_mph": 35,
           "wind_kmh": 56,
@@ -55,12 +71,12 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-10-29T12:00:00Z"
+          "datetime": "2026-10-29T18:00:00Z"
         },
         {
           "tau": 24,
-          "lat": 23.7,
-          "lon": -107.7,
+          "lat": 23.4,
+          "lon": -108.2,
           "wind_kt": 25,
           "wind_mph": 29,
           "wind_kmh": 46,
@@ -69,21 +85,7 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-10-30T00:00:00Z"
-        },
-        {
-          "tau": 36,
-          "lat": 25.2,
-          "lon": -108.1,
-          "wind_kt": 25,
-          "wind_mph": 29,
-          "wind_kmh": 46,
-          "pressure_mb": 0,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-10-30T12:00:00Z"
+          "datetime": "2026-10-30T06:00:00Z"
         }
       ]
     },
