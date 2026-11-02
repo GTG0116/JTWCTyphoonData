@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-02T19:30:16Z",
+  "generated": "2026-11-02T19:40:13Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
@@ -12,131 +12,129 @@
       "number": 4,
       "year": 2026,
       "name": "Murasu",
-      "advisory_time": "2026-11-02T12:00:00Z",
+      "advisory_time": "2026-11-02T18:00:00Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": 14.7,
-        "lon": 80.7,
-        "wind_kt": 65,
-        "wind_mph": 75,
-        "wind_kmh": 120,
-        "pressure_mb": 0,
+        "lat": 15.1,
+        "lon": 80.5,
+        "wind_kt": 85,
+        "wind_mph": 98,
+        "wind_kmh": 157,
+        "pressure_mb": 973,
         "classification": "TY",
-        "classification_label": "Typhoon (Category 1)",
-        "intensity_code": "TY1",
-        "intensity_color": "#aaff00",
-        "datetime": "2026-11-02T12:00:00Z",
+        "classification_label": "Typhoon (Category 2)",
+        "intensity_code": "TY2",
+        "intensity_color": "#ffd700",
+        "datetime": "2026-11-02T18:00:00Z",
         "wind_radii_nm": {
           "064": {
-            "NE": 25,
-            "SE": 25,
-            "SW": 0,
-            "NW": 0
+            "NE": 15,
+            "SE": 15,
+            "SW": 15,
+            "NW": 15
           },
           "050": {
-            "NE": 50,
-            "SE": 40,
-            "SW": 0,
+            "NE": 25,
+            "SE": 25,
+            "SW": 20,
             "NW": 20
           },
           "034": {
-            "NE": 80,
-            "SE": 70,
-            "SW": 55,
-            "NW": 50
+            "NE": 35,
+            "SE": 40,
+            "SW": 30,
+            "NW": 40
           }
         }
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": 14.7,
-          "lon": 80.7,
-          "wind_kt": 65,
-          "wind_mph": 75,
-          "wind_kmh": 120,
-          "pressure_mb": 0,
+          "lat": 15.1,
+          "lon": 80.5,
+          "wind_kt": 85,
+          "wind_mph": 98,
+          "wind_kmh": 157,
+          "pressure_mb": 973,
           "classification": "TY",
-          "classification_label": "Typhoon (Category 1)",
-          "intensity_code": "TY1",
-          "intensity_color": "#aaff00",
-          "datetime": "2026-11-02T12:00:00Z",
+          "classification_label": "Typhoon (Category 2)",
+          "intensity_code": "TY2",
+          "intensity_color": "#ffd700",
+          "datetime": "2026-11-02T18:00:00Z",
           "wind_radii_nm": {
             "064": {
+              "NE": 15,
+              "SE": 15,
+              "SW": 15,
+              "NW": 15
+            },
+            "050": {
               "NE": 25,
               "SE": 25,
-              "SW": 0,
-              "NW": 0
+              "SW": 20,
+              "NW": 20
             },
-            "050": {
-              "NE": 50,
+            "034": {
+              "NE": 35,
               "SE": 40,
-              "SW": 0,
-              "NW": 20
-            },
-            "034": {
-              "NE": 80,
-              "SE": 70,
-              "SW": 55,
-              "NW": 50
-            }
-          }
-        },
-        {
-          "tau": 12,
-          "lat": 15.6,
-          "lon": 80.3,
-          "wind_kt": 60,
-          "wind_mph": 69,
-          "wind_kmh": 111,
-          "pressure_mb": 0,
-          "classification": "TS",
-          "classification_label": "Tropical Storm",
-          "intensity_code": "TS",
-          "intensity_color": "#00d4ff",
-          "datetime": "2026-11-03T00:00:00Z",
-          "wind_radii_nm": {
-            "050": {
-              "NE": 40,
-              "SE": 30,
-              "SW": 0,
-              "NW": 20
-            },
-            "034": {
-              "NE": 60,
-              "SE": 60,
-              "SW": 50,
+              "SW": 30,
               "NW": 40
             }
           }
         },
         {
-          "tau": 24,
-          "lat": 16.1,
+          "tau": 12,
+          "lat": 15.9,
           "lon": 80.2,
-          "wind_kt": 45,
-          "wind_mph": 52,
-          "wind_kmh": 83,
+          "wind_kt": 70,
+          "wind_mph": 81,
+          "wind_kmh": 130,
+          "pressure_mb": 0,
+          "classification": "TY",
+          "classification_label": "Typhoon (Category 1)",
+          "intensity_code": "TY1",
+          "intensity_color": "#aaff00",
+          "datetime": "2026-11-03T06:00:00Z",
+          "wind_radii_nm": {
+            "064": {
+              "NE": 15,
+              "SE": 10,
+              "SW": 5,
+              "NW": 10
+            },
+            "050": {
+              "NE": 20,
+              "SE": 20,
+              "SW": 10,
+              "NW": 15
+            },
+            "034": {
+              "NE": 30,
+              "SE": 30,
+              "SW": 20,
+              "NW": 25
+            }
+          }
+        },
+        {
+          "tau": 24,
+          "lat": 16.4,
+          "lon": 80.0,
+          "wind_kt": 50,
+          "wind_mph": 58,
+          "wind_kmh": 93,
           "pressure_mb": 0,
           "classification": "TS",
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-11-03T12:00:00Z",
-          "wind_radii_nm": {
-            "034": {
-              "NE": 40,
-              "SE": 40,
-              "SW": 30,
-              "NW": 30
-            }
-          }
+          "datetime": "2026-11-03T18:00:00Z"
         },
         {
           "tau": 36,
-          "lat": 16.4,
-          "lon": 79.9,
+          "lat": 16.8,
+          "lon": 79.7,
           "wind_kt": 30,
           "wind_mph": 35,
           "wind_kmh": 56,
@@ -145,7 +143,7 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-11-04T00:00:00Z"
+          "datetime": "2026-11-04T06:00:00Z"
         }
       ]
     },
