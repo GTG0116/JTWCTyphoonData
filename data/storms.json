@@ -1,118 +1,10 @@
 {
-  "generated": "2026-11-04T08:41:50Z",
+  "generated": "2026-11-04T08:50:15Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
-  "storm_count": 2,
+  "storm_count": 1,
   "storms": [
-    {
-      "id": "IO0426",
-      "basin": "IO",
-      "basin_name": "North Indian Ocean",
-      "number": 4,
-      "year": 2026,
-      "name": "Murasu",
-      "advisory_time": "2026-11-03T06:00:00Z",
-      "is_final_warning": true,
-      "current": {
-        "tau": 0,
-        "lat": 15.8,
-        "lon": 80.2,
-        "wind_kt": 65,
-        "wind_mph": 75,
-        "wind_kmh": 120,
-        "pressure_mb": 984,
-        "classification": "TY",
-        "classification_label": "Typhoon (Category 1)",
-        "intensity_code": "TY1",
-        "intensity_color": "#aaff00",
-        "datetime": "2026-11-03T06:00:00Z",
-        "wind_radii_nm": {
-          "064": {
-            "NE": 10,
-            "SE": 10,
-            "SW": 10,
-            "NW": 10
-          },
-          "050": {
-            "NE": 15,
-            "SE": 15,
-            "SW": 15,
-            "NW": 15
-          },
-          "034": {
-            "NE": 30,
-            "SE": 30,
-            "SW": 25,
-            "NW": 25
-          }
-        }
-      },
-      "forecast": [
-        {
-          "tau": 0,
-          "lat": 15.8,
-          "lon": 80.2,
-          "wind_kt": 65,
-          "wind_mph": 75,
-          "wind_kmh": 120,
-          "pressure_mb": 984,
-          "classification": "TY",
-          "classification_label": "Typhoon (Category 1)",
-          "intensity_code": "TY1",
-          "intensity_color": "#aaff00",
-          "datetime": "2026-11-03T06:00:00Z",
-          "wind_radii_nm": {
-            "064": {
-              "NE": 10,
-              "SE": 10,
-              "SW": 10,
-              "NW": 10
-            },
-            "050": {
-              "NE": 15,
-              "SE": 15,
-              "SW": 15,
-              "NW": 15
-            },
-            "034": {
-              "NE": 30,
-              "SE": 30,
-              "SW": 25,
-              "NW": 25
-            }
-          }
-        },
-        {
-          "tau": 12,
-          "lat": 16.3,
-          "lon": 80.0,
-          "wind_kt": 35,
-          "wind_mph": 40,
-          "wind_kmh": 65,
-          "pressure_mb": 0,
-          "classification": "TS",
-          "classification_label": "Tropical Storm",
-          "intensity_code": "TS",
-          "intensity_color": "#00d4ff",
-          "datetime": "2026-11-03T18:00:00Z"
-        },
-        {
-          "tau": 24,
-          "lat": 16.8,
-          "lon": 79.7,
-          "wind_kt": 20,
-          "wind_mph": 23,
-          "wind_kmh": 37,
-          "pressure_mb": 0,
-          "classification": "TD",
-          "classification_label": "Tropical Depression",
-          "intensity_code": "TD",
-          "intensity_color": "#7ec8e3",
-          "datetime": "2026-11-04T06:00:00Z"
-        }
-      ]
-    },
     {
       "id": "WP3026",
       "basin": "WP",
@@ -121,7 +13,7 @@
       "year": 2026,
       "name": null,
       "advisory_time": "2026-11-04T06:00:00Z",
-      "is_final_warning": true,
+      "is_final_warning": false,
       "current": {
         "tau": 0,
         "lat": 25.0,
