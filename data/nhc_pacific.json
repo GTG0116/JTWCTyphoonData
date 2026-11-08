@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-08T20:50:15Z",
+  "generated": "2026-11-08T21:00:17Z",
   "source": "NHC \u2014 National Hurricane Center",
   "source_url": "https://www.nhc.noaa.gov/CurrentStorms.json",
   "api_version": "3.0",
@@ -13,12 +13,12 @@
       "year": 2026,
       "name": "Pena",
       "source_agency": "NHC",
-      "advisory_time": "2026-11-08T20:50:15Z",
+      "advisory_time": "2026-11-08T21:00:17Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
         "lat": 11.6,
-        "lon": -156.1,
+        "lon": -157.2,
         "wind_kt": 39,
         "wind_mph": 45,
         "wind_kmh": 72,
@@ -27,7 +27,7 @@
         "classification_label": "Tropical Storm",
         "intensity_code": "TS",
         "intensity_color": "#00d4ff",
-        "datetime": "2026-11-08T20:50:15Z",
+        "datetime": "2026-11-08T21:00:17Z",
         "color": "#00d4ff",
         "code": "TS"
       },
@@ -35,7 +35,7 @@
         {
           "tau": 0,
           "lat": 11.6,
-          "lon": -156.1,
+          "lon": -157.2,
           "wind_kt": 39,
           "wind_mph": 45,
           "wind_kmh": 72,
@@ -44,7 +44,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-11-08T20:50:15Z",
+          "datetime": "2026-11-08T21:00:17Z",
           "color": "#00d4ff",
           "code": "TS"
         }
