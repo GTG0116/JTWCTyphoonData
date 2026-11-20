@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-20T14:10:20Z",
+  "generated": "2026-11-20T14:20:18Z",
   "source": "JTWC — Joint Typhoon Warning Center",
   "source_url": "https://www.metoc.navy.mil/jtwc/rss/jtwc.rss",
   "api_version": "3.0",
@@ -80,80 +80,46 @@
       "number": 4,
       "year": 2026,
       "name": "Xavier",
-      "advisory_time": "2026-11-20T06:00:00Z",
+      "advisory_time": "2026-11-20T12:00:00Z",
       "is_final_warning": false,
       "current": {
         "tau": 0,
-        "lat": -11.0,
-        "lon": -162.8,
-        "wind_kt": 90,
-        "wind_mph": 104,
-        "wind_kmh": 167,
+        "lat": -11.4,
+        "lon": -163.5,
+        "wind_kt": 75,
+        "wind_mph": 86,
+        "wind_kmh": 139,
         "pressure_mb": 0,
         "classification": "TY",
-        "classification_label": "Typhoon (Category 2)",
-        "intensity_code": "TY2",
-        "intensity_color": "#ffd700",
-        "datetime": "2026-11-20T06:00:00Z",
+        "classification_label": "Typhoon (Category 1)",
+        "intensity_code": "TY1",
+        "intensity_color": "#aaff00",
+        "datetime": "2026-11-20T12:00:00Z",
         "wind_radii_nm": {
           "064": {
-            "NE": 20,
-            "SE": 20,
-            "SW": 20,
-            "NW": 20
+            "NE": 25,
+            "SE": 30,
+            "SW": 25,
+            "NW": 15
           },
           "050": {
-            "NE": 30,
-            "SE": 30,
-            "SW": 30,
+            "NE": 35,
+            "SE": 40,
+            "SW": 40,
             "NW": 30
           },
           "034": {
-            "NE": 65,
+            "NE": 50,
             "SE": 90,
-            "SW": 90,
-            "NW": 60
+            "SW": 85,
+            "NW": 45
           }
         }
       },
       "forecast": [
         {
           "tau": 0,
-          "lat": -11.0,
-          "lon": -162.8,
-          "wind_kt": 90,
-          "wind_mph": 104,
-          "wind_kmh": 167,
-          "pressure_mb": 0,
-          "classification": "TY",
-          "classification_label": "Typhoon (Category 2)",
-          "intensity_code": "TY2",
-          "intensity_color": "#ffd700",
-          "datetime": "2026-11-20T06:00:00Z",
-          "wind_radii_nm": {
-            "064": {
-              "NE": 20,
-              "SE": 20,
-              "SW": 20,
-              "NW": 20
-            },
-            "050": {
-              "NE": 30,
-              "SE": 30,
-              "SW": 30,
-              "NW": 30
-            },
-            "034": {
-              "NE": 65,
-              "SE": 90,
-              "SW": 90,
-              "NW": 60
-            }
-          }
-        },
-        {
-          "tau": 12,
-          "lat": -11.5,
+          "lat": -11.4,
           "lon": -163.5,
           "wind_kt": 75,
           "wind_mph": 86,
@@ -163,32 +129,32 @@
           "classification_label": "Typhoon (Category 1)",
           "intensity_code": "TY1",
           "intensity_color": "#aaff00",
-          "datetime": "2026-11-20T18:00:00Z",
+          "datetime": "2026-11-20T12:00:00Z",
           "wind_radii_nm": {
             "064": {
-              "NE": 15,
-              "SE": 15,
-              "SW": 15,
-              "NW": 0
+              "NE": 25,
+              "SE": 30,
+              "SW": 25,
+              "NW": 15
             },
             "050": {
-              "NE": 25,
-              "SE": 25,
-              "SW": 25,
-              "NW": 25
+              "NE": 35,
+              "SE": 40,
+              "SW": 40,
+              "NW": 30
             },
             "034": {
-              "NE": 60,
+              "NE": 50,
               "SE": 90,
-              "SW": 80,
-              "NW": 40
+              "SW": 85,
+              "NW": 45
             }
           }
         },
         {
-          "tau": 24,
-          "lat": -11.9,
-          "lon": -164.5,
+          "tau": 12,
+          "lat": -11.8,
+          "lon": -164.4,
           "wind_kt": 65,
           "wind_mph": 75,
           "wind_kmh": 120,
@@ -197,7 +163,7 @@
           "classification_label": "Typhoon (Category 1)",
           "intensity_code": "TY1",
           "intensity_color": "#aaff00",
-          "datetime": "2026-11-21T06:00:00Z",
+          "datetime": "2026-11-21T00:00:00Z",
           "wind_radii_nm": {
             "064": {
               "NE": 0,
@@ -207,12 +173,12 @@
             },
             "050": {
               "NE": 20,
-              "SE": 20,
+              "SE": 30,
               "SW": 20,
-              "NW": 20
+              "NW": 15
             },
             "034": {
-              "NE": 50,
+              "NE": 40,
               "SE": 90,
               "SW": 80,
               "NW": 35
@@ -220,9 +186,9 @@
           }
         },
         {
-          "tau": 36,
-          "lat": -12.3,
-          "lon": -165.8,
+          "tau": 24,
+          "lat": -12.2,
+          "lon": -165.6,
           "wind_kt": 60,
           "wind_mph": 69,
           "wind_kmh": 111,
@@ -231,26 +197,26 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-11-21T18:00:00Z",
+          "datetime": "2026-11-21T12:00:00Z",
           "wind_radii_nm": {
             "050": {
-              "NE": 20,
-              "SE": 20,
+              "NE": 15,
+              "SE": 25,
               "SW": 20,
-              "NW": 0
+              "NW": 15
             },
             "034": {
-              "NE": 50,
-              "SE": 90,
+              "NE": 30,
+              "SE": 85,
               "SW": 70,
               "NW": 30
             }
           }
         },
         {
-          "tau": 48,
+          "tau": 36,
           "lat": -12.6,
-          "lon": -167.1,
+          "lon": -166.9,
           "wind_kt": 55,
           "wind_mph": 63,
           "wind_kmh": 102,
@@ -259,7 +225,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-11-22T06:00:00Z",
+          "datetime": "2026-11-22T00:00:00Z",
           "wind_radii_nm": {
             "050": {
               "NE": 20,
@@ -268,15 +234,15 @@
               "NW": 0
             },
             "034": {
-              "NE": 50,
-              "SE": 90,
+              "NE": 30,
+              "SE": 80,
               "SW": 60,
               "NW": 30
             }
           }
         },
         {
-          "tau": 60,
+          "tau": 48,
           "lat": -13.0,
           "lon": -168.1,
           "wind_kt": 50,
@@ -287,7 +253,7 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-11-22T18:00:00Z",
+          "datetime": "2026-11-22T12:00:00Z",
           "wind_radii_nm": {
             "050": {
               "NE": 20,
@@ -296,17 +262,17 @@
               "NW": 0
             },
             "034": {
-              "NE": 40,
-              "SE": 80,
-              "SW": 70,
+              "NE": 30,
+              "SE": 70,
+              "SW": 50,
               "NW": 30
             }
           }
         },
         {
-          "tau": 72,
-          "lat": -13.3,
-          "lon": -169.4,
+          "tau": 60,
+          "lat": -13.4,
+          "lon": -169.2,
           "wind_kt": 45,
           "wind_mph": 52,
           "wind_kmh": 83,
@@ -315,42 +281,42 @@
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-11-23T06:00:00Z",
+          "datetime": "2026-11-23T00:00:00Z",
           "wind_radii_nm": {
             "034": {
-              "NE": 40,
-              "SE": 70,
-              "SW": 70,
-              "NW": 30
+              "NE": 25,
+              "SE": 60,
+              "SW": 45,
+              "NW": 15
             }
           }
         },
         {
-          "tau": 96,
-          "lat": -13.2,
-          "lon": -171.2,
-          "wind_kt": 35,
-          "wind_mph": 40,
-          "wind_kmh": 65,
+          "tau": 72,
+          "lat": -13.5,
+          "lon": -170.3,
+          "wind_kt": 40,
+          "wind_mph": 46,
+          "wind_kmh": 74,
           "pressure_mb": 0,
           "classification": "TS",
           "classification_label": "Tropical Storm",
           "intensity_code": "TS",
           "intensity_color": "#00d4ff",
-          "datetime": "2026-11-24T06:00:00Z",
+          "datetime": "2026-11-23T12:00:00Z",
           "wind_radii_nm": {
             "034": {
               "NE": 0,
-              "SE": 30,
+              "SE": 55,
               "SW": 40,
               "NW": 0
             }
           }
         },
         {
-          "tau": 120,
-          "lat": -12.0,
-          "lon": -174.5,
+          "tau": 96,
+          "lat": -12.8,
+          "lon": -173.0,
           "wind_kt": 30,
           "wind_mph": 35,
           "wind_kmh": 56,
@@ -359,7 +325,7 @@
           "classification_label": "Tropical Depression",
           "intensity_code": "TD",
           "intensity_color": "#7ec8e3",
-          "datetime": "2026-11-25T06:00:00Z"
+          "datetime": "2026-11-24T12:00:00Z"
         }
       ]
     }
